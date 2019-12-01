@@ -1,0 +1,1901 @@
+<?xml version="1.0"?>
+<DTS:Executable
+  DTS:refId="Package" xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ExecutableType="SSIS.Package.3"
+  DTS:CreatorName="DESKTOP-63S49FM\Moez"
+  DTS:CreatorComputerName="DESKTOP-63S49FM"
+  DTS:CreationDate="12/1/2019 1:56:13 PM"
+  DTS:PackageType="5"
+  DTS:VersionBuild="8"
+  DTS:VersionGUID="{625B9BC6-6B3B-422A-8781-26539C90436C}"
+  DTS:LastModifiedProductVersion="11.0.2100.60"
+  DTS:LocaleID="1036"
+  DTS:ObjectName="SA_DW"
+  DTS:DTSID="{DD751659-1C3F-4BF3-B27D-DE142351ADA8}"
+  DTS:CreationName="SSIS.Package.3">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">6</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LocalHost.OBP_SECURITIES_SA]"
+      DTS:ObjectName="LocalHost.OBP_SECURITIES_SA"
+      DTS:DTSID="{99D0017C-FDF2-4C54-A56F-9D6A58DA2D07}"
+      DTS:CreationName="OLEDB">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=.;Initial Catalog=OBP_SECURITIES_SA;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Data Flow Task 1"
+      DTS:ExecutableType="SSIS.Pipeline.3"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Data Flow Task 1"
+      DTS:DTSID="{4B53515A-7BF9-4BFE-A7AE-E8188FD2D251}"
+      DTS:Description="Data Flow Task"
+      DTS:CreationName="SSIS.Pipeline.3">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Data Flow Task 2"
+      DTS:ExecutableType="SSIS.Pipeline.3"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Data Flow Task 2"
+      DTS:DTSID="{FBC7DD82-80F7-447B-90AB-9E75F07DA003}"
+      DTS:Description="Data Flow Task"
+      DTS:CreationName="SSIS.Pipeline.3">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Data Flow Task 3"
+      DTS:ExecutableType="SSIS.Pipeline.3"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Data Flow Task 3"
+      DTS:DTSID="{F5EFFE43-14E8-4385-9265-1DE6B9743D88}"
+      DTS:Description="Data Flow Task"
+      DTS:CreationName="SSIS.Pipeline.3">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Data Flow Task 4"
+      DTS:ExecutableType="SSIS.Pipeline.3"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Data Flow Task 4"
+      DTS:DTSID="{94B91ADD-BC65-4D43-8117-EDB87F8F99C8}"
+      DTS:Description="Data Flow Task"
+      DTS:CreationName="SSIS.Pipeline.3">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Dim Region"
+      DTS:ExecutableType="SSIS.Pipeline.3"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Dim Region"
+      DTS:DTSID="{F60DA66F-2E55-4592-AFA6-9355477A8314}"
+      DTS:Description="Data Flow Task"
+      DTS:CreationName="SSIS.Pipeline.3">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Dim Region\Derived Column"
+              name="Derived Column"
+              componentClassID="{49928E82-9C4E-49F0-AABE-3812B82707EC}"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              usesDispositions="true"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0">
+              <inputs>
+                <input
+                  refId="Package\Dim Region\Derived Column.Inputs[Derived Column Input]"
+                  name="Derived Column Input"
+                  description="Input to the Derived Column Transformation">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Dim Region\Derived Column.Inputs[Derived Column Input].Columns[PaysNaissance]"
+                      lineageId="Package\Dim Region\OLE DB Source.Outputs[OLE DB Source Output].Columns[PaysNaissance]"
+                      usageType="readWrite"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      cachedName="PaysNaissance"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedCodepage="1252">
+                      <properties>
+                        <property
+                          name="Expression"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          containsID="true">[REPLACE](#{Package\Dim Region\OLE DB Source.Outputs[OLE DB Source Output].Columns[PaysNaissance]},"NULL","-1")</property>
+                        <property
+                          name="FriendlyExpression"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          containsID="true"
+                          expressionType="Notify">REPLACE(PaysNaissance,"NULL","-1")</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Dim Region\Derived Column.Outputs[Derived Column Output]"
+                  name="Derived Column Output"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  synchronousInputId="Package\Dim Region\Derived Column.Inputs[Derived Column Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Dim Region\Derived Column.Outputs[Derived Column Error Output]"
+                  name="Derived Column Error Output"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  synchronousInputId="Package\Dim Region\Derived Column.Inputs[Derived Column Input]"
+                  isErrorOut="true">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Dim Region\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      lineageId="Package\Dim Region\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Dim Region\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      lineageId="Package\Dim Region\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Dim Region\Lookup"
+              name="Lookup"
+              componentClassID="{671046B0-AA63-4C9F-90E4-C06E0B710CE3}"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              usesDispositions="true"
+              version="6"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6">
+              <properties>
+                <property
+                  name="SqlCommand"
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+                  expressionType="Notify">select * from [dbo].[DimRegion]</property>
+                <property
+                  name="SqlCommandParam"
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+                  expressionType="Notify">select * from (select * from [dbo].[DimRegion]) [refTable]
+where [refTable].[PaysNaissance] = ?</property>
+                <property
+                  name="ConnectionType"
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  name="CacheType"
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  typeConverter="CacheType">2</property>
+                <property
+                  name="NoMatchBehavior"
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  typeConverter="LookupNoMatchBehavior">1</property>
+                <property
+                  name="NoMatchCachePercentage"
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset.">0</property>
+                <property
+                  name="MaxMemoryUsage"
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform.">25</property>
+                <property
+                  name="MaxMemoryUsage64"
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform.">25</property>
+                <property
+                  name="ReferenceMetadataXml"
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format.">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="PaysNaissance" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  name="ParameterMap"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  containsID="true">#{Package\Dim Region\Sort.Outputs[Sort Output].Columns[PaysNaissance]};</property>
+                <property
+                  name="DefaultCodePage"
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source.">1252</property>
+                <property
+                  name="TreatDuplicateKeysAsError"
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used.">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Dim Region\Lookup.Connections[OleDbConnection]"
+                  name="OleDbConnection"
+                  description="Connection manager used to access lookup data."
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.OBP_SECURITIES_SA]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.OBP_SECURITIES_SA]" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Dim Region\Lookup.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Dim Region\Lookup.Inputs[Lookup Input].Columns[PaysNaissance]"
+                      lineageId="Package\Dim Region\Sort.Outputs[Sort Output].Columns[PaysNaissance]"
+                      cachedName="PaysNaissance"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedCodepage="1252"
+                      cachedSortKeyPosition="1">
+                      <properties>
+                        <property
+                          name="JoinToReferenceColumn"
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins.">PaysNaissance</property>
+                        <property
+                          name="CopyFromReferenceColumn"
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied." />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Dim Region\Lookup.Outputs[Lookup Match Output]"
+                  name="Lookup Match Output"
+                  exclusionGroup="1"
+                  synchronousInputId="Package\Dim Region\Lookup.Inputs[Lookup Input]"
+                  errorOrTruncationOperation="Lookup">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Dim Region\Lookup.Outputs[Lookup Match Output].Columns[PaysNaissance]"
+                      name="PaysNaissance"
+                      lineageId="Package\Dim Region\Lookup.Outputs[Lookup Match Output].Columns[PaysNaissance]"
+                      length="50"
+                      dataType="str"
+                      codePage="1252"
+                      errorOrTruncationOperation="Copy Column"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          name="CopyFromReferenceColumn"
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied.">PaysNaissance</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Dim Region\Lookup.Outputs[Lookup No Match Output]"
+                  name="Lookup No Match Output"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  synchronousInputId="Package\Dim Region\Lookup.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Dim Region\Lookup.Outputs[Lookup Error Output]"
+                  name="Lookup Error Output"
+                  exclusionGroup="1"
+                  synchronousInputId="Package\Dim Region\Lookup.Inputs[Lookup Input]"
+                  isErrorOut="true">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Dim Region\Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      lineageId="Package\Dim Region\Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Dim Region\Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      lineageId="Package\Dim Region\Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Dim Region\OLE DB Destination"
+              name="OLE DB Destination"
+              componentClassID="{4ADA7EAA-136C-4215-8098-D7A7C27FC0D1}"
+              description="OLE DB Destination"
+              usesDispositions="true"
+              version="4"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4">
+              <properties>
+                <property
+                  name="CommandTimeout"
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out.">0</property>
+                <property
+                  name="OpenRowset"
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset.">[dbo].[DimRegion]</property>
+                <property
+                  name="OpenRowsetVariable"
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."></property>
+                <property
+                  name="SqlCommand"
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  name="DefaultCodePage"
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source.">1252</property>
+                <property
+                  name="AlwaysUseDefaultCodePage"
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data.">false</property>
+                <property
+                  name="AccessMode"
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  typeConverter="AccessMode">3</property>
+                <property
+                  name="FastLoadKeepIdentity"
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on.">false</property>
+                <property
+                  name="FastLoadKeepNulls"
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on.">false</property>
+                <property
+                  name="FastLoadOptions"
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on.">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  name="FastLoadMaxInsertCommitSize"
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on.">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Dim Region\OLE DB Destination.Connections[OleDbConnection]"
+                  name="OleDbConnection"
+                  description="The OLE DB runtime connection used to access the database."
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.OBP_SECURITIES_SA]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.OBP_SECURITIES_SA]" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Dim Region\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  name="OLE DB Destination Input"
+                  hasSideEffects="true"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Dim Region\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[PaysNaissance]"
+                      lineageId="Package\Dim Region\Sort.Outputs[Sort Output].Columns[PaysNaissance]"
+                      externalMetadataColumnId="Package\Dim Region\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PaysNaissance]"
+                      cachedName="PaysNaissance"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedCodepage="1252"
+                      cachedSortKeyPosition="1" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Dim Region\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[PaysNaissance]"
+                      name="PaysNaissance"
+                      dataType="str"
+                      length="50"
+                      codePage="1252" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Dim Region\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  name="OLE DB Destination Error Output"
+                  exclusionGroup="1"
+                  synchronousInputId="Package\Dim Region\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  isErrorOut="true">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Dim Region\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      lineageId="Package\Dim Region\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Dim Region\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      lineageId="Package\Dim Region\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Dim Region\OLE DB Source"
+              name="OLE DB Source"
+              componentClassID="{165A526D-D5DE-47FF-96A6-F8274C19826B}"
+              description="OLE DB Source"
+              usesDispositions="true"
+              version="7"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7">
+              <properties>
+                <property
+                  name="CommandTimeout"
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out.">0</property>
+                <property
+                  name="OpenRowset"
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset.">[dbo].[CLI_GTI_GeneriquesTiers]</property>
+                <property
+                  name="OpenRowsetVariable"
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."></property>
+                <property
+                  name="SqlCommand"
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  name="SqlCommandVariable"
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."></property>
+                <property
+                  name="DefaultCodePage"
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source.">1252</property>
+                <property
+                  name="AlwaysUseDefaultCodePage"
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data.">false</property>
+                <property
+                  name="AccessMode"
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  typeConverter="AccessMode">0</property>
+                <property
+                  name="ParameterMapping"
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Dim Region\OLE DB Source.Connections[OleDbConnection]"
+                  name="OleDbConnection"
+                  description="The OLE DB runtime connection used to access the database."
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.OBP_SECURITIES_SA]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.OBP_SECURITIES_SA]" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Dim Region\OLE DB Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Dim Region\OLE DB Source.Outputs[OLE DB Source Output].Columns[PaysNaissance]"
+                      name="PaysNaissance"
+                      lineageId="Package\Dim Region\OLE DB Source.Outputs[OLE DB Source Output].Columns[PaysNaissance]"
+                      length="50"
+                      dataType="str"
+                      codePage="1252"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dim Region\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PaysNaissance]" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Dim Region\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[GTI_CodSociete]"
+                      name="GTI_CodSociete"
+                      dataType="str"
+                      length="50"
+                      codePage="1252" />
+                    <externalMetadataColumn
+                      refId="Package\Dim Region\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[GTI_CodPrestataire]"
+                      name="GTI_CodPrestataire"
+                      dataType="str"
+                      length="50"
+                      codePage="1252" />
+                    <externalMetadataColumn
+                      refId="Package\Dim Region\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[GTI_CodTiers]"
+                      name="GTI_CodTiers"
+                      dataType="str"
+                      length="50"
+                      codePage="1252" />
+                    <externalMetadataColumn
+                      refId="Package\Dim Region\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[PaysNaissance]"
+                      name="PaysNaissance"
+                      dataType="str"
+                      length="50"
+                      codePage="1252" />
+                    <externalMetadataColumn
+                      refId="Package\Dim Region\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[EW28_Libelle]"
+                      name="EW28_Libelle"
+                      dataType="str"
+                      length="50"
+                      codePage="1252" />
+                    <externalMetadataColumn
+                      refId="Package\Dim Region\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[civilite]"
+                      name="civilite"
+                      dataType="str"
+                      length="50"
+                      codePage="1252" />
+                    <externalMetadataColumn
+                      refId="Package\Dim Region\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[GTI_DatNaissanceOuCreation]"
+                      name="GTI_DatNaissanceOuCreation"
+                      dataType="str"
+                      length="50"
+                      codePage="1252" />
+                    <externalMetadataColumn
+                      refId="Package\Dim Region\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Sexe]"
+                      name="Sexe"
+                      dataType="str"
+                      length="50"
+                      codePage="1252" />
+                    <externalMetadataColumn
+                      refId="Package\Dim Region\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[SituationFamiliale]"
+                      name="SituationFamiliale"
+                      dataType="str"
+                      length="50"
+                      codePage="1252" />
+                    <externalMetadataColumn
+                      refId="Package\Dim Region\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[csp]"
+                      name="csp"
+                      dataType="str"
+                      length="50"
+                      codePage="1252" />
+                    <externalMetadataColumn
+                      refId="Package\Dim Region\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[profession]"
+                      name="profession"
+                      dataType="str"
+                      length="50"
+                      codePage="1252" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Dim Region\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  name="OLE DB Source Error Output"
+                  isErrorOut="true">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Dim Region\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      lineageId="Package\Dim Region\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Dim Region\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      lineageId="Package\Dim Region\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      specialFlags="2" />
+                    <outputColumn
+                      refId="Package\Dim Region\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PaysNaissance]"
+                      name="PaysNaissance"
+                      lineageId="Package\Dim Region\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[PaysNaissance]"
+                      length="50"
+                      dataType="str"
+                      codePage="1252" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Dim Region\Sort"
+              name="Sort"
+              componentClassID="{5B1A3FF5-D366-4D75-AD1F-F19A36FCBEDB}"
+              description="Sorts input data in ascending or descending order when it cannot be sorted at its source. For example, sort sales data by 'customer id' before it is written to a flat file and delivered to another department. Note: We do not recommend this transformation for large data flows."
+              version="1"
+              contactInfo="Sort;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1">
+              <properties>
+                <property
+                  name="EliminateDuplicates"
+                  dataType="System.Boolean"
+                  description="Indicates whether the Sort transformation removes rows with duplicate sort values.">false</property>
+                <property
+                  name="MaximumThreads"
+                  dataType="System.Int32"
+                  description="Specifies the maximum number of threads to use for sorting."
+                  expressionType="Notify">-1</property>
+              </properties>
+              <inputs>
+                <input
+                  refId="Package\Dim Region\Sort.Inputs[Sort Input]"
+                  name="Sort Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Dim Region\Sort.Inputs[Sort Input].Columns[PaysNaissance]"
+                      lineageId="Package\Dim Region\OLE DB Source.Outputs[OLE DB Source Output].Columns[PaysNaissance]"
+                      cachedName="PaysNaissance"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedCodepage="1252">
+                      <properties>
+                        <property
+                          name="NewComparisonFlags"
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data.">0</property>
+                        <property
+                          name="NewSortKeyPosition"
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column.">1</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Dim Region\Sort.Outputs[Sort Output]"
+                  name="Sort Output"
+                  isSorted="true">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Dim Region\Sort.Outputs[Sort Output].Columns[PaysNaissance]"
+                      name="PaysNaissance"
+                      lineageId="Package\Dim Region\Sort.Outputs[Sort Output].Columns[PaysNaissance]"
+                      length="50"
+                      dataType="str"
+                      codePage="1252"
+                      sortKeyPosition="1">
+                      <properties>
+                        <property
+                          name="SortColumnId"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          containsID="true">#{Package\Dim Region\OLE DB Source.Outputs[OLE DB Source Output].Columns[PaysNaissance]}</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Dim Region.Paths[Derived Column Output]"
+              name="Derived Column Output"
+              startId="Package\Dim Region\Derived Column.Outputs[Derived Column Output]"
+              endId="Package\Dim Region\Sort.Inputs[Sort Input]" />
+            <path
+              refId="Package\Dim Region.Paths[Lookup No Match Output]"
+              name="Lookup No Match Output"
+              startId="Package\Dim Region\Lookup.Outputs[Lookup No Match Output]"
+              endId="Package\Dim Region\OLE DB Destination.Inputs[OLE DB Destination Input]" />
+            <path
+              refId="Package\Dim Region.Paths[OLE DB Source Output]"
+              name="OLE DB Source Output"
+              startId="Package\Dim Region\OLE DB Source.Outputs[OLE DB Source Output]"
+              endId="Package\Dim Region\Derived Column.Inputs[Derived Column Input]" />
+            <path
+              refId="Package\Dim Region.Paths[Sort Output]"
+              name="Sort Output"
+              startId="Package\Dim Region\Sort.Outputs[Sort Output]"
+              endId="Package\Dim Region\Lookup.Inputs[Lookup Input]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Generiques_Comptes"
+      DTS:ExecutableType="SSIS.Pipeline.3"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Generiques_Comptes"
+      DTS:DTSID="{F810E792-6AAD-4509-BC0D-3CF0B11D9A17}"
+      DTS:Description="Data Flow Task"
+      DTS:CreationName="SSIS.Pipeline.3">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Generiques_Comptes\Derived Column"
+              name="Derived Column"
+              componentClassID="{49928E82-9C4E-49F0-AABE-3812B82707EC}"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              usesDispositions="true"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0">
+              <inputs>
+                <input
+                  refId="Package\Generiques_Comptes\Derived Column.Inputs[Derived Column Input]"
+                  name="Derived Column Input"
+                  description="Input to the Derived Column Transformation">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Generiques_Comptes\Derived Column.Inputs[Derived Column Input].Columns[GCO_CodTypeOrientation]"
+                      lineageId="Package\Generiques_Comptes\OLE DB Source.Outputs[OLE DB Source Output].Columns[GCO_CodTypeOrientation]"
+                      usageType="readWrite"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      cachedName="GCO_CodTypeOrientation"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedCodepage="1252">
+                      <properties>
+                        <property
+                          name="Expression"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          containsID="true">[REPLACE](#{Package\Generiques_Comptes\OLE DB Source.Outputs[OLE DB Source Output].Columns[GCO_CodTypeOrientation]},"NULL","")</property>
+                        <property
+                          name="FriendlyExpression"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          containsID="true"
+                          expressionType="Notify">REPLACE(GCO_CodTypeOrientation,"NULL","")</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Generiques_Comptes\Derived Column.Inputs[Derived Column Input].Columns[GCO_IsPeaPme]"
+                      lineageId="Package\Generiques_Comptes\OLE DB Source.Outputs[OLE DB Source Output].Columns[GCO_IsPeaPme]"
+                      usageType="readWrite"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      cachedName="GCO_IsPeaPme"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedCodepage="1252">
+                      <properties>
+                        <property
+                          name="Expression"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          containsID="true">[REPLACE](#{Package\Generiques_Comptes\OLE DB Source.Outputs[OLE DB Source Output].Columns[GCO_IsPeaPme]},"NULL","")</property>
+                        <property
+                          name="FriendlyExpression"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          containsID="true"
+                          expressionType="Notify">REPLACE(GCO_IsPeaPme,"NULL","")</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Generiques_Comptes\Derived Column.Inputs[Derived Column Input].Columns[GCO_CodProduit]"
+                      lineageId="Package\Generiques_Comptes\OLE DB Source.Outputs[OLE DB Source Output].Columns[GCO_CodProduit]"
+                      usageType="readWrite"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      cachedName="GCO_CodProduit"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedCodepage="1252">
+                      <properties>
+                        <property
+                          name="Expression"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          containsID="true">[REPLACE](#{Package\Generiques_Comptes\OLE DB Source.Outputs[OLE DB Source Output].Columns[GCO_CodProduit]},"NULL","")</property>
+                        <property
+                          name="FriendlyExpression"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          containsID="true"
+                          expressionType="Notify">REPLACE(GCO_CodProduit,"NULL","")</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Generiques_Comptes\Derived Column.Inputs[Derived Column Input].Columns[GCO_LibProduit]"
+                      lineageId="Package\Generiques_Comptes\OLE DB Source.Outputs[OLE DB Source Output].Columns[GCO_LibProduit]"
+                      usageType="readWrite"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      cachedName="GCO_LibProduit"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedCodepage="1252">
+                      <properties>
+                        <property
+                          name="Expression"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          containsID="true">[REPLACE](#{Package\Generiques_Comptes\OLE DB Source.Outputs[OLE DB Source Output].Columns[GCO_LibProduit]},"NULL","")</property>
+                        <property
+                          name="FriendlyExpression"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          containsID="true"
+                          expressionType="Notify">REPLACE(GCO_LibProduit,"NULL","")</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Generiques_Comptes\Derived Column.Inputs[Derived Column Input].Columns[GCO_TypGestion]"
+                      lineageId="Package\Generiques_Comptes\OLE DB Source.Outputs[OLE DB Source Output].Columns[GCO_TypGestion]"
+                      usageType="readWrite"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      cachedName="GCO_TypGestion"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedCodepage="1252">
+                      <properties>
+                        <property
+                          name="Expression"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          containsID="true">[REPLACE](#{Package\Generiques_Comptes\OLE DB Source.Outputs[OLE DB Source Output].Columns[GCO_TypGestion]},"NULL","")</property>
+                        <property
+                          name="FriendlyExpression"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          containsID="true"
+                          expressionType="Notify">REPLACE(GCO_TypGestion,"NULL","")</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Generiques_Comptes\Derived Column.Inputs[Derived Column Input].Columns[GCO_LibEtatCompte]"
+                      lineageId="Package\Generiques_Comptes\OLE DB Source.Outputs[OLE DB Source Output].Columns[GCO_LibEtatCompte]"
+                      usageType="readWrite"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      cachedName="GCO_LibEtatCompte"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedCodepage="1252">
+                      <properties>
+                        <property
+                          name="Expression"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          containsID="true">[REPLACE](#{Package\Generiques_Comptes\OLE DB Source.Outputs[OLE DB Source Output].Columns[GCO_LibEtatCompte]},"NULL","")</property>
+                        <property
+                          name="FriendlyExpression"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          containsID="true"
+                          expressionType="Notify">REPLACE(GCO_LibEtatCompte,"NULL","")</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Generiques_Comptes\Derived Column.Inputs[Derived Column Input].Columns[GCO_CodTypContrat]"
+                      lineageId="Package\Generiques_Comptes\OLE DB Source.Outputs[OLE DB Source Output].Columns[GCO_CodTypContrat]"
+                      usageType="readWrite"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      cachedName="GCO_CodTypContrat"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedCodepage="1252">
+                      <properties>
+                        <property
+                          name="Expression"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          containsID="true">[REPLACE](#{Package\Generiques_Comptes\OLE DB Source.Outputs[OLE DB Source Output].Columns[GCO_CodTypContrat]},"NULL","")</property>
+                        <property
+                          name="FriendlyExpression"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          containsID="true"
+                          expressionType="Notify">REPLACE(GCO_CodTypContrat,"NULL","")</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Generiques_Comptes\Derived Column.Inputs[Derived Column Input].Columns[GCO_CodEnveloppeFiscale]"
+                      lineageId="Package\Generiques_Comptes\OLE DB Source.Outputs[OLE DB Source Output].Columns[GCO_CodEnveloppeFiscale]"
+                      usageType="readWrite"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      cachedName="GCO_CodEnveloppeFiscale"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedCodepage="1252">
+                      <properties>
+                        <property
+                          name="Expression"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          containsID="true">[REPLACE](#{Package\Generiques_Comptes\OLE DB Source.Outputs[OLE DB Source Output].Columns[GCO_CodEnveloppeFiscale]},"NULL","")</property>
+                        <property
+                          name="FriendlyExpression"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          containsID="true"
+                          expressionType="Notify">REPLACE(GCO_CodEnveloppeFiscale,"NULL","")</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Generiques_Comptes\Derived Column.Outputs[Derived Column Output]"
+                  name="Derived Column Output"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  synchronousInputId="Package\Generiques_Comptes\Derived Column.Inputs[Derived Column Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Generiques_Comptes\Derived Column.Outputs[Derived Column Error Output]"
+                  name="Derived Column Error Output"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  synchronousInputId="Package\Generiques_Comptes\Derived Column.Inputs[Derived Column Input]"
+                  isErrorOut="true">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Generiques_Comptes\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      lineageId="Package\Generiques_Comptes\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Generiques_Comptes\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      lineageId="Package\Generiques_Comptes\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Generiques_Comptes\Lookup"
+              name="Lookup"
+              componentClassID="{671046B0-AA63-4C9F-90E4-C06E0B710CE3}"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              usesDispositions="true"
+              version="6"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6">
+              <properties>
+                <property
+                  name="SqlCommand"
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+                  expressionType="Notify"></property>
+                <property
+                  name="SqlCommandParam"
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+                  expressionType="Notify"></property>
+                <property
+                  name="ConnectionType"
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  name="CacheType"
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  typeConverter="CacheType">2</property>
+                <property
+                  name="NoMatchBehavior"
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  typeConverter="LookupNoMatchBehavior">0</property>
+                <property
+                  name="NoMatchCachePercentage"
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset.">0</property>
+                <property
+                  name="MaxMemoryUsage"
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform.">25</property>
+                <property
+                  name="MaxMemoryUsage64"
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform.">25</property>
+                <property
+                  name="ReferenceMetadataXml"
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."></property>
+                <property
+                  name="ParameterMap"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  containsID="true"></property>
+                <property
+                  name="DefaultCodePage"
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source.">1252</property>
+                <property
+                  name="TreatDuplicateKeysAsError"
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used.">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Generiques_Comptes\Lookup.Connections[OleDbConnection]"
+                  name="OleDbConnection"
+                  description="Connection manager used to access lookup data." />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Generiques_Comptes\Lookup.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Generiques_Comptes\Lookup.Outputs[Lookup Match Output]"
+                  name="Lookup Match Output"
+                  exclusionGroup="1"
+                  synchronousInputId="Package\Generiques_Comptes\Lookup.Inputs[Lookup Input]"
+                  errorOrTruncationOperation="Lookup"
+                  errorRowDisposition="FailComponent">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Generiques_Comptes\Lookup.Outputs[Lookup No Match Output]"
+                  name="Lookup No Match Output"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  synchronousInputId="Package\Generiques_Comptes\Lookup.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Generiques_Comptes\Lookup.Outputs[Lookup Error Output]"
+                  name="Lookup Error Output"
+                  exclusionGroup="1"
+                  synchronousInputId="Package\Generiques_Comptes\Lookup.Inputs[Lookup Input]"
+                  isErrorOut="true">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Generiques_Comptes\Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      lineageId="Package\Generiques_Comptes\Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Generiques_Comptes\Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      lineageId="Package\Generiques_Comptes\Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Generiques_Comptes\OLE DB Source"
+              name="OLE DB Source"
+              componentClassID="{165A526D-D5DE-47FF-96A6-F8274C19826B}"
+              description="OLE DB Source"
+              usesDispositions="true"
+              version="7"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7">
+              <properties>
+                <property
+                  name="CommandTimeout"
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out.">0</property>
+                <property
+                  name="OpenRowset"
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset.">[dbo].[CLI_GCO_GeneriquesComptes]</property>
+                <property
+                  name="OpenRowsetVariable"
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."></property>
+                <property
+                  name="SqlCommand"
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  name="SqlCommandVariable"
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."></property>
+                <property
+                  name="DefaultCodePage"
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source.">1252</property>
+                <property
+                  name="AlwaysUseDefaultCodePage"
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data.">false</property>
+                <property
+                  name="AccessMode"
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  typeConverter="AccessMode">0</property>
+                <property
+                  name="ParameterMapping"
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Generiques_Comptes\OLE DB Source.Connections[OleDbConnection]"
+                  name="OleDbConnection"
+                  description="The OLE DB runtime connection used to access the database."
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.OBP_SECURITIES_SA]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.OBP_SECURITIES_SA]" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Generiques_Comptes\OLE DB Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Generiques_Comptes\OLE DB Source.Outputs[OLE DB Source Output].Columns[GCO_CodSociete]"
+                      name="GCO_CodSociete"
+                      lineageId="Package\Generiques_Comptes\OLE DB Source.Outputs[OLE DB Source Output].Columns[GCO_CodSociete]"
+                      length="50"
+                      dataType="str"
+                      codePage="1252"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Generiques_Comptes\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[GCO_CodSociete]" />
+                    <outputColumn
+                      refId="Package\Generiques_Comptes\OLE DB Source.Outputs[OLE DB Source Output].Columns[GCO_CodPrestataire]"
+                      name="GCO_CodPrestataire"
+                      lineageId="Package\Generiques_Comptes\OLE DB Source.Outputs[OLE DB Source Output].Columns[GCO_CodPrestataire]"
+                      length="50"
+                      dataType="str"
+                      codePage="1252"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Generiques_Comptes\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[GCO_CodPrestataire]" />
+                    <outputColumn
+                      refId="Package\Generiques_Comptes\OLE DB Source.Outputs[OLE DB Source Output].Columns[GCO_CodCompte]"
+                      name="GCO_CodCompte"
+                      lineageId="Package\Generiques_Comptes\OLE DB Source.Outputs[OLE DB Source Output].Columns[GCO_CodCompte]"
+                      length="50"
+                      dataType="str"
+                      codePage="1252"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Generiques_Comptes\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[GCO_CodCompte]" />
+                    <outputColumn
+                      refId="Package\Generiques_Comptes\OLE DB Source.Outputs[OLE DB Source Output].Columns[GCO_CodTypeOrientation]"
+                      name="GCO_CodTypeOrientation"
+                      lineageId="Package\Generiques_Comptes\OLE DB Source.Outputs[OLE DB Source Output].Columns[GCO_CodTypeOrientation]"
+                      length="50"
+                      dataType="str"
+                      codePage="1252"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Generiques_Comptes\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[GCO_CodTypeOrientation]" />
+                    <outputColumn
+                      refId="Package\Generiques_Comptes\OLE DB Source.Outputs[OLE DB Source Output].Columns[GCO_IsOuvert]"
+                      name="GCO_IsOuvert"
+                      lineageId="Package\Generiques_Comptes\OLE DB Source.Outputs[OLE DB Source Output].Columns[GCO_IsOuvert]"
+                      length="50"
+                      dataType="str"
+                      codePage="1252"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Generiques_Comptes\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[GCO_IsOuvert]" />
+                    <outputColumn
+                      refId="Package\Generiques_Comptes\OLE DB Source.Outputs[OLE DB Source Output].Columns[GCO_IsAsv]"
+                      name="GCO_IsAsv"
+                      lineageId="Package\Generiques_Comptes\OLE DB Source.Outputs[OLE DB Source Output].Columns[GCO_IsAsv]"
+                      length="50"
+                      dataType="str"
+                      codePage="1252"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Generiques_Comptes\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[GCO_IsAsv]" />
+                    <outputColumn
+                      refId="Package\Generiques_Comptes\OLE DB Source.Outputs[OLE DB Source Output].Columns[GCO_IsAssureur]"
+                      name="GCO_IsAssureur"
+                      lineageId="Package\Generiques_Comptes\OLE DB Source.Outputs[OLE DB Source Output].Columns[GCO_IsAssureur]"
+                      length="50"
+                      dataType="str"
+                      codePage="1252"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Generiques_Comptes\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[GCO_IsAssureur]" />
+                    <outputColumn
+                      refId="Package\Generiques_Comptes\OLE DB Source.Outputs[OLE DB Source Output].Columns[GCO_IsPea]"
+                      name="GCO_IsPea"
+                      lineageId="Package\Generiques_Comptes\OLE DB Source.Outputs[OLE DB Source Output].Columns[GCO_IsPea]"
+                      length="50"
+                      dataType="str"
+                      codePage="1252"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Generiques_Comptes\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[GCO_IsPea]" />
+                    <outputColumn
+                      refId="Package\Generiques_Comptes\OLE DB Source.Outputs[OLE DB Source Output].Columns[GCO_IsPeaPme]"
+                      name="GCO_IsPeaPme"
+                      lineageId="Package\Generiques_Comptes\OLE DB Source.Outputs[OLE DB Source Output].Columns[GCO_IsPeaPme]"
+                      length="50"
+                      dataType="str"
+                      codePage="1252"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Generiques_Comptes\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[GCO_IsPeaPme]" />
+                    <outputColumn
+                      refId="Package\Generiques_Comptes\OLE DB Source.Outputs[OLE DB Source Output].Columns[GCO_CodProduit]"
+                      name="GCO_CodProduit"
+                      lineageId="Package\Generiques_Comptes\OLE DB Source.Outputs[OLE DB Source Output].Columns[GCO_CodProduit]"
+                      length="50"
+                      dataType="str"
+                      codePage="1252"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Generiques_Comptes\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[GCO_CodProduit]" />
+                    <outputColumn
+                      refId="Package\Generiques_Comptes\OLE DB Source.Outputs[OLE DB Source Output].Columns[GCO_LibProduit]"
+                      name="GCO_LibProduit"
+                      lineageId="Package\Generiques_Comptes\OLE DB Source.Outputs[OLE DB Source Output].Columns[GCO_LibProduit]"
+                      length="50"
+                      dataType="str"
+                      codePage="1252"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Generiques_Comptes\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[GCO_LibProduit]" />
+                    <outputColumn
+                      refId="Package\Generiques_Comptes\OLE DB Source.Outputs[OLE DB Source Output].Columns[GCO_TypGestion]"
+                      name="GCO_TypGestion"
+                      lineageId="Package\Generiques_Comptes\OLE DB Source.Outputs[OLE DB Source Output].Columns[GCO_TypGestion]"
+                      length="50"
+                      dataType="str"
+                      codePage="1252"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Generiques_Comptes\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[GCO_TypGestion]" />
+                    <outputColumn
+                      refId="Package\Generiques_Comptes\OLE DB Source.Outputs[OLE DB Source Output].Columns[GCO_LibEtatCompte]"
+                      name="GCO_LibEtatCompte"
+                      lineageId="Package\Generiques_Comptes\OLE DB Source.Outputs[OLE DB Source Output].Columns[GCO_LibEtatCompte]"
+                      length="50"
+                      dataType="str"
+                      codePage="1252"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Generiques_Comptes\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[GCO_LibEtatCompte]" />
+                    <outputColumn
+                      refId="Package\Generiques_Comptes\OLE DB Source.Outputs[OLE DB Source Output].Columns[GCO_CodTypContrat]"
+                      name="GCO_CodTypContrat"
+                      lineageId="Package\Generiques_Comptes\OLE DB Source.Outputs[OLE DB Source Output].Columns[GCO_CodTypContrat]"
+                      length="50"
+                      dataType="str"
+                      codePage="1252"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Generiques_Comptes\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[GCO_CodTypContrat]" />
+                    <outputColumn
+                      refId="Package\Generiques_Comptes\OLE DB Source.Outputs[OLE DB Source Output].Columns[GCO_CodEnveloppeFiscale]"
+                      name="GCO_CodEnveloppeFiscale"
+                      lineageId="Package\Generiques_Comptes\OLE DB Source.Outputs[OLE DB Source Output].Columns[GCO_CodEnveloppeFiscale]"
+                      length="50"
+                      dataType="str"
+                      codePage="1252"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Generiques_Comptes\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[GCO_CodEnveloppeFiscale]" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Generiques_Comptes\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[GCO_CodSociete]"
+                      name="GCO_CodSociete"
+                      dataType="str"
+                      length="50"
+                      codePage="1252" />
+                    <externalMetadataColumn
+                      refId="Package\Generiques_Comptes\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[GCO_CodPrestataire]"
+                      name="GCO_CodPrestataire"
+                      dataType="str"
+                      length="50"
+                      codePage="1252" />
+                    <externalMetadataColumn
+                      refId="Package\Generiques_Comptes\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[GCO_CodCompte]"
+                      name="GCO_CodCompte"
+                      dataType="str"
+                      length="50"
+                      codePage="1252" />
+                    <externalMetadataColumn
+                      refId="Package\Generiques_Comptes\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[GCO_CodTypeOrientation]"
+                      name="GCO_CodTypeOrientation"
+                      dataType="str"
+                      length="50"
+                      codePage="1252" />
+                    <externalMetadataColumn
+                      refId="Package\Generiques_Comptes\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[GCO_IsOuvert]"
+                      name="GCO_IsOuvert"
+                      dataType="str"
+                      length="50"
+                      codePage="1252" />
+                    <externalMetadataColumn
+                      refId="Package\Generiques_Comptes\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[GCO_IsAsv]"
+                      name="GCO_IsAsv"
+                      dataType="str"
+                      length="50"
+                      codePage="1252" />
+                    <externalMetadataColumn
+                      refId="Package\Generiques_Comptes\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[GCO_IsAssureur]"
+                      name="GCO_IsAssureur"
+                      dataType="str"
+                      length="50"
+                      codePage="1252" />
+                    <externalMetadataColumn
+                      refId="Package\Generiques_Comptes\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[GCO_IsPea]"
+                      name="GCO_IsPea"
+                      dataType="str"
+                      length="50"
+                      codePage="1252" />
+                    <externalMetadataColumn
+                      refId="Package\Generiques_Comptes\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[GCO_IsPeaPme]"
+                      name="GCO_IsPeaPme"
+                      dataType="str"
+                      length="50"
+                      codePage="1252" />
+                    <externalMetadataColumn
+                      refId="Package\Generiques_Comptes\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[GCO_CodProduit]"
+                      name="GCO_CodProduit"
+                      dataType="str"
+                      length="50"
+                      codePage="1252" />
+                    <externalMetadataColumn
+                      refId="Package\Generiques_Comptes\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[GCO_LibProduit]"
+                      name="GCO_LibProduit"
+                      dataType="str"
+                      length="50"
+                      codePage="1252" />
+                    <externalMetadataColumn
+                      refId="Package\Generiques_Comptes\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[GCO_TypGestion]"
+                      name="GCO_TypGestion"
+                      dataType="str"
+                      length="50"
+                      codePage="1252" />
+                    <externalMetadataColumn
+                      refId="Package\Generiques_Comptes\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[GCO_LibEtatCompte]"
+                      name="GCO_LibEtatCompte"
+                      dataType="str"
+                      length="50"
+                      codePage="1252" />
+                    <externalMetadataColumn
+                      refId="Package\Generiques_Comptes\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[GCO_CodTypContrat]"
+                      name="GCO_CodTypContrat"
+                      dataType="str"
+                      length="50"
+                      codePage="1252" />
+                    <externalMetadataColumn
+                      refId="Package\Generiques_Comptes\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[GCO_CodEnveloppeFiscale]"
+                      name="GCO_CodEnveloppeFiscale"
+                      dataType="str"
+                      length="50"
+                      codePage="1252" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Generiques_Comptes\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  name="OLE DB Source Error Output"
+                  isErrorOut="true">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Generiques_Comptes\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[GCO_CodSociete]"
+                      name="GCO_CodSociete"
+                      lineageId="Package\Generiques_Comptes\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[GCO_CodSociete]"
+                      length="50"
+                      dataType="str"
+                      codePage="1252" />
+                    <outputColumn
+                      refId="Package\Generiques_Comptes\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[GCO_CodPrestataire]"
+                      name="GCO_CodPrestataire"
+                      lineageId="Package\Generiques_Comptes\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[GCO_CodPrestataire]"
+                      length="50"
+                      dataType="str"
+                      codePage="1252" />
+                    <outputColumn
+                      refId="Package\Generiques_Comptes\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[GCO_CodCompte]"
+                      name="GCO_CodCompte"
+                      lineageId="Package\Generiques_Comptes\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[GCO_CodCompte]"
+                      length="50"
+                      dataType="str"
+                      codePage="1252" />
+                    <outputColumn
+                      refId="Package\Generiques_Comptes\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[GCO_CodTypeOrientation]"
+                      name="GCO_CodTypeOrientation"
+                      lineageId="Package\Generiques_Comptes\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[GCO_CodTypeOrientation]"
+                      length="50"
+                      dataType="str"
+                      codePage="1252" />
+                    <outputColumn
+                      refId="Package\Generiques_Comptes\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[GCO_IsOuvert]"
+                      name="GCO_IsOuvert"
+                      lineageId="Package\Generiques_Comptes\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[GCO_IsOuvert]"
+                      length="50"
+                      dataType="str"
+                      codePage="1252" />
+                    <outputColumn
+                      refId="Package\Generiques_Comptes\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[GCO_IsAsv]"
+                      name="GCO_IsAsv"
+                      lineageId="Package\Generiques_Comptes\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[GCO_IsAsv]"
+                      length="50"
+                      dataType="str"
+                      codePage="1252" />
+                    <outputColumn
+                      refId="Package\Generiques_Comptes\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[GCO_IsAssureur]"
+                      name="GCO_IsAssureur"
+                      lineageId="Package\Generiques_Comptes\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[GCO_IsAssureur]"
+                      length="50"
+                      dataType="str"
+                      codePage="1252" />
+                    <outputColumn
+                      refId="Package\Generiques_Comptes\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[GCO_IsPea]"
+                      name="GCO_IsPea"
+                      lineageId="Package\Generiques_Comptes\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[GCO_IsPea]"
+                      length="50"
+                      dataType="str"
+                      codePage="1252" />
+                    <outputColumn
+                      refId="Package\Generiques_Comptes\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[GCO_IsPeaPme]"
+                      name="GCO_IsPeaPme"
+                      lineageId="Package\Generiques_Comptes\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[GCO_IsPeaPme]"
+                      length="50"
+                      dataType="str"
+                      codePage="1252" />
+                    <outputColumn
+                      refId="Package\Generiques_Comptes\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[GCO_CodProduit]"
+                      name="GCO_CodProduit"
+                      lineageId="Package\Generiques_Comptes\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[GCO_CodProduit]"
+                      length="50"
+                      dataType="str"
+                      codePage="1252" />
+                    <outputColumn
+                      refId="Package\Generiques_Comptes\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[GCO_LibProduit]"
+                      name="GCO_LibProduit"
+                      lineageId="Package\Generiques_Comptes\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[GCO_LibProduit]"
+                      length="50"
+                      dataType="str"
+                      codePage="1252" />
+                    <outputColumn
+                      refId="Package\Generiques_Comptes\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[GCO_TypGestion]"
+                      name="GCO_TypGestion"
+                      lineageId="Package\Generiques_Comptes\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[GCO_TypGestion]"
+                      length="50"
+                      dataType="str"
+                      codePage="1252" />
+                    <outputColumn
+                      refId="Package\Generiques_Comptes\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[GCO_LibEtatCompte]"
+                      name="GCO_LibEtatCompte"
+                      lineageId="Package\Generiques_Comptes\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[GCO_LibEtatCompte]"
+                      length="50"
+                      dataType="str"
+                      codePage="1252" />
+                    <outputColumn
+                      refId="Package\Generiques_Comptes\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[GCO_CodTypContrat]"
+                      name="GCO_CodTypContrat"
+                      lineageId="Package\Generiques_Comptes\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[GCO_CodTypContrat]"
+                      length="50"
+                      dataType="str"
+                      codePage="1252" />
+                    <outputColumn
+                      refId="Package\Generiques_Comptes\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[GCO_CodEnveloppeFiscale]"
+                      name="GCO_CodEnveloppeFiscale"
+                      lineageId="Package\Generiques_Comptes\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[GCO_CodEnveloppeFiscale]"
+                      length="50"
+                      dataType="str"
+                      codePage="1252" />
+                    <outputColumn
+                      refId="Package\Generiques_Comptes\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      lineageId="Package\Generiques_Comptes\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Generiques_Comptes\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      lineageId="Package\Generiques_Comptes\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Generiques_Comptes.Paths[Derived Column Output]"
+              name="Derived Column Output"
+              startId="Package\Generiques_Comptes\Derived Column.Outputs[Derived Column Output]"
+              endId="Package\Generiques_Comptes\Lookup.Inputs[Lookup Input]" />
+            <path
+              refId="Package\Generiques_Comptes.Paths[OLE DB Source Output]"
+              name="OLE DB Source Output"
+              startId="Package\Generiques_Comptes\OLE DB Source.Outputs[OLE DB Source Output]"
+              endId="Package\Generiques_Comptes\Derived Column.Inputs[Derived Column Input]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql11">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="178,42"
+          Id="Package\Generiques_Comptes"
+          TopLeft="198,39" />
+        <NodeLayout
+          Size="132,42"
+          Id="Package\Dim Region"
+          TopLeft="462,25" />
+        <NodeLayout
+          Size="159,42"
+          Id="Package\Data Flow Task 1"
+          TopLeft="152,169" />
+        <NodeLayout
+          Size="159,42"
+          Id="Package\Data Flow Task 2"
+          TopLeft="377,134" />
+        <NodeLayout
+          Size="159,42"
+          Id="Package\Data Flow Task 3"
+          TopLeft="392,197" />
+        <NodeLayout
+          Size="159,42"
+          Id="Package\Data Flow Task 4"
+          TopLeft="582,162" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Generiques_Comptes">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="149,42"
+          Id="Package\Generiques_Comptes\OLE DB Source"
+          TopLeft="282,53" />
+        <NodeLayout
+          Size="153,42"
+          Id="Package\Generiques_Comptes\Derived Column"
+          TopLeft="285,145" />
+        <EdgeLayout
+          Id="Package\Generiques_Comptes.Paths[OLE DB Source Output]"
+          TopLeft="359,95">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,50"
+              Start="0,0"
+              End="0,42.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,42.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="112,42"
+          Id="Package\Generiques_Comptes\Lookup"
+          TopLeft="288,232" />
+        <EdgeLayout
+          Id="Package\Generiques_Comptes.Paths[Derived Column Output]"
+          TopLeft="361.5,187">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-17.5,45"
+              Start="0,0"
+              End="-17.5,37.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,18.5"
+                    Point2="0,22.5"
+                    Point3="-4,22.5" />
+                  <mssgle:LineSegment
+                    End="-13.5,22.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-13.5,22.5"
+                    Point2="-17.5,22.5"
+                    Point3="-17.5,26.5" />
+                  <mssgle:LineSegment
+                    End="-17.5,37.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <TaskHost
+    design-time-name="Package\Dim Region">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="149,42"
+          Id="Package\Dim Region\OLE DB Source"
+          TopLeft="431,5" />
+        <NodeLayout
+          Size="153,42"
+          Id="Package\Dim Region\Derived Column"
+          TopLeft="427,79" />
+        <EdgeLayout
+          Id="Package\Dim Region.Paths[OLE DB Source Output]"
+          TopLeft="504.5,47">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,32"
+              Start="0,0"
+              End="0,24.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,24.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="148,42"
+          Id="Package\Dim Region\Sort"
+          TopLeft="431,145" />
+        <EdgeLayout
+          Id="Package\Dim Region.Paths[Derived Column Output]"
+          TopLeft="504.25,121">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,24"
+              Start="0,0"
+              End="0,16.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="157,42"
+          Id="Package\Dim Region\Lookup"
+          TopLeft="427,212" />
+        <EdgeLayout
+          Id="Package\Dim Region.Paths[Sort Output]"
+          TopLeft="505.25,187">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,25"
+              Start="0,0"
+              End="0,17.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="170,42"
+          Id="Package\Dim Region\OLE DB Destination"
+          TopLeft="396,292" />
+        <EdgeLayout
+          Id="Package\Dim Region.Paths[Lookup No Match Output]"
+          TopLeft="505.5,254">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-24.5,38"
+              Start="0,0"
+              End="-24.5,30.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,15" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,15"
+                    Point2="0,19"
+                    Point3="-4,19" />
+                  <mssgle:LineSegment
+                    End="-20.5,19" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-20.5,19"
+                    Point2="-24.5,19"
+                    Point3="-24.5,23" />
+                  <mssgle:LineSegment
+                    End="-24.5,30.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-68.05638671875,24,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Generiques_Comptes\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Generiques_Comptes\Lookup">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Dim Region\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Dim Region\Lookup">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[DimRegion]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Dim Region\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

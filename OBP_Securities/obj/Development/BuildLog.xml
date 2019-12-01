@@ -2,13 +2,18 @@
 <BuildLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ProjectInfo>
     <Name>OBP_Securities</Name>
-    <LastWriteTime>2019-12-01T12:06:46.4312387Z</LastWriteTime>
+    <LastWriteTime>2019-12-01T13:47:48.5063903Z</LastWriteTime>
     <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
   </ProjectInfo>
   <LastBuildInfos>
     <ProjectBuildItemInfo>
-      <Name>Package.dtsx</Name>
-      <LastWriteTime>2019-12-01T12:25:46.2897646Z</LastWriteTime>
+      <Name>SA_Alimentation.dtsx</Name>
+      <LastWriteTime>2019-12-01T12:56:41.005296Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>SA_DW.dtsx</Name>
+      <LastWriteTime>2019-12-01T13:47:48.4290612Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
   </LastBuildInfos>
