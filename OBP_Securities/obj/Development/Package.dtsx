@@ -6,8 +6,8 @@
   DTS:CreatorComputerName="DESKTOP-63S49FM"
   DTS:CreationDate="12/1/2019 10:20:09 AM"
   DTS:PackageType="5"
-  DTS:VersionBuild="75"
-  DTS:VersionGUID="{47C47B91-6496-4A4A-BFB1-96C992AA4FB1}"
+  DTS:VersionBuild="78"
+  DTS:VersionGUID="{1A1DC3C8-20D2-4F3F-89E2-789083E990CD}"
   DTS:LastModifiedProductVersion="11.0.2100.60"
   DTS:LocaleID="1036"
   DTS:ObjectName="Package"
@@ -834,7 +834,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="GIN_CodISIN"
-              DTS:DTSID="{E7F65326-08FD-419C-8F47-4D4DCB7B2C63}"
+              DTS:DTSID="{9E511CE7-FC20-4428-8826-B3FB94F4CEB9}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -843,7 +843,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="KW02_Libelle"
-              DTS:DTSID="{178888E8-1809-447C-9460-4E79235873DF}"
+              DTS:DTSID="{DFDDCD83-BD13-4F16-8BDE-A2DFECC63695}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -852,7 +852,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="GIN_Actif"
-              DTS:DTSID="{8EBE3EB4-0299-4326-B693-E1880CA359EC}"
+              DTS:DTSID="{81DFE850-4EA8-4178-9C1F-113333974FA3}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -861,7 +861,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="GIN_CodMIC"
-              DTS:DTSID="{B472E752-F271-4FFA-A850-33D87B661AC4}"
+              DTS:DTSID="{B457479F-2A43-472E-B2EF-9532117BA089}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -870,7 +870,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="GIN_CodPaysEmission"
-              DTS:DTSID="{605B3C4A-9E85-4A40-B4AD-14415CC06EE4}"
+              DTS:DTSID="{77F55FBF-4B94-4FD7-A10C-3ED91A901897}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -879,16 +879,16 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="GIN_CodProduitComplexe"
-              DTS:DTSID="{D2225B3F-C455-48FC-97E4-15A28377E311}"
+              DTS:DTSID="{DD7C34AC-B8A1-461C-8694-91BC56806A9E}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
               DTS:ColumnDelimiter="_x003B_"
-              DTS:MaximumWidth="50"
+              DTS:MaximumWidth="500"
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="GIN_LibInstrument"
-              DTS:DTSID="{18E7EC9A-8A53-4E12-A66F-663E45B1E5AB}"
+              DTS:DTSID="{2BA5A344-97F0-4AC6-801F-C52B116B98F5}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -897,7 +897,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="GIN_LibEmetteur"
-              DTS:DTSID="{8571AE80-8C45-454E-BBEB-4C4436B05529}"
+              DTS:DTSID="{222DB684-8E85-4EE2-BEBC-698DA91860AB}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -906,7 +906,7 @@
               DTS:DataType="129"
               DTS:TextQualified="True"
               DTS:ObjectName="GIN_CodDeviseCotation"
-              DTS:DTSID="{98F68516-09AA-468D-A709-391F11580333}"
+              DTS:DTSID="{90DB24B4-A892-4173-830E-293E8BD0ACD2}"
               DTS:CreationName="" />
           </DTS:FlatFileColumns>
         </DTS:ConnectionManager>
@@ -4403,6 +4403,28 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
+                      refId="Package\INS_GIN_GeneriqueInstruments_Alimentation\Flat File Source.Outputs[Flat File Source Output].Columns[GIN_CodDeviseCotation]"
+                      name="GIN_CodDeviseCotation"
+                      lineageId="Package\INS_GIN_GeneriqueInstruments_Alimentation\Flat File Source.Outputs[Flat File Source Output].Columns[GIN_CodDeviseCotation]"
+                      length="50"
+                      dataType="str"
+                      codePage="1252"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\INS_GIN_GeneriqueInstruments_Alimentation\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[GIN_CodDeviseCotation]">
+                      <properties>
+                        <property
+                          name="FastParse"
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines.">false</property>
+                        <property
+                          name="UseBinaryFormat"
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format.">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
                       refId="Package\INS_GIN_GeneriqueInstruments_Alimentation\Flat File Source.Outputs[Flat File Source Output].Columns[GIN_LibEmetteur]"
                       name="GIN_LibEmetteur"
                       lineageId="Package\INS_GIN_GeneriqueInstruments_Alimentation\Flat File Source.Outputs[Flat File Source Output].Columns[GIN_LibEmetteur]"
@@ -4425,16 +4447,16 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\INS_GIN_GeneriqueInstruments_Alimentation\Flat File Source.Outputs[Flat File Source Output].Columns[GIN_CodDeviseCotation]"
-                      name="GIN_CodDeviseCotation"
-                      lineageId="Package\INS_GIN_GeneriqueInstruments_Alimentation\Flat File Source.Outputs[Flat File Source Output].Columns[GIN_CodDeviseCotation]"
-                      length="50"
+                      refId="Package\INS_GIN_GeneriqueInstruments_Alimentation\Flat File Source.Outputs[Flat File Source Output].Columns[GIN_LibInstrument]"
+                      name="GIN_LibInstrument"
+                      lineageId="Package\INS_GIN_GeneriqueInstruments_Alimentation\Flat File Source.Outputs[Flat File Source Output].Columns[GIN_LibInstrument]"
+                      length="500"
                       dataType="str"
                       codePage="1252"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       truncationRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\INS_GIN_GeneriqueInstruments_Alimentation\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[GIN_CodDeviseCotation]">
+                      externalMetadataColumnId="Package\INS_GIN_GeneriqueInstruments_Alimentation\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[GIN_LibInstrument]">
                       <properties>
                         <property
                           name="FastParse"
@@ -4489,7 +4511,7 @@
                       refId="Package\INS_GIN_GeneriqueInstruments_Alimentation\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[GIN_LibInstrument]"
                       name="GIN_LibInstrument"
                       dataType="str"
-                      length="50"
+                      length="500"
                       codePage="1252" />
                     <externalMetadataColumn
                       refId="Package\INS_GIN_GeneriqueInstruments_Alimentation\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[GIN_LibEmetteur]"
@@ -4670,6 +4692,14 @@
                       cachedDataType="str"
                       cachedLength="50"
                       cachedCodepage="1252" />
+                    <inputColumn
+                      refId="Package\INS_GIN_GeneriqueInstruments_Alimentation\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[GIN_LibInstrument]"
+                      lineageId="Package\INS_GIN_GeneriqueInstruments_Alimentation\Flat File Source.Outputs[Flat File Source Output].Columns[GIN_LibInstrument]"
+                      externalMetadataColumnId="Package\INS_GIN_GeneriqueInstruments_Alimentation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[GIN_LibInstrument]"
+                      cachedName="GIN_LibInstrument"
+                      cachedDataType="str"
+                      cachedLength="500"
+                      cachedCodepage="1252" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -4713,7 +4743,7 @@
                       refId="Package\INS_GIN_GeneriqueInstruments_Alimentation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[GIN_LibInstrument]"
                       name="GIN_LibInstrument"
                       dataType="str"
-                      length="50"
+                      length="500"
                       codePage="1252" />
                     <externalMetadataColumn
                       refId="Package\INS_GIN_GeneriqueInstruments_Alimentation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[GIN_LibEmetteur]"
