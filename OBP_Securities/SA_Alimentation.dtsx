@@ -6,8 +6,8 @@
   DTS:CreatorComputerName="DESKTOP-63S49FM"
   DTS:CreationDate="12/1/2019 10:20:09 AM"
   DTS:PackageType="5"
-  DTS:VersionBuild="114"
-  DTS:VersionGUID="{679995D0-A808-48E1-9D84-647939828C59}"
+  DTS:VersionBuild="115"
+  DTS:VersionGUID="{DFEBD0AE-1E90-450F-A2E9-357CEEF2B6D3}"
   DTS:LastModifiedProductVersion="11.0.2100.60"
   DTS:LocaleID="1036"
   DTS:ObjectName="SA_Alimentation"
@@ -2377,7 +2377,7 @@
     <DTS:Executable
       DTS:refId="Package\Empty_CLI_GTI_GeneriquesTiers"
       DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
-      DTS:ThreadHint="0"
+      DTS:ThreadHint="4"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
       DTS:LocaleID="-1"
       DTS:ObjectName="Empty_CLI_GTI_GeneriquesTiers"
@@ -2411,7 +2411,7 @@
     <DTS:Executable
       DTS:refId="Package\Empty_Dim_Activity"
       DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
-      DTS:ThreadHint="3"
+      DTS:ThreadHint="0"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
       DTS:LocaleID="-1"
       DTS:ObjectName="Empty_Dim_Activity"
@@ -2445,7 +2445,7 @@
     <DTS:Executable
       DTS:refId="Package\Empty_Fait_Meeting"
       DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
-      DTS:ThreadHint="5"
+      DTS:ThreadHint="3"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
       DTS:LocaleID="-1"
       DTS:ObjectName="Empty_Fait_Meeting"
@@ -2462,7 +2462,7 @@
     <DTS:Executable
       DTS:refId="Package\Empty_Generiques_Comptes"
       DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
-      DTS:ThreadHint="4"
+      DTS:ThreadHint="5"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
       DTS:LocaleID="-1"
       DTS:ObjectName="Empty_Generiques_Comptes"
@@ -3806,6 +3806,336 @@
                           description="Indicates whether the data is in binary format.">false</property>
                       </properties>
                     </outputColumn>
+                    <outputColumn
+                      refId="Package\Generiques_Comptes_Alimentation\Flat File Source.Outputs[Flat File Source Output].Columns[GCO_CodTribu]"
+                      name="GCO_CodTribu"
+                      lineageId="Package\Generiques_Comptes_Alimentation\Flat File Source.Outputs[Flat File Source Output].Columns[GCO_CodTribu]"
+                      length="50"
+                      dataType="str"
+                      codePage="1252"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Generiques_Comptes_Alimentation\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[GCO_CodTribu]">
+                      <properties>
+                        <property
+                          name="FastParse"
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines.">false</property>
+                        <property
+                          name="UseBinaryFormat"
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format.">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Generiques_Comptes_Alimentation\Flat File Source.Outputs[Flat File Source Output].Columns[GCO_CodCapaciteSupportPertesMif2]"
+                      name="GCO_CodCapaciteSupportPertesMif2"
+                      lineageId="Package\Generiques_Comptes_Alimentation\Flat File Source.Outputs[Flat File Source Output].Columns[GCO_CodCapaciteSupportPertesMif2]"
+                      length="50"
+                      dataType="str"
+                      codePage="1252"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Generiques_Comptes_Alimentation\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[GCO_CodCapaciteSupportPertesMif2]">
+                      <properties>
+                        <property
+                          name="FastParse"
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines.">false</property>
+                        <property
+                          name="UseBinaryFormat"
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format.">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Generiques_Comptes_Alimentation\Flat File Source.Outputs[Flat File Source Output].Columns[GCO_CodProfilInvestissementMif2]"
+                      name="GCO_CodProfilInvestissementMif2"
+                      lineageId="Package\Generiques_Comptes_Alimentation\Flat File Source.Outputs[Flat File Source Output].Columns[GCO_CodProfilInvestissementMif2]"
+                      length="50"
+                      dataType="str"
+                      codePage="1252"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Generiques_Comptes_Alimentation\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[GCO_CodProfilInvestissementMif2]">
+                      <properties>
+                        <property
+                          name="FastParse"
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines.">false</property>
+                        <property
+                          name="UseBinaryFormat"
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format.">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Generiques_Comptes_Alimentation\Flat File Source.Outputs[Flat File Source Output].Columns[GCO_CodToleranceRisqueMif2]"
+                      name="GCO_CodToleranceRisqueMif2"
+                      lineageId="Package\Generiques_Comptes_Alimentation\Flat File Source.Outputs[Flat File Source Output].Columns[GCO_CodToleranceRisqueMif2]"
+                      length="50"
+                      dataType="str"
+                      codePage="1252"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Generiques_Comptes_Alimentation\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[GCO_CodToleranceRisqueMif2]">
+                      <properties>
+                        <property
+                          name="FastParse"
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines.">false</property>
+                        <property
+                          name="UseBinaryFormat"
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format.">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Generiques_Comptes_Alimentation\Flat File Source.Outputs[Flat File Source Output].Columns[GCO_CodHorizonPlacementMif2]"
+                      name="GCO_CodHorizonPlacementMif2"
+                      lineageId="Package\Generiques_Comptes_Alimentation\Flat File Source.Outputs[Flat File Source Output].Columns[GCO_CodHorizonPlacementMif2]"
+                      length="50"
+                      dataType="str"
+                      codePage="1252"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Generiques_Comptes_Alimentation\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[GCO_CodHorizonPlacementMif2]">
+                      <properties>
+                        <property
+                          name="FastParse"
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines.">false</property>
+                        <property
+                          name="UseBinaryFormat"
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format.">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Generiques_Comptes_Alimentation\Flat File Source.Outputs[Flat File Source Output].Columns[GCO_CodObjectifPlacementMif2]"
+                      name="GCO_CodObjectifPlacementMif2"
+                      lineageId="Package\Generiques_Comptes_Alimentation\Flat File Source.Outputs[Flat File Source Output].Columns[GCO_CodObjectifPlacementMif2]"
+                      length="50"
+                      dataType="str"
+                      codePage="1252"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Generiques_Comptes_Alimentation\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[GCO_CodObjectifPlacementMif2]">
+                      <properties>
+                        <property
+                          name="FastParse"
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines.">false</property>
+                        <property
+                          name="UseBinaryFormat"
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format.">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Generiques_Comptes_Alimentation\Flat File Source.Outputs[Flat File Source Output].Columns[GCO_CodTypeDistributionMif2]"
+                      name="GCO_CodTypeDistributionMif2"
+                      lineageId="Package\Generiques_Comptes_Alimentation\Flat File Source.Outputs[Flat File Source Output].Columns[GCO_CodTypeDistributionMif2]"
+                      length="50"
+                      dataType="str"
+                      codePage="1252"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Generiques_Comptes_Alimentation\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[GCO_CodTypeDistributionMif2]">
+                      <properties>
+                        <property
+                          name="FastParse"
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines.">false</property>
+                        <property
+                          name="UseBinaryFormat"
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format.">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Generiques_Comptes_Alimentation\Flat File Source.Outputs[Flat File Source Output].Columns[GCO_CodProfilRisqueMif2]"
+                      name="GCO_CodProfilRisqueMif2"
+                      lineageId="Package\Generiques_Comptes_Alimentation\Flat File Source.Outputs[Flat File Source Output].Columns[GCO_CodProfilRisqueMif2]"
+                      length="50"
+                      dataType="str"
+                      codePage="1252"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Generiques_Comptes_Alimentation\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[GCO_CodProfilRisqueMif2]">
+                      <properties>
+                        <property
+                          name="FastParse"
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines.">false</property>
+                        <property
+                          name="UseBinaryFormat"
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format.">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Generiques_Comptes_Alimentation\Flat File Source.Outputs[Flat File Source Output].Columns[GCO_CodStrategieInvestissementMif2]"
+                      name="GCO_CodStrategieInvestissementMif2"
+                      lineageId="Package\Generiques_Comptes_Alimentation\Flat File Source.Outputs[Flat File Source Output].Columns[GCO_CodStrategieInvestissementMif2]"
+                      length="50"
+                      dataType="str"
+                      codePage="1252"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Generiques_Comptes_Alimentation\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[GCO_CodStrategieInvestissementMif2]">
+                      <properties>
+                        <property
+                          name="FastParse"
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines.">false</property>
+                        <property
+                          name="UseBinaryFormat"
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format.">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Generiques_Comptes_Alimentation\Flat File Source.Outputs[Flat File Source Output].Columns[GCO_AllocationActionMinMif2]"
+                      name="GCO_AllocationActionMinMif2"
+                      lineageId="Package\Generiques_Comptes_Alimentation\Flat File Source.Outputs[Flat File Source Output].Columns[GCO_AllocationActionMinMif2]"
+                      length="50"
+                      dataType="str"
+                      codePage="1252"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Generiques_Comptes_Alimentation\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[GCO_AllocationActionMinMif2]">
+                      <properties>
+                        <property
+                          name="FastParse"
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines.">false</property>
+                        <property
+                          name="UseBinaryFormat"
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format.">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Generiques_Comptes_Alimentation\Flat File Source.Outputs[Flat File Source Output].Columns[GCO_AllocationActionMaxMif2]"
+                      name="GCO_AllocationActionMaxMif2"
+                      lineageId="Package\Generiques_Comptes_Alimentation\Flat File Source.Outputs[Flat File Source Output].Columns[GCO_AllocationActionMaxMif2]"
+                      length="50"
+                      dataType="str"
+                      codePage="1252"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Generiques_Comptes_Alimentation\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[GCO_AllocationActionMaxMif2]">
+                      <properties>
+                        <property
+                          name="FastParse"
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines.">false</property>
+                        <property
+                          name="UseBinaryFormat"
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format.">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Generiques_Comptes_Alimentation\Flat File Source.Outputs[Flat File Source Output].Columns[GCO_CodTarif]"
+                      name="GCO_CodTarif"
+                      lineageId="Package\Generiques_Comptes_Alimentation\Flat File Source.Outputs[Flat File Source Output].Columns[GCO_CodTarif]"
+                      length="50"
+                      dataType="str"
+                      codePage="1252"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Generiques_Comptes_Alimentation\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[GCO_CodTarif]">
+                      <properties>
+                        <property
+                          name="FastParse"
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines.">false</property>
+                        <property
+                          name="UseBinaryFormat"
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format.">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Generiques_Comptes_Alimentation\Flat File Source.Outputs[Flat File Source Output].Columns[GCO_CodTarifDDG]"
+                      name="GCO_CodTarifDDG"
+                      lineageId="Package\Generiques_Comptes_Alimentation\Flat File Source.Outputs[Flat File Source Output].Columns[GCO_CodTarifDDG]"
+                      length="50"
+                      dataType="str"
+                      codePage="1252"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Generiques_Comptes_Alimentation\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[GCO_CodTarifDDG]">
+                      <properties>
+                        <property
+                          name="FastParse"
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines.">false</property>
+                        <property
+                          name="UseBinaryFormat"
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format.">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Generiques_Comptes_Alimentation\Flat File Source.Outputs[Flat File Source Output].Columns[GCO_CodTarifFHG]"
+                      name="GCO_CodTarifFHG"
+                      lineageId="Package\Generiques_Comptes_Alimentation\Flat File Source.Outputs[Flat File Source Output].Columns[GCO_CodTarifFHG]"
+                      length="50"
+                      dataType="str"
+                      codePage="1252"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Generiques_Comptes_Alimentation\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[GCO_CodTarifFHG]">
+                      <properties>
+                        <property
+                          name="FastParse"
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines.">false</property>
+                        <property
+                          name="UseBinaryFormat"
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format.">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Generiques_Comptes_Alimentation\Flat File Source.Outputs[Flat File Source Output].Columns[GCO_IsNanti]"
+                      name="GCO_IsNanti"
+                      lineageId="Package\Generiques_Comptes_Alimentation\Flat File Source.Outputs[Flat File Source Output].Columns[GCO_IsNanti]"
+                      length="50"
+                      dataType="str"
+                      codePage="1252"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Generiques_Comptes_Alimentation\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[GCO_IsNanti]">
+                      <properties>
+                        <property
+                          name="FastParse"
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines.">false</property>
+                        <property
+                          name="UseBinaryFormat"
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format.">false</property>
+                      </properties>
+                    </outputColumn>
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -4999,6 +5329,34 @@
           Id="Package\Dim_Activity_Aliementation"
           TopLeft="325,185" />
         <NodeLayout
+          Size="234,42"
+          Id="Package\Empty_CLI_GTI_GeneriquesTiers"
+          TopLeft="306,11" />
+        <NodeLayout
+          Size="247,42"
+          Id="Package\Empty_CLI_TCL_TiersComptesLocal"
+          TopLeft="605,128" />
+        <NodeLayout
+          Size="172,42"
+          Id="Package\Empty_Dim_Activity"
+          TopLeft="342,125" />
+        <NodeLayout
+          Size="217,42"
+          Id="Package\Empty_Fait_CRO_CRO_CROD"
+          TopLeft="319,261" />
+        <NodeLayout
+          Size="174,42"
+          Id="Package\Empty_Fait_Meeting"
+          TopLeft="44,120" />
+        <NodeLayout
+          Size="213,42"
+          Id="Package\Empty_Generiques_Comptes"
+          TopLeft="35,7" />
+        <NodeLayout
+          Size="265,42"
+          Id="Package\Empty_INS_GIN_GeneriqueInstruments"
+          TopLeft="591,15" />
+        <NodeLayout
           Size="254,42"
           Id="Package\Fait_CRO_CRO_CROD_Alimentation"
           TopLeft="581,262" />
@@ -5014,34 +5372,6 @@
           Size="309,42"
           Id="Package\INS_GIN_GeneriqueInstruments_Alimentation"
           TopLeft="583,70" />
-        <NodeLayout
-          Size="213,42"
-          Id="Package\Empty_Generiques_Comptes"
-          TopLeft="35,7" />
-        <NodeLayout
-          Size="234,42"
-          Id="Package\Empty_CLI_GTI_GeneriquesTiers"
-          TopLeft="306,11" />
-        <NodeLayout
-          Size="174,42"
-          Id="Package\Empty_Fait_Meeting"
-          TopLeft="44,120" />
-        <NodeLayout
-          Size="247,42"
-          Id="Package\Empty_CLI_TCL_TiersComptesLocal"
-          TopLeft="605,128" />
-        <NodeLayout
-          Size="172,42"
-          Id="Package\Empty_Dim_Activity"
-          TopLeft="342,125" />
-        <NodeLayout
-          Size="265,42"
-          Id="Package\Empty_INS_GIN_GeneriqueInstruments"
-          TopLeft="591,15" />
-        <NodeLayout
-          Size="217,42"
-          Id="Package\Empty_Fait_CRO_CRO_CROD"
-          TopLeft="319,261" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
           TopLeft="35,28">
@@ -5585,7 +5915,7 @@
     design-time-name="Package\INS_GIN_GeneriqueInstruments_Alimentation">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="170,42"
           Id="Package\INS_GIN_GeneriqueInstruments_Alimentation\OLE DB Destination"
@@ -5613,7 +5943,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>

@@ -2,7 +2,7 @@
 <BuildLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <ProjectInfo>
     <Name>OBP_Securities</Name>
-    <LastWriteTime>2019-12-01T13:47:48.5063903Z</LastWriteTime>
+    <LastWriteTime>2019-12-03T16:42:55.5612354Z</LastWriteTime>
     <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
   </ProjectInfo>
   <LastBuildInfos>
@@ -13,7 +13,7 @@
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>SA_DW.dtsx</Name>
-      <LastWriteTime>2019-12-01T13:47:48.4290612Z</LastWriteTime>
+      <LastWriteTime>2019-12-03T17:15:55.7549875Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
   </LastBuildInfos>
