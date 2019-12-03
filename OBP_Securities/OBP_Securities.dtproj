@@ -26,7 +26,7 @@
           <SSIS:Property SSIS:Name="CreatorComputerName">DESKTOP-63S49FM</SSIS:Property>
           <SSIS:Property SSIS:Name="Description">
           </SSIS:Property>
-          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAeDhHXG7YAkqCofnFo/UAvwAAAAACAAAAAAAQZgAAAAEAACAAAADixCabHZ0RuSmVql24PikHo8+/yDeo0qIlcSBvRtL5jwAAAAAOgAAAAAIAACAAAACXZ2gKGcrlEKJoYyOAMQo333SImvkm6kCouPS87TdbhJAAAADu3seqg++awWiG1KouxfqdDgYJZRS3drVU5hk5FvewWz79yr9Gq2x2JZSn19SVXgx2EtejyzwHt6WJv4U5goqKiIDU2akOLJEFmskegBIciPqcfdwAG24q91GyMiqp9WjS9SjPBtsj+FvZiS+yyPMCbm05ccEJfcgDRw7XATxlnZ7r/PqYswXdFrVNh4uiQcJAAAAAwR7jHnSTXsdBpxPWT4k5tHlJWV/jIStYN8Io1p0PdMBeukJqPAg79FumXSoJKgD9S6+KTbc6NuqEBB9q77Rz5A==</SSIS:Property>
+          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAeDhHXG7YAkqCofnFo/UAvwAAAAACAAAAAAAQZgAAAAEAACAAAAB0fbCgWCZr1X8nx4B2pWpAr2UlTRRyar+HEcMEPxnUAQAAAAAOgAAAAAIAACAAAACzIBEyXHQihaKS8CTsPvlhIMl07cUASvTk3nVgZrCy4JAAAACGhu2+DVmE4AMGjWlAddqtYDnLDu7zXCUSD7HIxb+QZJm+l3bRAohGXsJeafExNeCO7Wly2j7DgQzg682no4HX+L1x6COa43oJojwrfW1EgRYec9fkjOZf3pDVIlZLuS0JfKG+26qNXXWs/wBRd5P0Pqp4J8hweVp+l23BNNd4yN/1m9ZHLADfzZ5lUcYu02BAAAAAXFGRuKJT7y20Tm9c4qH0pAIPnF2LT0cZyFF1Q9cIglFRNkgkrhZNxPGshKlgeu2kFRABbz113eUOmY6R9mq3MQ==</SSIS:Property>
           <SSIS:Property SSIS:Name="FormatVersion">1</SSIS:Property>
         </SSIS:Properties>
         <SSIS:Packages>
@@ -43,10 +43,10 @@
                 <SSIS:Property SSIS:Name="Name">SA_Alimentation</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">142</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">155</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{4BB1EAAC-BED4-4496-B52D-A08014760751}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{9D4C7564-0B4B-4F7D-98AD-E3B5D6A99431}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">6</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>
@@ -599,7 +599,7 @@
                     <SSIS:Property SSIS:Name="DataType">3</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.CRM_V_CONTACTS_File.AlwaysCheckForRowDelimiters">
+                <SSIS:Parameter SSIS:Name="CM.CRM_V_CONTATSS_File.AlwaysCheckForRowDelimiters">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">
                     </SSIS:Property>
@@ -614,7 +614,7 @@
                     <SSIS:Property SSIS:Name="DataType">3</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.CRM_V_CONTACTS_File.CodePage">
+                <SSIS:Parameter SSIS:Name="CM.CRM_V_CONTATSS_File.CodePage">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">
                     </SSIS:Property>
@@ -629,7 +629,7 @@
                     <SSIS:Property SSIS:Name="DataType">9</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.CRM_V_CONTACTS_File.ColumnNamesInFirstDataRow">
+                <SSIS:Parameter SSIS:Name="CM.CRM_V_CONTATSS_File.ColumnNamesInFirstDataRow">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">
                     </SSIS:Property>
@@ -644,7 +644,7 @@
                     <SSIS:Property SSIS:Name="DataType">3</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.CRM_V_CONTACTS_File.ConnectionString">
+                <SSIS:Parameter SSIS:Name="CM.CRM_V_CONTATSS_File.ConnectionString">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">
                     </SSIS:Property>
@@ -659,7 +659,7 @@
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.CRM_V_CONTACTS_File.DataRowsToSkip">
+                <SSIS:Parameter SSIS:Name="CM.CRM_V_CONTATSS_File.DataRowsToSkip">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">
                     </SSIS:Property>
@@ -674,7 +674,7 @@
                     <SSIS:Property SSIS:Name="DataType">9</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.CRM_V_CONTACTS_File.Format">
+                <SSIS:Parameter SSIS:Name="CM.CRM_V_CONTATSS_File.Format">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">
                     </SSIS:Property>
@@ -689,7 +689,7 @@
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.CRM_V_CONTACTS_File.HeaderRowDelimiter">
+                <SSIS:Parameter SSIS:Name="CM.CRM_V_CONTATSS_File.HeaderRowDelimiter">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">
                     </SSIS:Property>
@@ -705,7 +705,7 @@
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.CRM_V_CONTACTS_File.HeaderRowsToSkip">
+                <SSIS:Parameter SSIS:Name="CM.CRM_V_CONTATSS_File.HeaderRowsToSkip">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">
                     </SSIS:Property>
@@ -720,7 +720,7 @@
                     <SSIS:Property SSIS:Name="DataType">9</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.CRM_V_CONTACTS_File.LocaleID">
+                <SSIS:Parameter SSIS:Name="CM.CRM_V_CONTATSS_File.LocaleID">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">
                     </SSIS:Property>
@@ -735,7 +735,7 @@
                     <SSIS:Property SSIS:Name="DataType">9</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.CRM_V_CONTACTS_File.RowDelimiter">
+                <SSIS:Parameter SSIS:Name="CM.CRM_V_CONTATSS_File.RowDelimiter">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">
                     </SSIS:Property>
@@ -751,7 +751,7 @@
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.CRM_V_CONTACTS_File.TextQualifier">
+                <SSIS:Parameter SSIS:Name="CM.CRM_V_CONTATSS_File.TextQualifier">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">
                     </SSIS:Property>
@@ -766,7 +766,7 @@
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.CRM_V_CONTACTS_File.Unicode">
+                <SSIS:Parameter SSIS:Name="CM.CRM_V_CONTATSS_File.Unicode">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">
                     </SSIS:Property>
@@ -781,7 +781,7 @@
                     <SSIS:Property SSIS:Name="DataType">3</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.CRM_V_INTERACTIONSOBP_File.AlwaysCheckForRowDelimiters">
+                <SSIS:Parameter SSIS:Name="CM.CRM_V_INERACTIONS_File.AlwaysCheckForRowDelimiters">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">
                     </SSIS:Property>
@@ -796,7 +796,7 @@
                     <SSIS:Property SSIS:Name="DataType">3</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.CRM_V_INTERACTIONSOBP_File.CodePage">
+                <SSIS:Parameter SSIS:Name="CM.CRM_V_INERACTIONS_File.CodePage">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">
                     </SSIS:Property>
@@ -807,11 +807,11 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">1252</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">65001</SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">9</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.CRM_V_INTERACTIONSOBP_File.ColumnNamesInFirstDataRow">
+                <SSIS:Parameter SSIS:Name="CM.CRM_V_INERACTIONS_File.ColumnNamesInFirstDataRow">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">
                     </SSIS:Property>
@@ -826,7 +826,7 @@
                     <SSIS:Property SSIS:Name="DataType">3</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.CRM_V_INTERACTIONSOBP_File.ConnectionString">
+                <SSIS:Parameter SSIS:Name="CM.CRM_V_INERACTIONS_File.ConnectionString">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">
                     </SSIS:Property>
@@ -837,11 +837,11 @@
                     <SSIS:Property SSIS:Name="IncludeInDebugDump">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Required">0</SSIS:Property>
                     <SSIS:Property SSIS:Name="Sensitive">0</SSIS:Property>
-                    <SSIS:Property SSIS:Name="Value">D:\ESPRIT\4_Data_Science\PBI\PBI-DS\Impl\Data\CRM_V_INTERACTIONSOBP.csv</SSIS:Property>
+                    <SSIS:Property SSIS:Name="Value">D:\ESPRIT\4_Data_Science\PBI\PBI-DS\Impl\Data\CRM_V_CONTACTS.csv</SSIS:Property>
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.CRM_V_INTERACTIONSOBP_File.DataRowsToSkip">
+                <SSIS:Parameter SSIS:Name="CM.CRM_V_INERACTIONS_File.DataRowsToSkip">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">
                     </SSIS:Property>
@@ -856,7 +856,7 @@
                     <SSIS:Property SSIS:Name="DataType">9</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.CRM_V_INTERACTIONSOBP_File.Format">
+                <SSIS:Parameter SSIS:Name="CM.CRM_V_INERACTIONS_File.Format">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">
                     </SSIS:Property>
@@ -871,7 +871,7 @@
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.CRM_V_INTERACTIONSOBP_File.HeaderRowDelimiter">
+                <SSIS:Parameter SSIS:Name="CM.CRM_V_INERACTIONS_File.HeaderRowDelimiter">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">
                     </SSIS:Property>
@@ -887,7 +887,7 @@
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.CRM_V_INTERACTIONSOBP_File.HeaderRowsToSkip">
+                <SSIS:Parameter SSIS:Name="CM.CRM_V_INERACTIONS_File.HeaderRowsToSkip">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">
                     </SSIS:Property>
@@ -902,7 +902,7 @@
                     <SSIS:Property SSIS:Name="DataType">9</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.CRM_V_INTERACTIONSOBP_File.LocaleID">
+                <SSIS:Parameter SSIS:Name="CM.CRM_V_INERACTIONS_File.LocaleID">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">
                     </SSIS:Property>
@@ -917,7 +917,7 @@
                     <SSIS:Property SSIS:Name="DataType">9</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.CRM_V_INTERACTIONSOBP_File.RowDelimiter">
+                <SSIS:Parameter SSIS:Name="CM.CRM_V_INERACTIONS_File.RowDelimiter">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">
                     </SSIS:Property>
@@ -933,7 +933,7 @@
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.CRM_V_INTERACTIONSOBP_File.TextQualifier">
+                <SSIS:Parameter SSIS:Name="CM.CRM_V_INERACTIONS_File.TextQualifier">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">
                     </SSIS:Property>
@@ -948,7 +948,7 @@
                     <SSIS:Property SSIS:Name="DataType">18</SSIS:Property>
                   </SSIS:Properties>
                 </SSIS:Parameter>
-                <SSIS:Parameter SSIS:Name="CM.CRM_V_INTERACTIONSOBP_File.Unicode">
+                <SSIS:Parameter SSIS:Name="CM.CRM_V_INERACTIONS_File.Unicode">
                   <SSIS:Properties>
                     <SSIS:Property SSIS:Name="ID">
                     </SSIS:Property>
@@ -1423,10 +1423,10 @@
                 <SSIS:Property SSIS:Name="Name">SA_DW</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">60</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">78</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{7D13EB86-4C79-4F72-A53C-454FF912463F}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{2884FFEB-F19C-48BC-922D-A50B8A3FBE36}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">6</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>

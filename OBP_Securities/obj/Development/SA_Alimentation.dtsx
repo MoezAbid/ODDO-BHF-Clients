@@ -6,8 +6,8 @@
   DTS:CreatorComputerName="DESKTOP-63S49FM"
   DTS:CreationDate="12/1/2019 10:20:09 AM"
   DTS:PackageType="5"
-  DTS:VersionBuild="142"
-  DTS:VersionGUID="{4BB1EAAC-BED4-4496-B52D-A08014760751}"
+  DTS:VersionBuild="155"
+  DTS:VersionGUID="{9D4C7564-0B4B-4F7D-98AD-E3B5D6A99431}"
   DTS:LastModifiedProductVersion="11.0.2100.60"
   DTS:LocaleID="1036"
   DTS:ObjectName="SA_Alimentation"
@@ -536,9 +536,9 @@
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[CRM_V_CONTACTS_File]"
-      DTS:ObjectName="CRM_V_CONTACTS_File"
-      DTS:DTSID="{8AA5C034-604F-45B2-A4BD-DF45BA8CC2B6}"
+      DTS:refId="Package.ConnectionManagers[CRM_V_CONTATSS_File]"
+      DTS:ObjectName="CRM_V_CONTATSS_File"
+      DTS:DTSID="{68646F54-8CAF-4F05-AED7-05DF36848ACC}"
       DTS:CreationName="FLATFILE">
       <DTS:ObjectData>
         <DTS:ConnectionManager
@@ -557,8 +557,8 @@
               DTS:MaximumWidth="50"
               DTS:DataType="129"
               DTS:TextQualified="True"
-              DTS:ObjectName="Id"
-              DTS:DTSID="{7A7C9CC0-DD08-45E5-B2DE-157257B15ED9}"
+              DTS:ObjectName="contactId"
+              DTS:DTSID="{50F4729D-2119-4D32-98F7-DC4CDBD158B5}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -566,8 +566,8 @@
               DTS:MaximumWidth="50"
               DTS:DataType="129"
               DTS:TextQualified="True"
-              DTS:ObjectName="code"
-              DTS:DTSID="{0E7F9ADB-772B-4489-8DB1-496FBCE43C58}"
+              DTS:ObjectName="ActivityDate"
+              DTS:DTSID="{EBEEA90C-885D-43AB-8639-890DFE128D20}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -575,35 +575,8 @@
               DTS:MaximumWidth="50"
               DTS:DataType="129"
               DTS:TextQualified="True"
-              DTS:ObjectName="Status"
-              DTS:DTSID="{3C58BDA2-0D0F-4773-A88B-89FA3D93925B}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x003B_"
-              DTS:MaximumWidth="50"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName="ClientPhoneContactFrequency"
-              DTS:DTSID="{030154E6-6C6F-4749-A1B0-5CCD351C9342}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x003B_"
-              DTS:MaximumWidth="50"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName="ClientMeetingFrequency"
-              DTS:DTSID="{A505424C-2D12-46B3-9520-EECAE6EB91A3}"
-              DTS:CreationName="" />
-            <DTS:FlatFileColumn
-              DTS:ColumnType="Delimited"
-              DTS:ColumnDelimiter="_x003B_"
-              DTS:MaximumWidth="50"
-              DTS:DataType="129"
-              DTS:TextQualified="True"
-              DTS:ObjectName="MeetingFrequency"
-              DTS:DTSID="{7FAB128B-DFDD-4B25-BAE6-CB0CFAA22035}"
+              DTS:ObjectName="ActivityType"
+              DTS:DTSID="{F4EF90F8-45B3-494F-8B28-D34BB6AB30C1}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -611,17 +584,17 @@
               DTS:MaximumWidth="50"
               DTS:DataType="129"
               DTS:TextQualified="True"
-              DTS:ObjectName="PhoneContactFrequency"
-              DTS:DTSID="{5A015532-A03A-4F86-9D39-CC5C621BDF11}"
+              DTS:ObjectName="ContactType"
+              DTS:DTSID="{D8A76991-EF0C-4088-9900-C7B499DDA5A1}"
               DTS:CreationName="" />
           </DTS:FlatFileColumns>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
     <DTS:ConnectionManager
-      DTS:refId="Package.ConnectionManagers[CRM_V_INTERACTIONSOBP_File]"
-      DTS:ObjectName="CRM_V_INTERACTIONSOBP_File"
-      DTS:DTSID="{68646F54-8CAF-4F05-AED7-05DF36848ACC}"
+      DTS:refId="Package.ConnectionManagers[CRM_V_INERACTIONS_File]"
+      DTS:ObjectName="CRM_V_INERACTIONS_File"
+      DTS:DTSID="{8AA5C034-604F-45B2-A4BD-DF45BA8CC2B6}"
       DTS:CreationName="FLATFILE">
       <DTS:ObjectData>
         <DTS:ConnectionManager
@@ -631,8 +604,8 @@
           DTS:ColumnNamesInFirstDataRow="True"
           DTS:RowDelimiter=""
           DTS:TextQualifier="_x003C_none_x003E_"
-          DTS:CodePage="1252"
-          DTS:ConnectionString="D:\ESPRIT\4_Data_Science\PBI\PBI-DS\Impl\Data\CRM_V_INTERACTIONSOBP.csv">
+          DTS:CodePage="65001"
+          DTS:ConnectionString="D:\ESPRIT\4_Data_Science\PBI\PBI-DS\Impl\Data\CRM_V_CONTACTS.csv">
           <DTS:FlatFileColumns>
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -640,8 +613,8 @@
               DTS:MaximumWidth="50"
               DTS:DataType="129"
               DTS:TextQualified="True"
-              DTS:ObjectName="contactId"
-              DTS:DTSID="{7B9C0932-7DF7-4EDF-956C-ED5025FC7A7B}"
+              DTS:ObjectName="Id"
+              DTS:DTSID="{1ACBA879-1C3A-4245-A819-1456C0533C0C}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -649,8 +622,8 @@
               DTS:MaximumWidth="50"
               DTS:DataType="129"
               DTS:TextQualified="True"
-              DTS:ObjectName="ActivityDate"
-              DTS:DTSID="{2A0ACCCE-7800-472D-BA53-D3755A537DA2}"
+              DTS:ObjectName="code"
+              DTS:DTSID="{A6DF7AE5-AB7E-4270-96B7-96B931BC4DD6}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -658,8 +631,35 @@
               DTS:MaximumWidth="50"
               DTS:DataType="129"
               DTS:TextQualified="True"
-              DTS:ObjectName="ActivityType"
-              DTS:DTSID="{6A196317-08E9-4A5F-AA31-CD53AB386235}"
+              DTS:ObjectName="Status"
+              DTS:DTSID="{9DFE73BD-0329-41FC-9967-4BF4DAA23A2B}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ClientPhoneContactFrequency"
+              DTS:DTSID="{21293DF0-C5C7-4BFD-BA2C-9DF4BAA17BC0}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="ClientMeetingFrequency"
+              DTS:DTSID="{4012163E-FF3F-4BB7-B6C2-4994D023A960}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x003B_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="MeetingFrequency"
+              DTS:DTSID="{089D8A13-2170-44A7-844D-9E7EB9513284}"
               DTS:CreationName="" />
             <DTS:FlatFileColumn
               DTS:ColumnType="Delimited"
@@ -667,8 +667,8 @@
               DTS:MaximumWidth="50"
               DTS:DataType="129"
               DTS:TextQualified="True"
-              DTS:ObjectName="ContactType"
-              DTS:DTSID="{039AC56F-E49F-4F17-9AB7-58BF7568724F}"
+              DTS:ObjectName="PhoneContactFrequency"
+              DTS:DTSID="{93F88931-474D-493B-8C78-97C3727116E2}"
               DTS:CreationName="" />
           </DTS:FlatFileColumns>
         </DTS:ConnectionManager>
@@ -2969,8 +2969,8 @@
                 <connection
                   refId="Package\Dim_Activity_Alimentation\Flat File Source.Connections[FlatFileConnection]"
                   name="FlatFileConnection"
-                  connectionManagerID="Package.ConnectionManagers[CRM_V_INTERACTIONSOBP_File]"
-                  connectionManagerRefId="Package.ConnectionManagers[CRM_V_INTERACTIONSOBP_File]" />
+                  connectionManagerID="Package.ConnectionManagers[CRM_V_CONTATSS_File]"
+                  connectionManagerRefId="Package.ConnectionManagers[CRM_V_CONTATSS_File]" />
               </connections>
               <outputs>
                 <output
@@ -3139,7 +3139,7 @@
                 <property
                   name="OpenRowset"
                   dataType="System.String"
-                  description="Specifies the name of the database object used to open a rowset.">[Activity]</property>
+                  description="Specifies the name of the database object used to open a rowset.">[dbo].[Activity]</property>
                 <property
                   name="OpenRowsetVariable"
                   dataType="System.String"
@@ -3296,7 +3296,7 @@
     <DTS:Executable
       DTS:refId="Package\Empty_CLI_GTI_GeneriquesTiers"
       DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
-      DTS:ThreadHint="4"
+      DTS:ThreadHint="2"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
       DTS:LocaleID="-1"
       DTS:ObjectName="Empty_CLI_GTI_GeneriquesTiers"
@@ -3313,7 +3313,7 @@
     <DTS:Executable
       DTS:refId="Package\Empty_CLI_TCL_TiersComptesLocal"
       DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
-      DTS:ThreadHint="5"
+      DTS:ThreadHint="3"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
       DTS:LocaleID="-1"
       DTS:ObjectName="Empty_CLI_TCL_TiersComptesLocal"
@@ -3330,7 +3330,7 @@
     <DTS:Executable
       DTS:refId="Package\Empty_CRO_CRO_CROD"
       DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
-      DTS:ThreadHint="3"
+      DTS:ThreadHint="0"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
       DTS:LocaleID="-1"
       DTS:ObjectName="Empty_CRO_CRO_CROD"
@@ -3347,7 +3347,7 @@
     <DTS:Executable
       DTS:refId="Package\Empty_Dim_Activity"
       DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
-      DTS:ThreadHint="2"
+      DTS:ThreadHint="1"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
       DTS:LocaleID="-1"
       DTS:ObjectName="Empty_Dim_Activity"
@@ -3364,7 +3364,7 @@
     <DTS:Executable
       DTS:refId="Package\Empty_Generiques_Comptes"
       DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
-      DTS:ThreadHint="1"
+      DTS:ThreadHint="6"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
       DTS:LocaleID="-1"
       DTS:ObjectName="Empty_Generiques_Comptes"
@@ -3381,7 +3381,7 @@
     <DTS:Executable
       DTS:refId="Package\Empty_INS_GIN_GeneriqueInstruments"
       DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
-      DTS:ThreadHint="6"
+      DTS:ThreadHint="5"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
       DTS:LocaleID="-1"
       DTS:ObjectName="Empty_INS_GIN_GeneriqueInstruments"
@@ -3398,7 +3398,7 @@
     <DTS:Executable
       DTS:refId="Package\Empty_Meeting"
       DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
-      DTS:ThreadHint="0"
+      DTS:ThreadHint="4"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
       DTS:LocaleID="-1"
       DTS:ObjectName="Empty_Meeting"
@@ -5465,8 +5465,8 @@
                 <connection
                   refId="Package\Meeting_Alimentation\Flat File Source.Connections[FlatFileConnection]"
                   name="FlatFileConnection"
-                  connectionManagerID="Package.ConnectionManagers[CRM_V_CONTACTS_File]"
-                  connectionManagerRefId="Package.ConnectionManagers[CRM_V_CONTACTS_File]" />
+                  connectionManagerID="Package.ConnectionManagers[CRM_V_INERACTIONS_File]"
+                  connectionManagerRefId="Package.ConnectionManagers[CRM_V_INERACTIONS_File]" />
               </connections>
               <outputs>
                 <output
@@ -5479,7 +5479,7 @@
                       lineageId="Package\Meeting_Alimentation\Flat File Source.Outputs[Flat File Source Output].Columns[Id]"
                       length="50"
                       dataType="str"
-                      codePage="1252"
+                      codePage="65001"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       truncationRowDisposition="FailComponent"
@@ -5501,7 +5501,7 @@
                       lineageId="Package\Meeting_Alimentation\Flat File Source.Outputs[Flat File Source Output].Columns[code]"
                       length="50"
                       dataType="str"
-                      codePage="1252"
+                      codePage="65001"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       truncationRowDisposition="FailComponent"
@@ -5523,7 +5523,7 @@
                       lineageId="Package\Meeting_Alimentation\Flat File Source.Outputs[Flat File Source Output].Columns[Status]"
                       length="50"
                       dataType="str"
-                      codePage="1252"
+                      codePage="65001"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       truncationRowDisposition="FailComponent"
@@ -5545,7 +5545,7 @@
                       lineageId="Package\Meeting_Alimentation\Flat File Source.Outputs[Flat File Source Output].Columns[MeetingFrequency]"
                       length="50"
                       dataType="str"
-                      codePage="1252"
+                      codePage="65001"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       truncationRowDisposition="FailComponent"
@@ -5567,7 +5567,7 @@
                       lineageId="Package\Meeting_Alimentation\Flat File Source.Outputs[Flat File Source Output].Columns[PhoneContactFrequency]"
                       length="50"
                       dataType="str"
-                      codePage="1252"
+                      codePage="65001"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       truncationRowDisposition="FailComponent"
@@ -5589,7 +5589,7 @@
                       lineageId="Package\Meeting_Alimentation\Flat File Source.Outputs[Flat File Source Output].Columns[ClientPhoneContactFrequency]"
                       length="50"
                       dataType="str"
-                      codePage="1252"
+                      codePage="65001"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       truncationRowDisposition="FailComponent"
@@ -5611,7 +5611,7 @@
                       lineageId="Package\Meeting_Alimentation\Flat File Source.Outputs[Flat File Source Output].Columns[ClientMeetingFrequency]"
                       length="50"
                       dataType="str"
-                      codePage="1252"
+                      codePage="65001"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       truncationRowDisposition="FailComponent"
@@ -5635,43 +5635,43 @@
                       name="Id"
                       dataType="str"
                       length="50"
-                      codePage="1252" />
+                      codePage="65001" />
                     <externalMetadataColumn
                       refId="Package\Meeting_Alimentation\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[code]"
                       name="code"
                       dataType="str"
                       length="50"
-                      codePage="1252" />
+                      codePage="65001" />
                     <externalMetadataColumn
                       refId="Package\Meeting_Alimentation\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[Status]"
                       name="Status"
                       dataType="str"
                       length="50"
-                      codePage="1252" />
+                      codePage="65001" />
                     <externalMetadataColumn
                       refId="Package\Meeting_Alimentation\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[ClientPhoneContactFrequency]"
                       name="ClientPhoneContactFrequency"
                       dataType="str"
                       length="50"
-                      codePage="1252" />
+                      codePage="65001" />
                     <externalMetadataColumn
                       refId="Package\Meeting_Alimentation\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[ClientMeetingFrequency]"
                       name="ClientMeetingFrequency"
                       dataType="str"
                       length="50"
-                      codePage="1252" />
+                      codePage="65001" />
                     <externalMetadataColumn
                       refId="Package\Meeting_Alimentation\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[MeetingFrequency]"
                       name="MeetingFrequency"
                       dataType="str"
                       length="50"
-                      codePage="1252" />
+                      codePage="65001" />
                     <externalMetadataColumn
                       refId="Package\Meeting_Alimentation\Flat File Source.Outputs[Flat File Source Output].ExternalColumns[PhoneContactFrequency]"
                       name="PhoneContactFrequency"
                       dataType="str"
                       length="50"
-                      codePage="1252" />
+                      codePage="65001" />
                   </externalMetadataColumns>
                 </output>
                 <output
@@ -5782,7 +5782,7 @@
                       cachedName="Id"
                       cachedDataType="str"
                       cachedLength="50"
-                      cachedCodepage="1252" />
+                      cachedCodepage="65001" />
                     <inputColumn
                       refId="Package\Meeting_Alimentation\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[code]"
                       lineageId="Package\Meeting_Alimentation\Flat File Source.Outputs[Flat File Source Output].Columns[code]"
@@ -5790,7 +5790,7 @@
                       cachedName="code"
                       cachedDataType="str"
                       cachedLength="50"
-                      cachedCodepage="1252" />
+                      cachedCodepage="65001" />
                     <inputColumn
                       refId="Package\Meeting_Alimentation\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Status]"
                       lineageId="Package\Meeting_Alimentation\Flat File Source.Outputs[Flat File Source Output].Columns[Status]"
@@ -5798,7 +5798,7 @@
                       cachedName="Status"
                       cachedDataType="str"
                       cachedLength="50"
-                      cachedCodepage="1252" />
+                      cachedCodepage="65001" />
                     <inputColumn
                       refId="Package\Meeting_Alimentation\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[MeetingFrequency]"
                       lineageId="Package\Meeting_Alimentation\Flat File Source.Outputs[Flat File Source Output].Columns[MeetingFrequency]"
@@ -5806,7 +5806,7 @@
                       cachedName="MeetingFrequency"
                       cachedDataType="str"
                       cachedLength="50"
-                      cachedCodepage="1252" />
+                      cachedCodepage="65001" />
                     <inputColumn
                       refId="Package\Meeting_Alimentation\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[PhoneContactFrequency]"
                       lineageId="Package\Meeting_Alimentation\Flat File Source.Outputs[Flat File Source Output].Columns[PhoneContactFrequency]"
@@ -5814,7 +5814,7 @@
                       cachedName="PhoneContactFrequency"
                       cachedDataType="str"
                       cachedLength="50"
-                      cachedCodepage="1252" />
+                      cachedCodepage="65001" />
                     <inputColumn
                       refId="Package\Meeting_Alimentation\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ClientPhoneContactFrequency]"
                       lineageId="Package\Meeting_Alimentation\Flat File Source.Outputs[Flat File Source Output].Columns[ClientPhoneContactFrequency]"
@@ -5822,7 +5822,7 @@
                       cachedName="ClientPhoneContactFrequency"
                       cachedDataType="str"
                       cachedLength="50"
-                      cachedCodepage="1252" />
+                      cachedCodepage="65001" />
                     <inputColumn
                       refId="Package\Meeting_Alimentation\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ClientMeetingFrequency]"
                       lineageId="Package\Meeting_Alimentation\Flat File Source.Outputs[Flat File Source Output].Columns[ClientMeetingFrequency]"
@@ -5830,7 +5830,7 @@
                       cachedName="ClientMeetingFrequency"
                       cachedDataType="str"
                       cachedLength="50"
-                      cachedCodepage="1252" />
+                      cachedCodepage="65001" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -5995,6 +5995,10 @@
           Id="Package\CLI_TCL_TiersComptesLocal_Alimentation"
           TopLeft="599,187" />
         <NodeLayout
+          Size="223,42"
+          Id="Package\CRO_CRO_CROD_Alimentation"
+          TopLeft="581,262" />
+        <NodeLayout
           Size="201,42"
           Id="Package\Dim_Activity_Alimentation"
           TopLeft="325,185" />
@@ -6007,17 +6011,13 @@
           Id="Package\Empty_CLI_TCL_TiersComptesLocal"
           TopLeft="605,128" />
         <NodeLayout
-          Size="172,42"
-          Id="Package\Empty_Dim_Activity"
-          TopLeft="342,125" />
-        <NodeLayout
           Size="194,42"
           Id="Package\Empty_CRO_CRO_CROD"
           TopLeft="319,261" />
         <NodeLayout
-          Size="151,42"
-          Id="Package\Empty_Meeting"
-          TopLeft="44,120" />
+          Size="172,42"
+          Id="Package\Empty_Dim_Activity"
+          TopLeft="342,125" />
         <NodeLayout
           Size="213,42"
           Id="Package\Empty_Generiques_Comptes"
@@ -6027,13 +6027,9 @@
           Id="Package\Empty_INS_GIN_GeneriqueInstruments"
           TopLeft="591,15" />
         <NodeLayout
-          Size="223,42"
-          Id="Package\CRO_CRO_CROD_Alimentation"
-          TopLeft="581,262" />
-        <NodeLayout
-          Size="180,42"
-          Id="Package\Meeting_Alimentation"
-          TopLeft="32,179" />
+          Size="151,42"
+          Id="Package\Empty_Meeting"
+          TopLeft="44,120" />
         <NodeLayout
           Size="242,42"
           Id="Package\Generiques_Comptes_Alimentation"
@@ -6042,6 +6038,10 @@
           Size="309,42"
           Id="Package\INS_GIN_GeneriqueInstruments_Alimentation"
           TopLeft="583,70" />
+        <NodeLayout
+          Size="180,42"
+          Id="Package\Meeting_Alimentation"
+          TopLeft="32,179" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
           TopLeft="35,28">
@@ -6257,7 +6257,7 @@
     design-time-name="Package\CLI_GTI_GeneriquesTiers_Alimentation">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="170,42"
           Id="Package\CLI_GTI_GeneriquesTiers_Alimentation\OLE DB Destination"
@@ -6297,7 +6297,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -6320,7 +6322,7 @@
     design-time-name="Package\CLI_TCL_TiersComptesLocal_Alimentation">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="170,42"
           Id="Package\CLI_TCL_TiersComptesLocal_Alimentation\OLE DB Destination"
@@ -6348,7 +6350,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -6356,6 +6360,59 @@
   </TaskHost>
   <PipelineComponentMetadata
     design-time-name="Package\CLI_TCL_TiersComptesLocal_Alimentation\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\CRO_CRO_CROD_Alimentation">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="150,42"
+          Id="Package\CRO_CRO_CROD_Alimentation\Flat File Source"
+          TopLeft="355,35" />
+        <NodeLayout
+          Size="170,42"
+          Id="Package\CRO_CRO_CROD_Alimentation\OLE DB Destination"
+          TopLeft="345,128" />
+        <EdgeLayout
+          Id="Package\CRO_CRO_CROD_Alimentation.Paths[Flat File Source Output]"
+          TopLeft="430,77">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,51"
+              Start="0,0"
+              End="0,43.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,43.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\CRO_CRO_CROD_Alimentation\OLE DB Destination">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -6419,112 +6476,10 @@
     </Properties>
   </PipelineComponentMetadata>
   <TaskHost
-    design-time-name="Package\CRO_CRO_CROD_Alimentation">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="170,42"
-          Id="Package\CRO_CRO_CROD_Alimentation\OLE DB Destination"
-          TopLeft="345,128" />
-        <NodeLayout
-          Size="150,42"
-          Id="Package\CRO_CRO_CROD_Alimentation\Flat File Source"
-          TopLeft="355,35" />
-        <EdgeLayout
-          Id="Package\CRO_CRO_CROD_Alimentation.Paths[Flat File Source Output]"
-          TopLeft="430,77">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,51"
-              Start="0,0"
-              End="0,43.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,43.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\CRO_CRO_CROD_Alimentation\OLE DB Destination">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <TaskHost
-    design-time-name="Package\Meeting_Alimentation">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="170,42"
-          Id="Package\Meeting_Alimentation\OLE DB Destination"
-          TopLeft="344,105" />
-        <NodeLayout
-          Size="150,42"
-          Id="Package\Meeting_Alimentation\Flat File Source"
-          TopLeft="348,22" />
-        <EdgeLayout
-          Id="Package\Meeting_Alimentation.Paths[Flat File Source Output]"
-          TopLeft="426,64">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,41"
-              Start="0,0"
-              End="0,33.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,33.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\Meeting_Alimentation\OLE DB Destination">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <TaskHost
     design-time-name="Package\Generiques_Comptes_Alimentation">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="170,42"
           Id="Package\Generiques_Comptes_Alimentation\OLE DB Destination"
@@ -6552,7 +6507,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -6575,7 +6532,7 @@
     design-time-name="Package\INS_GIN_GeneriqueInstruments_Alimentation">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="170,42"
           Id="Package\INS_GIN_GeneriqueInstruments_Alimentation\OLE DB Destination"
@@ -6603,7 +6560,9 @@
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -6611,6 +6570,59 @@
   </TaskHost>
   <PipelineComponentMetadata
     design-time-name="Package\INS_GIN_GeneriqueInstruments_Alimentation\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Meeting_Alimentation">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="170,42"
+          Id="Package\Meeting_Alimentation\OLE DB Destination"
+          TopLeft="344,105" />
+        <NodeLayout
+          Size="150,42"
+          Id="Package\Meeting_Alimentation\Flat File Source"
+          TopLeft="348,22" />
+        <EdgeLayout
+          Id="Package\Meeting_Alimentation.Paths[Flat File Source Output]"
+          TopLeft="426,64">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,41"
+              Start="0,0"
+              End="0,33.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,33.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Meeting_Alimentation\OLE DB Destination">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>

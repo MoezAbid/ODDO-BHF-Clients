@@ -6,8 +6,8 @@
   DTS:CreatorComputerName="DESKTOP-63S49FM"
   DTS:CreationDate="12/1/2019 1:56:13 PM"
   DTS:PackageType="5"
-  DTS:VersionBuild="62"
-  DTS:VersionGUID="{1F8AE9B3-82A5-4EF4-AB49-D85B4344144C}"
+  DTS:VersionBuild="80"
+  DTS:VersionGUID="{EB1EED85-99C1-459F-9D8D-33A58F26A204}"
   DTS:LastModifiedProductVersion="11.0.2100.60"
   DTS:LocaleID="1036"
   DTS:ObjectName="SA_DW"
@@ -177,6 +177,378 @@
   </DTS:ConnectionManagers>
   <DTS:Variables />
   <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Dim_Activity"
+      DTS:ExecutableType="SSIS.Pipeline.3"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Dim_Activity"
+      DTS:DTSID="{FA8F7305-E07F-4FC7-B7CB-54DAB34A41A1}"
+      DTS:Description="Data Flow Task"
+      DTS:CreationName="SSIS.Pipeline.3">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Dim_Activity\OLE DB Destination"
+              name="OLE DB Destination"
+              componentClassID="{4ADA7EAA-136C-4215-8098-D7A7C27FC0D1}"
+              description="OLE DB Destination"
+              usesDispositions="true"
+              version="4"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4">
+              <properties>
+                <property
+                  name="CommandTimeout"
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out.">0</property>
+                <property
+                  name="OpenRowset"
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset.">[dbo].[Activity]</property>
+                <property
+                  name="OpenRowsetVariable"
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."></property>
+                <property
+                  name="SqlCommand"
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  name="DefaultCodePage"
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source.">1252</property>
+                <property
+                  name="AlwaysUseDefaultCodePage"
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data.">false</property>
+                <property
+                  name="AccessMode"
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  typeConverter="AccessMode">0</property>
+                <property
+                  name="FastLoadKeepIdentity"
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on.">false</property>
+                <property
+                  name="FastLoadKeepNulls"
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on.">false</property>
+                <property
+                  name="FastLoadOptions"
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."></property>
+                <property
+                  name="FastLoadMaxInsertCommitSize"
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on.">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Dim_Activity\OLE DB Destination.Connections[OleDbConnection]"
+                  name="OleDbConnection"
+                  description="The OLE DB runtime connection used to access the database."
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.OBP_SECURITIES_DW]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.OBP_SECURITIES_DW]" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Dim_Activity\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  name="OLE DB Destination Input"
+                  hasSideEffects="true"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Dim_Activity\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[contactId]"
+                      lineageId="Package\Dim_Activity\OLE DB Source.Outputs[OLE DB Source Output].Columns[contactId]"
+                      externalMetadataColumnId="Package\Dim_Activity\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[contactId]"
+                      cachedName="contactId"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedCodepage="1252" />
+                    <inputColumn
+                      refId="Package\Dim_Activity\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ActivityDate]"
+                      lineageId="Package\Dim_Activity\OLE DB Source.Outputs[OLE DB Source Output].Columns[ActivityDate]"
+                      externalMetadataColumnId="Package\Dim_Activity\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ActivityDate]"
+                      cachedName="ActivityDate"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedCodepage="1252" />
+                    <inputColumn
+                      refId="Package\Dim_Activity\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ActivityType]"
+                      lineageId="Package\Dim_Activity\OLE DB Source.Outputs[OLE DB Source Output].Columns[ActivityType]"
+                      externalMetadataColumnId="Package\Dim_Activity\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ActivityType]"
+                      cachedName="ActivityType"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedCodepage="1252" />
+                    <inputColumn
+                      refId="Package\Dim_Activity\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ContactType]"
+                      lineageId="Package\Dim_Activity\OLE DB Source.Outputs[OLE DB Source Output].Columns[ContactType]"
+                      externalMetadataColumnId="Package\Dim_Activity\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ContactType]"
+                      cachedName="ContactType"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedCodepage="1252" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Dim_Activity\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID]"
+                      name="ID"
+                      dataType="i4" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_Activity\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[contactId]"
+                      name="contactId"
+                      dataType="str"
+                      length="50"
+                      codePage="1252" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_Activity\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ActivityDate]"
+                      name="ActivityDate"
+                      dataType="str"
+                      length="50"
+                      codePage="1252" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_Activity\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ActivityType]"
+                      name="ActivityType"
+                      dataType="str"
+                      length="50"
+                      codePage="1252" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_Activity\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ContactType]"
+                      name="ContactType"
+                      dataType="str"
+                      length="50"
+                      codePage="1252" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Dim_Activity\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  name="OLE DB Destination Error Output"
+                  exclusionGroup="1"
+                  synchronousInputId="Package\Dim_Activity\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  isErrorOut="true">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Dim_Activity\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      lineageId="Package\Dim_Activity\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Dim_Activity\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      lineageId="Package\Dim_Activity\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Dim_Activity\OLE DB Source"
+              name="OLE DB Source"
+              componentClassID="{165A526D-D5DE-47FF-96A6-F8274C19826B}"
+              description="OLE DB Source"
+              usesDispositions="true"
+              version="7"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7">
+              <properties>
+                <property
+                  name="CommandTimeout"
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out.">0</property>
+                <property
+                  name="OpenRowset"
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset.">[dbo].[Activity]</property>
+                <property
+                  name="OpenRowsetVariable"
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."></property>
+                <property
+                  name="SqlCommand"
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  name="SqlCommandVariable"
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."></property>
+                <property
+                  name="DefaultCodePage"
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source.">1252</property>
+                <property
+                  name="AlwaysUseDefaultCodePage"
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data.">false</property>
+                <property
+                  name="AccessMode"
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  typeConverter="AccessMode">0</property>
+                <property
+                  name="ParameterMapping"
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Dim_Activity\OLE DB Source.Connections[OleDbConnection]"
+                  name="OleDbConnection"
+                  description="The OLE DB runtime connection used to access the database."
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.OBP_SECURITIES_SA]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.OBP_SECURITIES_SA]" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Dim_Activity\OLE DB Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Dim_Activity\OLE DB Source.Outputs[OLE DB Source Output].Columns[contactId]"
+                      name="contactId"
+                      lineageId="Package\Dim_Activity\OLE DB Source.Outputs[OLE DB Source Output].Columns[contactId]"
+                      length="50"
+                      dataType="str"
+                      codePage="1252"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dim_Activity\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[contactId]" />
+                    <outputColumn
+                      refId="Package\Dim_Activity\OLE DB Source.Outputs[OLE DB Source Output].Columns[ActivityDate]"
+                      name="ActivityDate"
+                      lineageId="Package\Dim_Activity\OLE DB Source.Outputs[OLE DB Source Output].Columns[ActivityDate]"
+                      length="50"
+                      dataType="str"
+                      codePage="1252"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dim_Activity\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ActivityDate]" />
+                    <outputColumn
+                      refId="Package\Dim_Activity\OLE DB Source.Outputs[OLE DB Source Output].Columns[ActivityType]"
+                      name="ActivityType"
+                      lineageId="Package\Dim_Activity\OLE DB Source.Outputs[OLE DB Source Output].Columns[ActivityType]"
+                      length="50"
+                      dataType="str"
+                      codePage="1252"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dim_Activity\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ActivityType]" />
+                    <outputColumn
+                      refId="Package\Dim_Activity\OLE DB Source.Outputs[OLE DB Source Output].Columns[ContactType]"
+                      name="ContactType"
+                      lineageId="Package\Dim_Activity\OLE DB Source.Outputs[OLE DB Source Output].Columns[ContactType]"
+                      length="50"
+                      dataType="str"
+                      codePage="1252"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dim_Activity\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ContactType]" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Dim_Activity\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[contactId]"
+                      name="contactId"
+                      dataType="str"
+                      length="50"
+                      codePage="1252" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_Activity\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ActivityDate]"
+                      name="ActivityDate"
+                      dataType="str"
+                      length="50"
+                      codePage="1252" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_Activity\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ActivityType]"
+                      name="ActivityType"
+                      dataType="str"
+                      length="50"
+                      codePage="1252" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_Activity\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ContactType]"
+                      name="ContactType"
+                      dataType="str"
+                      length="50"
+                      codePage="1252" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Dim_Activity\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  name="OLE DB Source Error Output"
+                  isErrorOut="true">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Dim_Activity\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[contactId]"
+                      name="contactId"
+                      lineageId="Package\Dim_Activity\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[contactId]"
+                      length="50"
+                      dataType="str"
+                      codePage="1252" />
+                    <outputColumn
+                      refId="Package\Dim_Activity\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ActivityDate]"
+                      name="ActivityDate"
+                      lineageId="Package\Dim_Activity\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ActivityDate]"
+                      length="50"
+                      dataType="str"
+                      codePage="1252" />
+                    <outputColumn
+                      refId="Package\Dim_Activity\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ActivityType]"
+                      name="ActivityType"
+                      lineageId="Package\Dim_Activity\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ActivityType]"
+                      length="50"
+                      dataType="str"
+                      codePage="1252" />
+                    <outputColumn
+                      refId="Package\Dim_Activity\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ContactType]"
+                      name="ContactType"
+                      lineageId="Package\Dim_Activity\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ContactType]"
+                      length="50"
+                      dataType="str"
+                      codePage="1252" />
+                    <outputColumn
+                      refId="Package\Dim_Activity\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      lineageId="Package\Dim_Activity\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Dim_Activity\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      lineageId="Package\Dim_Activity\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Dim_Activity.Paths[OLE DB Source Output]"
+              name="OLE DB Source Output"
+              startId="Package\Dim_Activity\OLE DB Source.Outputs[OLE DB Source Output]"
+              endId="Package\Dim_Activity\OLE DB Destination.Inputs[OLE DB Destination Input]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
     <DTS:Executable
       DTS:refId="Package\Dim_CLI_TCL_Tiers_Comptes_Local"
       DTS:ExecutableType="SSIS.Pipeline.3"
@@ -4772,7 +5144,7 @@ where [refTable].[GTI_CodTiers] = ?</property>
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="247,42"
+          Size="249,42"
           Id="Package\Dim_CLI_TCL_Tiers_Comptes_Local"
           TopLeft="121,91" />
         <NodeLayout
@@ -4789,26 +5161,26 @@ where [refTable].[GTI_CodTiers] = ?</property>
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="90.1666666666667,33"
+              EndConnector="90.8333333333333,33"
               Start="0,0"
-              End="90.1666666666667,25.5">
+              End="90.8333333333333,25.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,15.6725663716814" />
+                    End="0,15.6735833998404" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,15.6725663716814"
-                    Point2="0,19.6725663716814"
-                    Point3="4,19.6725663716814" />
+                    Point1="0,15.6735833998404"
+                    Point2="0,19.6735833998404"
+                    Point3="4,19.6735833998404" />
                   <mssgle:LineSegment
-                    End="86.1666666666667,19.6725663716814" />
+                    End="86.8333333333333,19.6735833998404" />
                   <mssgle:CubicBezierSegment
-                    Point1="86.1666666666667,19.6725663716814"
-                    Point2="90.1666666666667,19.6725663716814"
-                    Point3="90.1666666666667,23.6725663716814" />
+                    Point1="86.8333333333333,19.6735833998404"
+                    Point2="90.8333333333333,19.6735833998404"
+                    Point3="90.8333333333333,23.6735833998404" />
                   <mssgle:LineSegment
-                    End="90.1666666666667,25.5" />
+                    End="90.8333333333333,25.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -4823,26 +5195,26 @@ where [refTable].[GTI_CodTiers] = ?</property>
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-122.666666666667,34"
+              EndConnector="-121.333333333333,34"
               Start="0,0"
-              End="-122.666666666667,26.5">
+              End="-121.333333333333,26.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,16.2687047465809" />
+                    End="0,16.2697525937749" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,16.2687047465809"
-                    Point2="0,20.2687047465809"
-                    Point3="-4,20.2687047465809" />
+                    Point1="0,16.2697525937749"
+                    Point2="0,20.2697525937749"
+                    Point3="-4,20.2697525937749" />
                   <mssgle:LineSegment
-                    End="-118.666666666667,20.2687047465809" />
+                    End="-117.333333333333,20.2697525937749" />
                   <mssgle:CubicBezierSegment
-                    Point1="-118.666666666667,20.2687047465809"
-                    Point2="-122.666666666667,20.2687047465809"
-                    Point3="-122.666666666667,24.2687047465809" />
+                    Point1="-117.333333333333,20.2697525937749"
+                    Point2="-121.333333333333,20.2697525937749"
+                    Point3="-121.333333333333,24.2697525937749" />
                   <mssgle:LineSegment
-                    End="-122.666666666667,26.5" />
+                    End="-121.333333333333,26.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -4851,6 +5223,10 @@ where [refTable].[GTI_CodTiers] = ?</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <NodeLayout
+          Size="143,42"
+          Id="Package\Dim_Activity"
+          TopLeft="598,19" />
       </GraphLayout>
     </LayoutInfo>
   </Package>
@@ -5776,6 +6152,70 @@ where [refTable].[GTI_CodTiers] = ?</property>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Dim_CLI_TCL_Tiers_Comptes_Local\Insertion DWCompteLocal">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Dim_Activity">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="149,42"
+          Id="Package\Dim_Activity\OLE DB Source"
+          TopLeft="236,5.5" />
+        <NodeLayout
+          Size="170,42"
+          Id="Package\Dim_Activity\OLE DB Destination"
+          TopLeft="227,122" />
+        <EdgeLayout
+          Id="Package\Dim_Activity.Paths[OLE DB Source Output]"
+          TopLeft="311.25,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,74.5"
+              Start="0,0"
+              End="0,67">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,67" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Dim_Activity\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Dim_Activity\OLE DB Destination">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
