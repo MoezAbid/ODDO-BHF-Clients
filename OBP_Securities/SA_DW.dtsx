@@ -6,8 +6,8 @@
   DTS:CreatorComputerName="DESKTOP-63S49FM"
   DTS:CreationDate="12/1/2019 1:56:13 PM"
   DTS:PackageType="5"
-  DTS:VersionBuild="99"
-  DTS:VersionGUID="{5EAC665D-9F9B-4245-8A66-A4174E8D3B36}"
+  DTS:VersionBuild="150"
+  DTS:VersionGUID="{03513095-0D6D-46B6-85A8-FA4B67D046C6}"
   DTS:LastModifiedProductVersion="11.0.2100.60"
   DTS:LocaleID="1036"
   DTS:ObjectName="SA_DW"
@@ -175,8 +175,72 @@
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
-  <DTS:Variables />
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:Namespace="User"
+      DTS:IncludeInDebugDump="2345"
+      DTS:ObjectName="mntbrutavg"
+      DTS:DTSID="{BA5B402A-3667-43E1-A4F3-BD05DCE5CC89}"
+      DTS:CreationName="">
+      <DTS:VariableValue
+        DTS:DataType="8">mntbrutavg</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:Namespace="User"
+      DTS:IncludeInDebugDump="2345"
+      DTS:ObjectName="qtav"
+      DTS:DTSID="{A0AEF333-B722-4C63-9775-090F328A4751}"
+      DTS:CreationName="">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
   <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\CRO_MntBrutDevDep_AVG"
+      DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:ThreadHint="1"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="CRO_MntBrutDevDep_AVG"
+      DTS:DTSID="{1D7DF85D-AD0C-4C23-9585-465E75FCFE52}"
+      DTS:Description="Execute SQL Task"
+      DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{638329AC-1E02-4759-8EBD-6C573AB57CB9}"
+          SQLTask:SqlStatementSource="SELECT        AVG([CRO_MntBrutDevDep]) AS mntbrutavg&#xA;FROM            [Fait CRO_CROD]"
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="mntbrutavg"
+            SQLTask:DtsVariableName="User::mntbrutavg" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\CRO_QTE_AVG"
+      DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:ThreadHint="0"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="CRO_QTE_AVG"
+      DTS:DTSID="{23D9FB08-2862-4111-BCEF-05A722C9ECB4}"
+      DTS:Description="Execute SQL Task"
+      DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{638329AC-1E02-4759-8EBD-6C573AB57CB9}"
+          SQLTask:SqlStatementSource="SELECT        AVG([CRO_Qte]) AS qtav&#xA;FROM            [Fait CRO_CROD]"
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="qtav"
+            SQLTask:DtsVariableName="User::qtav" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
     <DTS:Executable
       DTS:refId="Package\Dim_Activity"
       DTS:ExecutableType="SSIS.Pipeline.3"
@@ -295,13 +359,17 @@
                       cachedDataType="str"
                       cachedLength="50"
                       cachedCodepage="1252" />
+                    <inputColumn
+                      refId="Package\Dim_Activity\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[GCO_CodCompte]"
+                      lineageId="Package\Dim_Activity\OLE DB Source.Outputs[OLE DB Source Output].Columns[GCO_CodCompte]"
+                      externalMetadataColumnId="Package\Dim_Activity\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[GCO_CodCompte]"
+                      cachedName="GCO_CodCompte"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedCodepage="1252" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
-                    <externalMetadataColumn
-                      refId="Package\Dim_Activity\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID]"
-                      name="ID"
-                      dataType="i4" />
                     <externalMetadataColumn
                       refId="Package\Dim_Activity\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[contactId]"
                       name="contactId"
@@ -326,6 +394,16 @@
                       dataType="str"
                       length="50"
                       codePage="1252" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_Activity\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[GCO_CodCompte]"
+                      name="GCO_CodCompte"
+                      dataType="str"
+                      length="50"
+                      codePage="1252" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_Activity\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_Activity]"
+                      name="ID_Activity"
+                      dataType="i8" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -459,6 +537,17 @@
                       errorRowDisposition="FailComponent"
                       truncationRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Dim_Activity\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ContactType]" />
+                    <outputColumn
+                      refId="Package\Dim_Activity\OLE DB Source.Outputs[OLE DB Source Output].Columns[GCO_CodCompte]"
+                      name="GCO_CodCompte"
+                      lineageId="Package\Dim_Activity\OLE DB Source.Outputs[OLE DB Source Output].Columns[GCO_CodCompte]"
+                      length="50"
+                      dataType="str"
+                      codePage="1252"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dim_Activity\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[GCO_CodCompte]" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -483,6 +572,12 @@
                     <externalMetadataColumn
                       refId="Package\Dim_Activity\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ContactType]"
                       name="ContactType"
+                      dataType="str"
+                      length="50"
+                      codePage="1252" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_Activity\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[GCO_CodCompte]"
+                      name="GCO_CodCompte"
                       dataType="str"
                       length="50"
                       codePage="1252" />
@@ -518,6 +613,13 @@
                       refId="Package\Dim_Activity\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ContactType]"
                       name="ContactType"
                       lineageId="Package\Dim_Activity\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ContactType]"
+                      length="50"
+                      dataType="str"
+                      codePage="1252" />
+                    <outputColumn
+                      refId="Package\Dim_Activity\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[GCO_CodCompte]"
+                      name="GCO_CodCompte"
+                      lineageId="Package\Dim_Activity\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[GCO_CodCompte]"
                       length="50"
                       dataType="str"
                       codePage="1252" />
@@ -575,68 +677,10 @@
                   refId="Package\Dim_CLI_TCL_Tiers_Comptes_Local\Conditional Split.Inputs[Conditional Split Input]"
                   name="Conditional Split Input"
                   description="Input to the Conditional Split Transformation">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\Dim_CLI_TCL_Tiers_Comptes_Local\Conditional Split.Inputs[Conditional Split Input].Columns[TCL_CodSociete]"
-                      lineageId="Package\Dim_CLI_TCL_Tiers_Comptes_Local\Dim Compte local.Outputs[OLE DB Source Output].Columns[TCL_CodSociete]"
-                      cachedName="TCL_CodSociete"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedCodepage="1252" />
-                    <inputColumn
-                      refId="Package\Dim_CLI_TCL_Tiers_Comptes_Local\Conditional Split.Inputs[Conditional Split Input].Columns[CRT_Libelle]"
-                      lineageId="Package\Dim_CLI_TCL_Tiers_Comptes_Local\Dim Compte local.Outputs[OLE DB Source Output].Columns[CRT_Libelle]"
-                      cachedName="CRT_Libelle"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedCodepage="1252" />
-                    <inputColumn
-                      refId="Package\Dim_CLI_TCL_Tiers_Comptes_Local\Conditional Split.Inputs[Conditional Split Input].Columns[TCL_CodSociete1]"
-                      lineageId="Package\Dim_CLI_TCL_Tiers_Comptes_Local\Recherche  Compte Local.Outputs[Lookup Match Output].Columns[TCL_CodSociete]"
-                      cachedName="TCL_CodSociete"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedCodepage="1252" />
-                    <inputColumn
-                      refId="Package\Dim_CLI_TCL_Tiers_Comptes_Local\Conditional Split.Inputs[Conditional Split Input].Columns[CRT_Libelle1]"
-                      lineageId="Package\Dim_CLI_TCL_Tiers_Comptes_Local\Recherche  Compte Local.Outputs[Lookup Match Output].Columns[CRT_Libelle]"
-                      cachedName="CRT_Libelle"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedCodepage="1252" />
-                  </inputColumns>
                   <externalMetadataColumns />
                 </input>
               </inputs>
               <outputs>
-                <output
-                  refId="Package\Dim_CLI_TCL_Tiers_Comptes_Local\Conditional Split.Outputs[Mise à jour]"
-                  name="Mise à jour"
-                  description="Output 1 of the Conditional Split Transformation"
-                  exclusionGroup="1"
-                  synchronousInputId="Package\Dim_CLI_TCL_Tiers_Comptes_Local\Conditional Split.Inputs[Conditional Split Input]"
-                  errorOrTruncationOperation="Computation"
-                  errorRowDisposition="FailComponent"
-                  truncationRowDisposition="FailComponent">
-                  <properties>
-                    <property
-                      name="Expression"
-                      dataType="System.String"
-                      description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
-                      containsID="true">#{Package\Dim_CLI_TCL_Tiers_Comptes_Local\Dim Compte local.Outputs[OLE DB Source Output].Columns[TCL_CodSociete]} != #{Package\Dim_CLI_TCL_Tiers_Comptes_Local\Recherche  Compte Local.Outputs[Lookup Match Output].Columns[TCL_CodSociete]} || #{Package\Dim_CLI_TCL_Tiers_Comptes_Local\Dim Compte local.Outputs[OLE DB Source Output].Columns[CRT_Libelle]} != #{Package\Dim_CLI_TCL_Tiers_Comptes_Local\Recherche  Compte Local.Outputs[Lookup Match Output].Columns[CRT_Libelle]}</property>
-                    <property
-                      name="FriendlyExpression"
-                      dataType="System.String"
-                      description="Specifies the friendly version of the expression. This expression version uses column names."
-                      containsID="true"
-                      expressionType="Notify">[Dim Compte local].TCL_CodSociete != [Recherche  Compte Local].TCL_CodSociete || [Dim Compte local].CRT_Libelle != [Recherche  Compte Local].CRT_Libelle</property>
-                    <property
-                      name="EvaluationOrder"
-                      dataType="System.Int32"
-                      description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value.">0</property>
-                  </properties>
-                  <externalMetadataColumns />
-                </output>
                 <output
                   refId="Package\Dim_CLI_TCL_Tiers_Comptes_Local\Conditional Split.Outputs[Conditional Split Default Output]"
                   name="Conditional Split Default Output"
@@ -972,14 +1016,6 @@
                       cachedLength="50"
                       cachedCodepage="1252" />
                     <inputColumn
-                      refId="Package\Dim_CLI_TCL_Tiers_Comptes_Local\Insertion DWCompteLocal.Inputs[OLE DB Destination Input].Columns[TCL_CodTiers]"
-                      lineageId="Package\Dim_CLI_TCL_Tiers_Comptes_Local\Dim Compte local.Outputs[OLE DB Source Output].Columns[TCL_CodTiers]"
-                      externalMetadataColumnId="Package\Dim_CLI_TCL_Tiers_Comptes_Local\Insertion DWCompteLocal.Inputs[OLE DB Destination Input].ExternalColumns[TCL_CodTiers]"
-                      cachedName="TCL_CodTiers"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedCodepage="1252" />
-                    <inputColumn
                       refId="Package\Dim_CLI_TCL_Tiers_Comptes_Local\Insertion DWCompteLocal.Inputs[OLE DB Destination Input].Columns[TCL_NumLien]"
                       lineageId="Package\Dim_CLI_TCL_Tiers_Comptes_Local\Dim Compte local.Outputs[OLE DB Source Output].Columns[TCL_NumLien]"
                       externalMetadataColumnId="Package\Dim_CLI_TCL_Tiers_Comptes_Local\Insertion DWCompteLocal.Inputs[OLE DB Destination Input].ExternalColumns[TCL_NumLien]"
@@ -995,6 +1031,18 @@
                       cachedDataType="str"
                       cachedLength="50"
                       cachedCodepage="1252" />
+                    <inputColumn
+                      refId="Package\Dim_CLI_TCL_Tiers_Comptes_Local\Insertion DWCompteLocal.Inputs[OLE DB Destination Input].Columns[ID_GenTiers]"
+                      lineageId="Package\Dim_CLI_TCL_Tiers_Comptes_Local\Recherche GeneriqueTiers.Outputs[Lookup Match Output].Columns[ID_GenTiers]"
+                      externalMetadataColumnId="Package\Dim_CLI_TCL_Tiers_Comptes_Local\Insertion DWCompteLocal.Inputs[OLE DB Destination Input].ExternalColumns[ID_GenTiers]"
+                      cachedName="ID_GenTiers"
+                      cachedDataType="i8" />
+                    <inputColumn
+                      refId="Package\Dim_CLI_TCL_Tiers_Comptes_Local\Insertion DWCompteLocal.Inputs[OLE DB Destination Input].Columns[ID_GenComptes]"
+                      lineageId="Package\Dim_CLI_TCL_Tiers_Comptes_Local\Recherche GeneriqueCompte.Outputs[Lookup Match Output].Columns[ID_GenComptes]"
+                      externalMetadataColumnId="Package\Dim_CLI_TCL_Tiers_Comptes_Local\Insertion DWCompteLocal.Inputs[OLE DB Destination Input].ExternalColumns[ID_GenComptes]"
+                      cachedName="ID_GenComptes"
+                      cachedDataType="i8" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -1011,12 +1059,6 @@
                       length="50"
                       codePage="1252" />
                     <externalMetadataColumn
-                      refId="Package\Dim_CLI_TCL_Tiers_Comptes_Local\Insertion DWCompteLocal.Inputs[OLE DB Destination Input].ExternalColumns[TCL_CodTiers]"
-                      name="TCL_CodTiers"
-                      dataType="str"
-                      length="50"
-                      codePage="1252" />
-                    <externalMetadataColumn
                       refId="Package\Dim_CLI_TCL_Tiers_Comptes_Local\Insertion DWCompteLocal.Inputs[OLE DB Destination Input].ExternalColumns[TCL_NumLien]"
                       name="TCL_NumLien"
                       dataType="str"
@@ -1028,6 +1070,18 @@
                       dataType="str"
                       length="50"
                       codePage="1252" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_CLI_TCL_Tiers_Comptes_Local\Insertion DWCompteLocal.Inputs[OLE DB Destination Input].ExternalColumns[ID_GenTiers]"
+                      name="ID_GenTiers"
+                      dataType="i8" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_CLI_TCL_Tiers_Comptes_Local\Insertion DWCompteLocal.Inputs[OLE DB Destination Input].ExternalColumns[ID_GenComptes]"
+                      name="ID_GenComptes"
+                      dataType="i8" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_CLI_TCL_Tiers_Comptes_Local\Insertion DWCompteLocal.Inputs[OLE DB Destination Input].ExternalColumns[ID_TiersComptesLocal]"
+                      name="ID_TiersComptesLocal"
+                      dataType="i8" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -1437,7 +1491,7 @@
                   description="Specifies a SQL statement that uses parameters to generate the lookup table."
                   UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
                   expressionType="Notify">select * from (select * from [dbo].[TiersComptesLocal]) [refTable]
-where [refTable].[TCL_CodCompte_hash] = ? and [refTable].[TCL_CodTiers] = ?</property>
+where [refTable].[TCL_CodCompte_hash] = ?</property>
                 <property
                   name="ConnectionType"
                   dataType="System.Int32"
@@ -1468,12 +1522,12 @@ where [refTable].[TCL_CodCompte_hash] = ? and [refTable].[TCL_CodTiers] = ?</pro
                 <property
                   name="ReferenceMetadataXml"
                   dataType="System.String"
-                  description="Indicates whether to reference metadata in an XML format.">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="TCL_CodSociete" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="TCL_CodCompte_hash" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="TCL_CodTiers" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="TCL_NumLien" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="CRT_Libelle" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                  description="Indicates whether to reference metadata in an XML format.">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="TCL_CodSociete" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="TCL_CodCompte_hash" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="TCL_NumLien" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="CRT_Libelle" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="ID_GenTiers" dataType="DT_I8" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="ID_GenComptes" dataType="DT_I8" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="ID_TiersComptesLocal" dataType="DT_I8" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
                 <property
                   name="ParameterMap"
                   dataType="System.String"
                   description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
-                  containsID="true">#{Package\Dim_CLI_TCL_Tiers_Comptes_Local\Dim Compte local.Outputs[OLE DB Source Output].Columns[TCL_CodCompte_hash]};#{Package\Dim_CLI_TCL_Tiers_Comptes_Local\Dim Compte local.Outputs[OLE DB Source Output].Columns[TCL_CodTiers]};</property>
+                  containsID="true">#{Package\Dim_CLI_TCL_Tiers_Comptes_Local\Dim Compte local.Outputs[OLE DB Source Output].Columns[TCL_CodCompte_hash]};</property>
                 <property
                   name="DefaultCodePage"
                   dataType="System.Int32"
@@ -1496,24 +1550,6 @@ where [refTable].[TCL_CodCompte_hash] = ? and [refTable].[TCL_CodTiers] = ?</pro
                   refId="Package\Dim_CLI_TCL_Tiers_Comptes_Local\Recherche  Compte Local.Inputs[Lookup Input]"
                   name="Lookup Input">
                   <inputColumns>
-                    <inputColumn
-                      refId="Package\Dim_CLI_TCL_Tiers_Comptes_Local\Recherche  Compte Local.Inputs[Lookup Input].Columns[TCL_CodTiers]"
-                      lineageId="Package\Dim_CLI_TCL_Tiers_Comptes_Local\Dim Compte local.Outputs[OLE DB Source Output].Columns[TCL_CodTiers]"
-                      cachedName="TCL_CodTiers"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedCodepage="1252">
-                      <properties>
-                        <property
-                          name="JoinToReferenceColumn"
-                          dataType="System.String"
-                          description="Specifies the column in the reference table that a column joins.">TCL_CodTiers</property>
-                        <property
-                          name="CopyFromReferenceColumn"
-                          dataType="System.Null"
-                          description="Specifies the column in the reference table from which a column is copied." />
-                      </properties>
-                    </inputColumn>
                     <inputColumn
                       refId="Package\Dim_CLI_TCL_Tiers_Comptes_Local\Recherche  Compte Local.Inputs[Lookup Input].Columns[TCL_CodCompte_hash]"
                       lineageId="Package\Dim_CLI_TCL_Tiers_Comptes_Local\Dim Compte local.Outputs[OLE DB Source Output].Columns[TCL_CodCompte_hash]"
@@ -1545,83 +1581,17 @@ where [refTable].[TCL_CodCompte_hash] = ? and [refTable].[TCL_CodTiers] = ?</pro
                   errorOrTruncationOperation="Lookup">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Dim_CLI_TCL_Tiers_Comptes_Local\Recherche  Compte Local.Outputs[Lookup Match Output].Columns[TCL_CodSociete]"
-                      name="TCL_CodSociete"
-                      lineageId="Package\Dim_CLI_TCL_Tiers_Comptes_Local\Recherche  Compte Local.Outputs[Lookup Match Output].Columns[TCL_CodSociete]"
-                      length="50"
-                      dataType="str"
-                      codePage="1252"
+                      refId="Package\Dim_CLI_TCL_Tiers_Comptes_Local\Recherche  Compte Local.Outputs[Lookup Match Output].Columns[ID_TiersComptesLocal]"
+                      name="ID_TiersComptesLocal"
+                      lineageId="Package\Dim_CLI_TCL_Tiers_Comptes_Local\Recherche  Compte Local.Outputs[Lookup Match Output].Columns[ID_TiersComptesLocal]"
+                      dataType="i8"
                       errorOrTruncationOperation="Copy Column"
                       truncationRowDisposition="FailComponent">
                       <properties>
                         <property
                           name="CopyFromReferenceColumn"
                           dataType="System.String"
-                          description="Specifies the column in the reference table from which a column is copied.">TCL_CodSociete</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Dim_CLI_TCL_Tiers_Comptes_Local\Recherche  Compte Local.Outputs[Lookup Match Output].Columns[TCL_CodCompte_hash]"
-                      name="TCL_CodCompte_hash"
-                      lineageId="Package\Dim_CLI_TCL_Tiers_Comptes_Local\Recherche  Compte Local.Outputs[Lookup Match Output].Columns[TCL_CodCompte_hash]"
-                      length="50"
-                      dataType="str"
-                      codePage="1252"
-                      errorOrTruncationOperation="Copy Column"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          name="CopyFromReferenceColumn"
-                          dataType="System.String"
-                          description="Specifies the column in the reference table from which a column is copied.">TCL_CodCompte_hash</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Dim_CLI_TCL_Tiers_Comptes_Local\Recherche  Compte Local.Outputs[Lookup Match Output].Columns[TCL_CodTiers]"
-                      name="TCL_CodTiers"
-                      lineageId="Package\Dim_CLI_TCL_Tiers_Comptes_Local\Recherche  Compte Local.Outputs[Lookup Match Output].Columns[TCL_CodTiers]"
-                      length="50"
-                      dataType="str"
-                      codePage="1252"
-                      errorOrTruncationOperation="Copy Column"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          name="CopyFromReferenceColumn"
-                          dataType="System.String"
-                          description="Specifies the column in the reference table from which a column is copied.">TCL_CodTiers</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Dim_CLI_TCL_Tiers_Comptes_Local\Recherche  Compte Local.Outputs[Lookup Match Output].Columns[TCL_NumLien]"
-                      name="TCL_NumLien"
-                      lineageId="Package\Dim_CLI_TCL_Tiers_Comptes_Local\Recherche  Compte Local.Outputs[Lookup Match Output].Columns[TCL_NumLien]"
-                      length="50"
-                      dataType="str"
-                      codePage="1252"
-                      errorOrTruncationOperation="Copy Column"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          name="CopyFromReferenceColumn"
-                          dataType="System.String"
-                          description="Specifies the column in the reference table from which a column is copied.">TCL_NumLien</property>
-                      </properties>
-                    </outputColumn>
-                    <outputColumn
-                      refId="Package\Dim_CLI_TCL_Tiers_Comptes_Local\Recherche  Compte Local.Outputs[Lookup Match Output].Columns[CRT_Libelle]"
-                      name="CRT_Libelle"
-                      lineageId="Package\Dim_CLI_TCL_Tiers_Comptes_Local\Recherche  Compte Local.Outputs[Lookup Match Output].Columns[CRT_Libelle]"
-                      length="50"
-                      dataType="str"
-                      codePage="1252"
-                      errorOrTruncationOperation="Copy Column"
-                      truncationRowDisposition="FailComponent">
-                      <properties>
-                        <property
-                          name="CopyFromReferenceColumn"
-                          dataType="System.String"
-                          description="Specifies the column in the reference table from which a column is copied.">CRT_Libelle</property>
+                          description="Specifies the column in the reference table from which a column is copied.">ID_TiersComptesLocal</property>
                       </properties>
                     </outputColumn>
                   </outputColumns>
@@ -1711,7 +1681,7 @@ where [refTable].[GCO_CodCompte] = ?</property>
                 <property
                   name="ReferenceMetadataXml"
                   dataType="System.String"
-                  description="Indicates whether to reference metadata in an XML format.">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="GCO_CodPrestataire" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="GCO_CodCompte" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="GCO_CodTypeOrientation" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="GCO_IsOuvert" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="GCO_IsAsv" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="GCO_IsAssureur" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="GCO_IsPea" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="GCO_IsPeaPme" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="GCO_CodProduit" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="GCO_LibProduit" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="GCO_TypGestion" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="GCO_LibEtatCompte" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="GCO_CodTypContrat" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="GCO_CodEnveloppeFiscale" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="GCO_CodSociete" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                  description="Indicates whether to reference metadata in an XML format.">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="ID_GenComptes" dataType="DT_I8" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="GCO_CodPrestataire" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="GCO_CodCompte" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="GCO_CodTypeOrientation" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="GCO_IsOuvert" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="GCO_IsAsv" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="GCO_IsAssureur" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="GCO_IsPea" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="GCO_IsPeaPme" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="GCO_CodProduit" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="GCO_LibProduit" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="GCO_TypGestion" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="GCO_LibEtatCompte" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="GCO_CodTypContrat" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="GCO_CodEnveloppeFiscale" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="GCO_CodSociete" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
                 <property
                   name="ParameterMap"
                   dataType="System.String"
@@ -1768,6 +1738,22 @@ where [refTable].[GCO_CodCompte] = ?</property>
                   exclusionGroup="1"
                   synchronousInputId="Package\Dim_CLI_TCL_Tiers_Comptes_Local\Recherche GeneriqueCompte.Inputs[Lookup Input]"
                   errorOrTruncationOperation="Lookup">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Dim_CLI_TCL_Tiers_Comptes_Local\Recherche GeneriqueCompte.Outputs[Lookup Match Output].Columns[ID_GenComptes]"
+                      name="ID_GenComptes"
+                      lineageId="Package\Dim_CLI_TCL_Tiers_Comptes_Local\Recherche GeneriqueCompte.Outputs[Lookup Match Output].Columns[ID_GenComptes]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Copy Column"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          name="CopyFromReferenceColumn"
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied.">ID_GenComptes</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
                   <externalMetadataColumns />
                 </output>
                 <output
@@ -1854,7 +1840,7 @@ where [refTable].[GTI_CodTiers] = ?</property>
                 <property
                   name="ReferenceMetadataXml"
                   dataType="System.String"
-                  description="Indicates whether to reference metadata in an XML format.">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="GTI_CodSociete" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="GTI_CodPrestataire" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="GTI_CodTiers" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="PaysNaissance" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="EW28_Libelle" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="civilite" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="GTI_DatNaissanceOuCreation" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="Sexe" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="SituationFamiliale" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="csp" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="profession" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                  description="Indicates whether to reference metadata in an XML format.">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="ID_GenTiers" dataType="DT_I8" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="GTI_CodSociete" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="GTI_CodPrestataire" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="GTI_CodTiers" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="PaysNaissance" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="EW28_Libelle" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="civilite" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="GTI_DatNaissanceOuCreation" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="Sexe" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="SituationFamiliale" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="csp" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="profession" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
                 <property
                   name="ParameterMap"
                   dataType="System.String"
@@ -1911,6 +1897,22 @@ where [refTable].[GTI_CodTiers] = ?</property>
                   exclusionGroup="1"
                   synchronousInputId="Package\Dim_CLI_TCL_Tiers_Comptes_Local\Recherche GeneriqueTiers.Inputs[Lookup Input]"
                   errorOrTruncationOperation="Lookup">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Dim_CLI_TCL_Tiers_Comptes_Local\Recherche GeneriqueTiers.Outputs[Lookup Match Output].Columns[ID_GenTiers]"
+                      name="ID_GenTiers"
+                      lineageId="Package\Dim_CLI_TCL_Tiers_Comptes_Local\Recherche GeneriqueTiers.Outputs[Lookup Match Output].Columns[ID_GenTiers]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Copy Column"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          name="CopyFromReferenceColumn"
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied.">ID_GenTiers</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
                   <externalMetadataColumns />
                 </output>
                 <output
@@ -1948,20 +1950,30 @@ where [refTable].[GTI_CodTiers] = ?</property>
           </components>
           <paths>
             <path
-              refId="Package\Dim_CLI_TCL_Tiers_Comptes_Local.Paths[Lookup Match Output1]"
-              name="Lookup Match Output"
-              startId="Package\Dim_CLI_TCL_Tiers_Comptes_Local\Recherche GeneriqueCompte.Outputs[Lookup Match Output]"
-              endId="Package\Dim_CLI_TCL_Tiers_Comptes_Local\Recherche  Compte Local.Inputs[Lookup Input]" />
+              refId="Package\Dim_CLI_TCL_Tiers_Comptes_Local.Paths[Conditional Split Default Output]"
+              name="Conditional Split Default Output"
+              startId="Package\Dim_CLI_TCL_Tiers_Comptes_Local\Conditional Split.Outputs[Conditional Split Default Output]"
+              endId="Package\Dim_CLI_TCL_Tiers_Comptes_Local\OLE DB Command.Inputs[OLE DB Command Input]" />
             <path
               refId="Package\Dim_CLI_TCL_Tiers_Comptes_Local.Paths[Lookup Match Output2]"
               name="Lookup Match Output"
               startId="Package\Dim_CLI_TCL_Tiers_Comptes_Local\Recherche  Compte Local.Outputs[Lookup Match Output]"
               endId="Package\Dim_CLI_TCL_Tiers_Comptes_Local\Conditional Split.Inputs[Conditional Split Input]" />
             <path
+              refId="Package\Dim_CLI_TCL_Tiers_Comptes_Local.Paths[Lookup Match Output1]"
+              name="Lookup Match Output"
+              startId="Package\Dim_CLI_TCL_Tiers_Comptes_Local\Recherche GeneriqueCompte.Outputs[Lookup Match Output]"
+              endId="Package\Dim_CLI_TCL_Tiers_Comptes_Local\Recherche  Compte Local.Inputs[Lookup Input]" />
+            <path
               refId="Package\Dim_CLI_TCL_Tiers_Comptes_Local.Paths[Lookup Match Output]"
               name="Lookup Match Output"
               startId="Package\Dim_CLI_TCL_Tiers_Comptes_Local\Recherche GeneriqueTiers.Outputs[Lookup Match Output]"
               endId="Package\Dim_CLI_TCL_Tiers_Comptes_Local\Recherche GeneriqueCompte.Inputs[Lookup Input]" />
+            <path
+              refId="Package\Dim_CLI_TCL_Tiers_Comptes_Local.Paths[Lookup No Match Output2]"
+              name="Lookup No Match Output"
+              startId="Package\Dim_CLI_TCL_Tiers_Comptes_Local\Recherche GeneriqueCompte.Outputs[Lookup No Match Output]"
+              endId="Package\Dim_CLI_TCL_Tiers_Comptes_Local\Log Generique Comptes.Inputs[Flat File Destination Input]" />
             <path
               refId="Package\Dim_CLI_TCL_Tiers_Comptes_Local.Paths[Lookup No Match Output1]"
               name="Lookup No Match Output"
@@ -1972,16 +1984,6 @@ where [refTable].[GTI_CodTiers] = ?</property>
               name="Lookup No Match Output"
               startId="Package\Dim_CLI_TCL_Tiers_Comptes_Local\Recherche  Compte Local.Outputs[Lookup No Match Output]"
               endId="Package\Dim_CLI_TCL_Tiers_Comptes_Local\Insertion DWCompteLocal.Inputs[OLE DB Destination Input]" />
-            <path
-              refId="Package\Dim_CLI_TCL_Tiers_Comptes_Local.Paths[Lookup No Match Output2]"
-              name="Lookup No Match Output"
-              startId="Package\Dim_CLI_TCL_Tiers_Comptes_Local\Recherche GeneriqueCompte.Outputs[Lookup No Match Output]"
-              endId="Package\Dim_CLI_TCL_Tiers_Comptes_Local\Log Generique Comptes.Inputs[Flat File Destination Input]" />
-            <path
-              refId="Package\Dim_CLI_TCL_Tiers_Comptes_Local.Paths[Mise à jour]"
-              name="Mise à jour"
-              startId="Package\Dim_CLI_TCL_Tiers_Comptes_Local\Conditional Split.Outputs[Mise à jour]"
-              endId="Package\Dim_CLI_TCL_Tiers_Comptes_Local\OLE DB Command.Inputs[OLE DB Command Input]" />
             <path
               refId="Package\Dim_CLI_TCL_Tiers_Comptes_Local.Paths[OLE DB Source Output]"
               name="OLE DB Source Output"
@@ -2541,6 +2543,10 @@ where [refTable].[GTI_CodTiers] = ?</property>
                       dataType="str"
                       length="50"
                       codePage="1252" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_Generiques_Comptes\Insert into Generiques Comptes.Inputs[OLE DB Destination Input].ExternalColumns[ID_GenComptes]"
+                      name="ID_GenComptes"
+                      dataType="i8" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -3858,6 +3864,133 @@ where [refTable].[GTI_CodTiers] = ?</property>
                   refId="Package\Dim_Generique_Tiers\Derived Column.Inputs[Derived Column Input]"
                   name="Derived Column Input"
                   description="Input to the Derived Column Transformation">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Dim_Generique_Tiers\Derived Column.Inputs[Derived Column Input].Columns[PaysNaissance]"
+                      lineageId="Package\Dim_Generique_Tiers\OLE DB Source.Outputs[OLE DB Source Output].Columns[PaysNaissance]"
+                      usageType="readWrite"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      cachedName="PaysNaissance"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedCodepage="1252">
+                      <properties>
+                        <property
+                          name="Expression"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          containsID="true">[REPLACE](#{Package\Dim_Generique_Tiers\OLE DB Source.Outputs[OLE DB Source Output].Columns[PaysNaissance]},"NULL","")</property>
+                        <property
+                          name="FriendlyExpression"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          containsID="true"
+                          expressionType="Notify">REPLACE(PaysNaissance,"NULL","")</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Dim_Generique_Tiers\Derived Column.Inputs[Derived Column Input].Columns[civilite]"
+                      lineageId="Package\Dim_Generique_Tiers\OLE DB Source.Outputs[OLE DB Source Output].Columns[civilite]"
+                      usageType="readWrite"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      cachedName="civilite"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedCodepage="1252">
+                      <properties>
+                        <property
+                          name="Expression"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          containsID="true">[REPLACE](#{Package\Dim_Generique_Tiers\OLE DB Source.Outputs[OLE DB Source Output].Columns[civilite]},"NULL","")</property>
+                        <property
+                          name="FriendlyExpression"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          containsID="true"
+                          expressionType="Notify">REPLACE(civilite,"NULL","")</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Dim_Generique_Tiers\Derived Column.Inputs[Derived Column Input].Columns[Sexe]"
+                      lineageId="Package\Dim_Generique_Tiers\OLE DB Source.Outputs[OLE DB Source Output].Columns[Sexe]"
+                      usageType="readWrite"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      cachedName="Sexe"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedCodepage="1252">
+                      <properties>
+                        <property
+                          name="Expression"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          containsID="true">[REPLACE](#{Package\Dim_Generique_Tiers\OLE DB Source.Outputs[OLE DB Source Output].Columns[Sexe]},"NULL","")</property>
+                        <property
+                          name="FriendlyExpression"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          containsID="true"
+                          expressionType="Notify">REPLACE(Sexe,"NULL","")</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Dim_Generique_Tiers\Derived Column.Inputs[Derived Column Input].Columns[SituationFamiliale]"
+                      lineageId="Package\Dim_Generique_Tiers\OLE DB Source.Outputs[OLE DB Source Output].Columns[SituationFamiliale]"
+                      usageType="readWrite"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      cachedName="SituationFamiliale"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedCodepage="1252">
+                      <properties>
+                        <property
+                          name="Expression"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          containsID="true">[REPLACE](#{Package\Dim_Generique_Tiers\OLE DB Source.Outputs[OLE DB Source Output].Columns[SituationFamiliale]},"NULL","")</property>
+                        <property
+                          name="FriendlyExpression"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          containsID="true"
+                          expressionType="Notify">REPLACE(SituationFamiliale,"NULL","")</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Dim_Generique_Tiers\Derived Column.Inputs[Derived Column Input].Columns[profession]"
+                      lineageId="Package\Dim_Generique_Tiers\OLE DB Source.Outputs[OLE DB Source Output].Columns[profession]"
+                      usageType="readWrite"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      cachedName="profession"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedCodepage="1252">
+                      <properties>
+                        <property
+                          name="Expression"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          containsID="true">[REPLACE](#{Package\Dim_Generique_Tiers\OLE DB Source.Outputs[OLE DB Source Output].Columns[profession]},"NULL","")</property>
+                        <property
+                          name="FriendlyExpression"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          containsID="true"
+                          expressionType="Notify">REPLACE(profession,"NULL","")</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
                   <externalMetadataColumns />
                 </input>
               </inputs>
@@ -4124,6 +4257,10 @@ where [refTable].[GTI_CodTiers] = ?</property>
                       dataType="str"
                       length="50"
                       codePage="1252" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_Generique_Tiers\Insert Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_GenTiers]"
+                      name="ID_GenTiers"
+                      dataType="i8" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -5274,10 +5411,6 @@ where [refTable].[GTI_CodTiers] = ?</property>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Dim_INS_GIN_Generique_Instruments\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID]"
-                      name="ID"
-                      dataType="i4" />
-                    <externalMetadataColumn
                       refId="Package\Dim_INS_GIN_Generique_Instruments\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[GIN_CodISIN]"
                       name="GIN_CodISIN"
                       dataType="str"
@@ -5331,6 +5464,10 @@ where [refTable].[GTI_CodTiers] = ?</property>
                       dataType="str"
                       length="500"
                       codePage="1252" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_INS_GIN_Generique_Instruments\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_Instrument]"
+                      name="ID_Instrument"
+                      dataType="i4" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -5704,7 +5841,7 @@ where [refTable].[GTI_CodTiers] = ?</property>
                 <property
                   name="OpenRowset"
                   dataType="System.String"
-                  description="Specifies the name of the database object used to open a rowset.">[Operation]</property>
+                  description="Specifies the name of the database object used to open a rowset.">[dbo].[Operation]</property>
                 <property
                   name="OpenRowsetVariable"
                   dataType="System.String"
@@ -5820,10 +5957,6 @@ where [refTable].[GTI_CodTiers] = ?</property>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Dim_Operation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID]"
-                      name="ID"
-                      dataType="i4" />
-                    <externalMetadataColumn
                       refId="Package\Dim_Operation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CRO_CodOperation]"
                       name="CRO_CodOperation"
                       dataType="str"
@@ -5865,6 +5998,10 @@ where [refTable].[GTI_CodTiers] = ?</property>
                       dataType="str"
                       length="50"
                       codePage="1252" />
+                    <externalMetadataColumn
+                      refId="Package\Dim_Operation\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_Operation]"
+                      name="ID_Operation"
+                      dataType="i8" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -6688,6 +6825,107 @@ where [refTable].[GTI_CodTiers] = ?</property>
               </outputs>
             </component>
             <component
+              refId="Package\Fait_CRO_CRO_CROD\Derived Column"
+              name="Derived Column"
+              componentClassID="{49928E82-9C4E-49F0-AABE-3812B82707EC}"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              usesDispositions="true"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0">
+              <inputs>
+                <input
+                  refId="Package\Fait_CRO_CRO_CROD\Derived Column.Inputs[Derived Column Input]"
+                  name="Derived Column Input"
+                  description="Input to the Derived Column Transformation">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Fait_CRO_CRO_CROD\Derived Column.Inputs[Derived Column Input].Columns[CRO_Qte]"
+                      lineageId="Package\Fait_CRO_CRO_CROD\CRO_CRO_CROD.Outputs[OLE DB Source Output].Columns[CRO_Qte]"
+                      usageType="readWrite"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      cachedName="CRO_Qte"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedCodepage="1252">
+                      <properties>
+                        <property
+                          name="Expression"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          containsID="true">([ISNULL](#{Package\Fait_CRO_CRO_CROD\CRO_CRO_CROD.Outputs[OLE DB Source Output].Columns[CRO_Qte]})) ? @[User::qtav] : #{Package\Fait_CRO_CRO_CROD\CRO_CRO_CROD.Outputs[OLE DB Source Output].Columns[CRO_Qte]}</property>
+                        <property
+                          name="FriendlyExpression"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          containsID="true"
+                          expressionType="Notify">(ISNULL(CRO_Qte)) ? @[User::qtav] : CRO_Qte</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Fait_CRO_CRO_CROD\Derived Column.Inputs[Derived Column Input].Columns[CRO_MntBrutDevDep]"
+                      lineageId="Package\Fait_CRO_CRO_CROD\CRO_CRO_CROD.Outputs[OLE DB Source Output].Columns[CRO_MntBrutDevDep]"
+                      usageType="readWrite"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      cachedName="CRO_MntBrutDevDep"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedCodepage="1252">
+                      <properties>
+                        <property
+                          name="Expression"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          containsID="true">([ISNULL](#{Package\Fait_CRO_CRO_CROD\CRO_CRO_CROD.Outputs[OLE DB Source Output].Columns[CRO_MntBrutDevDep]})) ? @[User::mntbrutavg] : #{Package\Fait_CRO_CRO_CROD\CRO_CRO_CROD.Outputs[OLE DB Source Output].Columns[CRO_MntBrutDevDep]}</property>
+                        <property
+                          name="FriendlyExpression"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          containsID="true"
+                          expressionType="Notify">(ISNULL(CRO_MntBrutDevDep)) ? @[User::mntbrutavg] : CRO_MntBrutDevDep</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Fait_CRO_CRO_CROD\Derived Column.Outputs[Derived Column Output]"
+                  name="Derived Column Output"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  synchronousInputId="Package\Fait_CRO_CRO_CROD\Derived Column.Inputs[Derived Column Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Fait_CRO_CRO_CROD\Derived Column.Outputs[Derived Column Error Output]"
+                  name="Derived Column Error Output"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  synchronousInputId="Package\Fait_CRO_CRO_CROD\Derived Column.Inputs[Derived Column Input]"
+                  isErrorOut="true">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Fait_CRO_CRO_CROD\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      lineageId="Package\Fait_CRO_CRO_CROD\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Fait_CRO_CRO_CROD\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      lineageId="Package\Fait_CRO_CRO_CROD\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
               refId="Package\Fait_CRO_CRO_CROD\OLE DB Destination"
               name="OLE DB Destination"
               componentClassID="{4ADA7EAA-136C-4215-8098-D7A7C27FC0D1}"
@@ -6703,7 +6941,7 @@ where [refTable].[GTI_CodTiers] = ?</property>
                 <property
                   name="OpenRowset"
                   dataType="System.String"
-                  description="Specifies the name of the database object used to open a rowset.">[dbo].[CRO_CRO_CROD]</property>
+                  description="Specifies the name of the database object used to open a rowset.">[Fait CRO_CROD]</property>
                 <property
                   name="OpenRowsetVariable"
                   dataType="System.String"
@@ -6760,38 +6998,6 @@ where [refTable].[GTI_CodTiers] = ?</property>
                   errorRowDisposition="FailComponent">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Fait_CRO_CRO_CROD\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CRO_CodSociete]"
-                      lineageId="Package\Fait_CRO_CRO_CROD\CRO_CRO_CROD.Outputs[OLE DB Source Output].Columns[CRO_CodSociete]"
-                      externalMetadataColumnId="Package\Fait_CRO_CRO_CROD\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CRO_CodSociete]"
-                      cachedName="CRO_CodSociete"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedCodepage="1252" />
-                    <inputColumn
-                      refId="Package\Fait_CRO_CRO_CROD\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CRO_CodCompte]"
-                      lineageId="Package\Fait_CRO_CRO_CROD\CRO_CRO_CROD.Outputs[OLE DB Source Output].Columns[CRO_CodCompte]"
-                      externalMetadataColumnId="Package\Fait_CRO_CRO_CROD\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CRO_CodCompte]"
-                      cachedName="CRO_CodCompte"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedCodepage="1252" />
-                    <inputColumn
-                      refId="Package\Fait_CRO_CRO_CROD\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CRO_CodOperation]"
-                      lineageId="Package\Fait_CRO_CRO_CROD\CRO_CRO_CROD.Outputs[OLE DB Source Output].Columns[CRO_CodOperation]"
-                      externalMetadataColumnId="Package\Fait_CRO_CRO_CROD\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CRO_CodOperation]"
-                      cachedName="CRO_CodOperation"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedCodepage="1252" />
-                    <inputColumn
-                      refId="Package\Fait_CRO_CRO_CROD\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CRO_CodIsin]"
-                      lineageId="Package\Fait_CRO_CRO_CROD\CRO_CRO_CROD.Outputs[OLE DB Source Output].Columns[CRO_CodIsin]"
-                      externalMetadataColumnId="Package\Fait_CRO_CRO_CROD\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CRO_CodIsin]"
-                      cachedName="CRO_CodIsin"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedCodepage="1252" />
-                    <inputColumn
                       refId="Package\Fait_CRO_CRO_CROD\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CRO_Qte]"
                       lineageId="Package\Fait_CRO_CRO_CROD\CRO_CRO_CROD.Outputs[OLE DB Source Output].Columns[CRO_Qte]"
                       externalMetadataColumnId="Package\Fait_CRO_CRO_CROD\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CRO_Qte]"
@@ -6816,80 +7022,32 @@ where [refTable].[GTI_CodTiers] = ?</property>
                       cachedLength="50"
                       cachedCodepage="1252" />
                     <inputColumn
-                      refId="Package\Fait_CRO_CRO_CROD\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CRO_Dateffet]"
-                      lineageId="Package\Fait_CRO_CRO_CROD\CRO_CRO_CROD.Outputs[OLE DB Source Output].Columns[CRO_Dateffet]"
-                      externalMetadataColumnId="Package\Fait_CRO_CRO_CROD\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CRO_Dateffet]"
-                      cachedName="CRO_Dateffet"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedCodepage="1252" />
+                      refId="Package\Fait_CRO_CRO_CROD\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ID_Operation]"
+                      lineageId="Package\Fait_CRO_CRO_CROD\Recherche_Operation.Outputs[Lookup Match Output].Columns[ID_Operation]"
+                      externalMetadataColumnId="Package\Fait_CRO_CRO_CROD\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_Operation]"
+                      cachedName="ID_Operation"
+                      cachedDataType="i8" />
                     <inputColumn
-                      refId="Package\Fait_CRO_CRO_CROD\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CRO_LibOperation]"
-                      lineageId="Package\Fait_CRO_CRO_CROD\CRO_CRO_CROD.Outputs[OLE DB Source Output].Columns[CRO_LibOperation]"
-                      externalMetadataColumnId="Package\Fait_CRO_CRO_CROD\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CRO_LibOperation]"
-                      cachedName="CRO_LibOperation"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedCodepage="1252" />
+                      refId="Package\Fait_CRO_CRO_CROD\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ID_Instrument]"
+                      lineageId="Package\Fait_CRO_CRO_CROD\Recherche_Instrument.Outputs[Lookup Match Output].Columns[ID_Instrument]"
+                      externalMetadataColumnId="Package\Fait_CRO_CRO_CROD\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_Instrument]"
+                      cachedName="ID_Instrument"
+                      cachedDataType="i4" />
                     <inputColumn
-                      refId="Package\Fait_CRO_CRO_CROD\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CRO_CodAnnulation]"
-                      lineageId="Package\Fait_CRO_CRO_CROD\CRO_CRO_CROD.Outputs[OLE DB Source Output].Columns[CRO_CodAnnulation]"
-                      externalMetadataColumnId="Package\Fait_CRO_CRO_CROD\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CRO_CodAnnulation]"
-                      cachedName="CRO_CodAnnulation"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedCodepage="1252" />
+                      refId="Package\Fait_CRO_CRO_CROD\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Date_PK]"
+                      lineageId="Package\Fait_CRO_CRO_CROD\Recherche_Temps.Outputs[Lookup Match Output].Columns[Date_PK]"
+                      externalMetadataColumnId="Package\Fait_CRO_CRO_CROD\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Date_PK]"
+                      cachedName="Date_PK"
+                      cachedDataType="i4" />
                     <inputColumn
-                      refId="Package\Fait_CRO_CRO_CROD\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[CRO_CodSens]"
-                      lineageId="Package\Fait_CRO_CRO_CROD\CRO_CRO_CROD.Outputs[OLE DB Source Output].Columns[CRO_CodSens]"
-                      externalMetadataColumnId="Package\Fait_CRO_CRO_CROD\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CRO_CodSens]"
-                      cachedName="CRO_CodSens"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedCodepage="1252" />
-                    <inputColumn
-                      refId="Package\Fait_CRO_CRO_CROD\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ESO_CodType]"
-                      lineageId="Package\Fait_CRO_CRO_CROD\CRO_CRO_CROD.Outputs[OLE DB Source Output].Columns[ESO_CodType]"
-                      externalMetadataColumnId="Package\Fait_CRO_CRO_CROD\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ESO_CodType]"
-                      cachedName="ESO_CodType"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedCodepage="1252" />
-                    <inputColumn
-                      refId="Package\Fait_CRO_CRO_CROD\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ESO_CodProvenance]"
-                      lineageId="Package\Fait_CRO_CRO_CROD\CRO_CRO_CROD.Outputs[OLE DB Source Output].Columns[ESO_CodProvenance]"
-                      externalMetadataColumnId="Package\Fait_CRO_CRO_CROD\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ESO_CodProvenance]"
-                      cachedName="ESO_CodProvenance"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedCodepage="1252" />
+                      refId="Package\Fait_CRO_CRO_CROD\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ID_TiersComptesLocal]"
+                      lineageId="Package\Fait_CRO_CRO_CROD\Recherche_Tiers_Compte_Local.Outputs[Lookup Match Output].Columns[ID_TiersComptesLocal]"
+                      externalMetadataColumnId="Package\Fait_CRO_CRO_CROD\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_TiersComptesLocal]"
+                      cachedName="ID_TiersComptesLocal"
+                      cachedDataType="i8" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
-                    <externalMetadataColumn
-                      refId="Package\Fait_CRO_CRO_CROD\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CRO_CodSociete]"
-                      name="CRO_CodSociete"
-                      dataType="str"
-                      length="50"
-                      codePage="1252" />
-                    <externalMetadataColumn
-                      refId="Package\Fait_CRO_CRO_CROD\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CRO_CodCompte]"
-                      name="CRO_CodCompte"
-                      dataType="str"
-                      length="50"
-                      codePage="1252" />
-                    <externalMetadataColumn
-                      refId="Package\Fait_CRO_CRO_CROD\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CRO_CodOperation]"
-                      name="CRO_CodOperation"
-                      dataType="str"
-                      length="50"
-                      codePage="1252" />
-                    <externalMetadataColumn
-                      refId="Package\Fait_CRO_CRO_CROD\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CRO_CodIsin]"
-                      name="CRO_CodIsin"
-                      dataType="str"
-                      length="50"
-                      codePage="1252" />
                     <externalMetadataColumn
                       refId="Package\Fait_CRO_CRO_CROD\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CRO_Qte]"
                       name="CRO_Qte"
@@ -6909,41 +7067,25 @@ where [refTable].[GTI_CodTiers] = ?</property>
                       length="50"
                       codePage="1252" />
                     <externalMetadataColumn
-                      refId="Package\Fait_CRO_CRO_CROD\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CRO_Dateffet]"
-                      name="CRO_Dateffet"
-                      dataType="str"
-                      length="50"
-                      codePage="1252" />
+                      refId="Package\Fait_CRO_CRO_CROD\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_TiersComptes]"
+                      name="ID_TiersComptes"
+                      dataType="i8" />
                     <externalMetadataColumn
-                      refId="Package\Fait_CRO_CRO_CROD\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CRO_LibOperation]"
-                      name="CRO_LibOperation"
-                      dataType="str"
-                      length="50"
-                      codePage="1252" />
+                      refId="Package\Fait_CRO_CRO_CROD\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_Operation]"
+                      name="ID_Operation"
+                      dataType="i8" />
                     <externalMetadataColumn
-                      refId="Package\Fait_CRO_CRO_CROD\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CRO_CodAnnulation]"
-                      name="CRO_CodAnnulation"
-                      dataType="str"
-                      length="50"
-                      codePage="1252" />
+                      refId="Package\Fait_CRO_CRO_CROD\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_Instrument]"
+                      name="ID_Instrument"
+                      dataType="i4" />
                     <externalMetadataColumn
-                      refId="Package\Fait_CRO_CRO_CROD\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[CRO_CodSens]"
-                      name="CRO_CodSens"
-                      dataType="str"
-                      length="50"
-                      codePage="1252" />
+                      refId="Package\Fait_CRO_CRO_CROD\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Date_PK]"
+                      name="Date_PK"
+                      dataType="i4" />
                     <externalMetadataColumn
-                      refId="Package\Fait_CRO_CRO_CROD\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ESO_CodType]"
-                      name="ESO_CodType"
-                      dataType="str"
-                      length="50"
-                      codePage="1252" />
-                    <externalMetadataColumn
-                      refId="Package\Fait_CRO_CRO_CROD\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ESO_CodProvenance]"
-                      name="ESO_CodProvenance"
-                      dataType="str"
-                      length="50"
-                      codePage="1252" />
+                      refId="Package\Fait_CRO_CRO_CROD\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_TiersComptesLocal]"
+                      name="ID_TiersComptesLocal"
+                      dataType="i8" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -7003,7 +7145,7 @@ where [refTable].[GIN_CodISIN] = ?</property>
                   name="CacheType"
                   dataType="System.Int32"
                   description="Specifies the cache type of the lookup table."
-                  typeConverter="CacheType">0</property>
+                  typeConverter="CacheType">2</property>
                 <property
                   name="NoMatchBehavior"
                   dataType="System.Int32"
@@ -7024,7 +7166,7 @@ where [refTable].[GIN_CodISIN] = ?</property>
                 <property
                   name="ReferenceMetadataXml"
                   dataType="System.String"
-                  description="Indicates whether to reference metadata in an XML format.">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="ID" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="GIN_CodISIN" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="KW02_Libelle" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="GIN_Actif" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="GIN_CodMIC" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="GIN_CodPaysEmission" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="GIN_CodProduitComplexe" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="GIN_CodDeviseCotation" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="GIN_LibEmetteur" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="GIN_LibInstrument" dataType="DT_STR" length="500" precision="0" scale="0" codePage="1252"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                  description="Indicates whether to reference metadata in an XML format.">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="ID_Instrument" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="GIN_CodISIN" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="KW02_Libelle" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="GIN_Actif" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="GIN_CodMIC" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="GIN_CodPaysEmission" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="GIN_CodProduitComplexe" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="GIN_CodDeviseCotation" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="GIN_LibEmetteur" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="GIN_LibInstrument" dataType="DT_STR" length="500" precision="0" scale="0" codePage="1252"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
                 <property
                   name="ParameterMap"
                   dataType="System.String"
@@ -7081,6 +7223,22 @@ where [refTable].[GIN_CodISIN] = ?</property>
                   exclusionGroup="1"
                   synchronousInputId="Package\Fait_CRO_CRO_CROD\Recherche_Instrument.Inputs[Lookup Input]"
                   errorOrTruncationOperation="Lookup">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Fait_CRO_CRO_CROD\Recherche_Instrument.Outputs[Lookup Match Output].Columns[ID_Instrument]"
+                      name="ID_Instrument"
+                      lineageId="Package\Fait_CRO_CRO_CROD\Recherche_Instrument.Outputs[Lookup Match Output].Columns[ID_Instrument]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copy Column"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          name="CopyFromReferenceColumn"
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied.">ID_Instrument</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
                   <externalMetadataColumns />
                 </output>
                 <output
@@ -7167,7 +7325,7 @@ where [refTable].[CRO_CodOperation] = ?</property>
                 <property
                   name="ReferenceMetadataXml"
                   dataType="System.String"
-                  description="Indicates whether to reference metadata in an XML format.">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="ID" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="CRO_CodOperation" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="CRO_Dateffet" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="CRO_LibOperation" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="CRO_CodAnnulation" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="CRO_CodSens" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="ESO_CodType" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="ESO_CodProvenance" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                  description="Indicates whether to reference metadata in an XML format.">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="ID_Operation" dataType="DT_I8" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="CRO_CodOperation" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="CRO_Dateffet" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="CRO_LibOperation" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="CRO_CodAnnulation" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="CRO_CodSens" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="ESO_CodType" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="ESO_CodProvenance" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
                 <property
                   name="ParameterMap"
                   dataType="System.String"
@@ -7224,6 +7382,22 @@ where [refTable].[CRO_CodOperation] = ?</property>
                   exclusionGroup="1"
                   synchronousInputId="Package\Fait_CRO_CRO_CROD\Recherche_Operation.Inputs[Lookup Input]"
                   errorOrTruncationOperation="Lookup">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Fait_CRO_CRO_CROD\Recherche_Operation.Outputs[Lookup Match Output].Columns[ID_Operation]"
+                      name="ID_Operation"
+                      lineageId="Package\Fait_CRO_CRO_CROD\Recherche_Operation.Outputs[Lookup Match Output].Columns[ID_Operation]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Copy Column"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          name="CopyFromReferenceColumn"
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied.">ID_Operation</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
                   <externalMetadataColumns />
                 </output>
                 <output
@@ -7289,7 +7463,7 @@ where [refTable].[Date] = ?</property>
                   name="CacheType"
                   dataType="System.Int32"
                   description="Specifies the cache type of the lookup table."
-                  typeConverter="CacheType">0</property>
+                  typeConverter="CacheType">2</property>
                 <property
                   name="NoMatchBehavior"
                   dataType="System.Int32"
@@ -7365,6 +7539,22 @@ where [refTable].[Date] = ?</property>
                   exclusionGroup="1"
                   synchronousInputId="Package\Fait_CRO_CRO_CROD\Recherche_Temps.Inputs[Lookup Input]"
                   errorOrTruncationOperation="Lookup">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Fait_CRO_CRO_CROD\Recherche_Temps.Outputs[Lookup Match Output].Columns[Date_PK]"
+                      name="Date_PK"
+                      lineageId="Package\Fait_CRO_CRO_CROD\Recherche_Temps.Outputs[Lookup Match Output].Columns[Date_PK]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Copy Column"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          name="CopyFromReferenceColumn"
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied.">Date_PK</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
                   <externalMetadataColumns />
                 </output>
                 <output
@@ -7451,7 +7641,7 @@ where [refTable].[TCL_CodCompte_hash] = ?</property>
                 <property
                   name="ReferenceMetadataXml"
                   dataType="System.String"
-                  description="Indicates whether to reference metadata in an XML format.">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="TCL_CodSociete" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="TCL_CodCompte_hash" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="TCL_CodTiers" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="TCL_NumLien" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="CRT_Libelle" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                  description="Indicates whether to reference metadata in an XML format.">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="TCL_CodSociete" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="TCL_CodCompte_hash" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="TCL_NumLien" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="CRT_Libelle" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="ID_GenTiers" dataType="DT_I8" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="ID_GenComptes" dataType="DT_I8" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="ID_TiersComptesLocal" dataType="DT_I8" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
                 <property
                   name="ParameterMap"
                   dataType="System.String"
@@ -7510,19 +7700,45 @@ where [refTable].[TCL_CodCompte_hash] = ?</property>
                   errorOrTruncationOperation="Lookup">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Fait_CRO_CRO_CROD\Recherche_Tiers_Compte_Local.Outputs[Lookup Match Output].Columns[TCL_NumLien]"
-                      name="TCL_NumLien"
-                      lineageId="Package\Fait_CRO_CRO_CROD\Recherche_Tiers_Compte_Local.Outputs[Lookup Match Output].Columns[TCL_NumLien]"
-                      length="50"
-                      dataType="str"
-                      codePage="1252"
+                      refId="Package\Fait_CRO_CRO_CROD\Recherche_Tiers_Compte_Local.Outputs[Lookup Match Output].Columns[ID_TiersComptesLocal]"
+                      name="ID_TiersComptesLocal"
+                      lineageId="Package\Fait_CRO_CRO_CROD\Recherche_Tiers_Compte_Local.Outputs[Lookup Match Output].Columns[ID_TiersComptesLocal]"
+                      dataType="i8"
                       errorOrTruncationOperation="Copy Column"
                       truncationRowDisposition="FailComponent">
                       <properties>
                         <property
                           name="CopyFromReferenceColumn"
                           dataType="System.String"
-                          description="Specifies the column in the reference table from which a column is copied.">TCL_NumLien</property>
+                          description="Specifies the column in the reference table from which a column is copied.">ID_TiersComptesLocal</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Fait_CRO_CRO_CROD\Recherche_Tiers_Compte_Local.Outputs[Lookup Match Output].Columns[ID_GenComptes]"
+                      name="ID_GenComptes"
+                      lineageId="Package\Fait_CRO_CRO_CROD\Recherche_Tiers_Compte_Local.Outputs[Lookup Match Output].Columns[ID_GenComptes]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Copy Column"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          name="CopyFromReferenceColumn"
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied.">ID_GenComptes</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Fait_CRO_CRO_CROD\Recherche_Tiers_Compte_Local.Outputs[Lookup Match Output].Columns[ID_GenTiers]"
+                      name="ID_GenTiers"
+                      lineageId="Package\Fait_CRO_CRO_CROD\Recherche_Tiers_Compte_Local.Outputs[Lookup Match Output].Columns[ID_GenTiers]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Copy Column"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          name="CopyFromReferenceColumn"
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied.">ID_GenTiers</property>
                       </properties>
                     </outputColumn>
                   </outputColumns>
@@ -7568,30 +7784,35 @@ where [refTable].[TCL_CodCompte_hash] = ?</property>
               startId="Package\Fait_CRO_CRO_CROD\Data Conversion.Outputs[Data Conversion Output]"
               endId="Package\Fait_CRO_CRO_CROD\Recherche_Temps.Inputs[Lookup Input]" />
             <path
-              refId="Package\Fait_CRO_CRO_CROD.Paths[Lookup Match Output2]"
-              name="Lookup Match Output"
-              startId="Package\Fait_CRO_CRO_CROD\Recherche_Instrument.Outputs[Lookup Match Output]"
-              endId="Package\Fait_CRO_CRO_CROD\Data Conversion.Inputs[Data Conversion Input]" />
+              refId="Package\Fait_CRO_CRO_CROD.Paths[Derived Column Output]"
+              name="Derived Column Output"
+              startId="Package\Fait_CRO_CRO_CROD\Derived Column.Outputs[Derived Column Output]"
+              endId="Package\Fait_CRO_CRO_CROD\Recherche_Tiers_Compte_Local.Inputs[Lookup Input]" />
             <path
               refId="Package\Fait_CRO_CRO_CROD.Paths[Lookup Match Output3]"
               name="Lookup Match Output"
               startId="Package\Fait_CRO_CRO_CROD\Recherche_Temps.Outputs[Lookup Match Output]"
               endId="Package\Fait_CRO_CRO_CROD\OLE DB Destination.Inputs[OLE DB Destination Input]" />
             <path
-              refId="Package\Fait_CRO_CRO_CROD.Paths[Lookup Match Output1]"
-              name="Lookup Match Output"
-              startId="Package\Fait_CRO_CRO_CROD\Recherche_Operation.Outputs[Lookup Match Output]"
-              endId="Package\Fait_CRO_CRO_CROD\Recherche_Instrument.Inputs[Lookup Input]" />
-            <path
               refId="Package\Fait_CRO_CRO_CROD.Paths[Lookup Match Output]"
               name="Lookup Match Output"
               startId="Package\Fait_CRO_CRO_CROD\Recherche_Tiers_Compte_Local.Outputs[Lookup Match Output]"
               endId="Package\Fait_CRO_CRO_CROD\Recherche_Operation.Inputs[Lookup Input]" />
             <path
+              refId="Package\Fait_CRO_CRO_CROD.Paths[Lookup Match Output2]"
+              name="Lookup Match Output"
+              startId="Package\Fait_CRO_CRO_CROD\Recherche_Instrument.Outputs[Lookup Match Output]"
+              endId="Package\Fait_CRO_CRO_CROD\Data Conversion.Inputs[Data Conversion Input]" />
+            <path
+              refId="Package\Fait_CRO_CRO_CROD.Paths[Lookup Match Output1]"
+              name="Lookup Match Output"
+              startId="Package\Fait_CRO_CRO_CROD\Recherche_Operation.Outputs[Lookup Match Output]"
+              endId="Package\Fait_CRO_CRO_CROD\Recherche_Instrument.Inputs[Lookup Input]" />
+            <path
               refId="Package\Fait_CRO_CRO_CROD.Paths[OLE DB Source Output]"
               name="OLE DB Source Output"
               startId="Package\Fait_CRO_CRO_CROD\CRO_CRO_CROD.Outputs[OLE DB Source Output]"
-              endId="Package\Fait_CRO_CRO_CROD\Recherche_Tiers_Compte_Local.Inputs[Lookup Input]" />
+              endId="Package\Fait_CRO_CRO_CROD\Derived Column.Inputs[Derived Column Input]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
@@ -7703,7 +7924,7 @@ where [refTable].[TCL_CodCompte_hash] = ?</property>
                 <property
                   name="OpenRowset"
                   dataType="System.String"
-                  description="Specifies the name of the database object used to open a rowset.">[dbo].[Meeting]</property>
+                  description="Specifies the name of the database object used to open a rowset.">[Meeting]</property>
                 <property
                   name="OpenRowsetVariable"
                   dataType="System.String"
@@ -7760,22 +7981,6 @@ where [refTable].[TCL_CodCompte_hash] = ?</property>
                   errorRowDisposition="FailComponent">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Fait_Meeting\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Id]"
-                      lineageId="Package\Fait_Meeting\OLE DB Source.Outputs[OLE DB Source Output].Columns[Id]"
-                      externalMetadataColumnId="Package\Fait_Meeting\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Id]"
-                      cachedName="Id"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedCodepage="1252" />
-                    <inputColumn
-                      refId="Package\Fait_Meeting\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[code]"
-                      lineageId="Package\Fait_Meeting\OLE DB Source.Outputs[OLE DB Source Output].Columns[code]"
-                      externalMetadataColumnId="Package\Fait_Meeting\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[code]"
-                      cachedName="code"
-                      cachedDataType="str"
-                      cachedLength="50"
-                      cachedCodepage="1252" />
-                    <inputColumn
                       refId="Package\Fait_Meeting\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Status]"
                       lineageId="Package\Fait_Meeting\OLE DB Source.Outputs[OLE DB Source Output].Columns[Status]"
                       externalMetadataColumnId="Package\Fait_Meeting\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Status]"
@@ -7816,9 +8021,45 @@ where [refTable].[TCL_CodCompte_hash] = ?</property>
                       cachedLength="50"
                       cachedCodepage="1252" />
                     <inputColumn
+                      refId="Package\Fait_Meeting\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[code]"
+                      lineageId="Package\Fait_Meeting\OLE DB Source.Outputs[OLE DB Source Output].Columns[code]"
+                      externalMetadataColumnId="Package\Fait_Meeting\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[code]"
+                      cachedName="code"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedCodepage="1252" />
+                    <inputColumn
+                      refId="Package\Fait_Meeting\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Id]"
+                      lineageId="Package\Fait_Meeting\OLE DB Source.Outputs[OLE DB Source Output].Columns[Id]"
+                      externalMetadataColumnId="Package\Fait_Meeting\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Id]"
+                      cachedName="Id"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedCodepage="1252" />
+                    <inputColumn
+                      refId="Package\Fait_Meeting\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ID_Activity]"
+                      lineageId="Package\Fait_Meeting\Recheche Activity.Outputs[Lookup Match Output].Columns[ID_Activity]"
+                      externalMetadataColumnId="Package\Fait_Meeting\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_Activity]"
+                      cachedName="ID_Activity"
+                      cachedDataType="i8" />
+                    <inputColumn
+                      refId="Package\Fait_Meeting\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[contactId]"
+                      lineageId="Package\Fait_Meeting\Recheche Activity.Outputs[Lookup Match Output].Columns[contactId]"
+                      externalMetadataColumnId="Package\Fait_Meeting\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[contactId]"
+                      cachedName="contactId"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedCodepage="1252" />
+                    <inputColumn
+                      refId="Package\Fait_Meeting\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ID_GenComptes]"
+                      lineageId="Package\Fait_Meeting\Recherche Compte.Outputs[Lookup Match Output].Columns[ID_GenComptes]"
+                      externalMetadataColumnId="Package\Fait_Meeting\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_GenComptes]"
+                      cachedName="ID_GenComptes"
+                      cachedDataType="i8" />
+                    <inputColumn
                       refId="Package\Fait_Meeting\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Date_PK]"
                       lineageId="Package\Fait_Meeting\Recherche Temps.Outputs[Lookup Match Output].Columns[Date_PK]"
-                      externalMetadataColumnId="Package\Fait_Meeting\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[IDdate]"
+                      externalMetadataColumnId="Package\Fait_Meeting\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Date_PK]"
                       cachedName="Date_PK"
                       cachedDataType="i4" />
                   </inputColumns>
@@ -7867,9 +8108,23 @@ where [refTable].[TCL_CodCompte_hash] = ?</property>
                       length="50"
                       codePage="1252" />
                     <externalMetadataColumn
-                      refId="Package\Fait_Meeting\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[IDdate]"
-                      name="IDdate"
-                      dataType="dbDate" />
+                      refId="Package\Fait_Meeting\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_Activity]"
+                      name="ID_Activity"
+                      dataType="i8" />
+                    <externalMetadataColumn
+                      refId="Package\Fait_Meeting\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[contactId]"
+                      name="contactId"
+                      dataType="str"
+                      length="50"
+                      codePage="1252" />
+                    <externalMetadataColumn
+                      refId="Package\Fait_Meeting\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[ID_GenComptes]"
+                      name="ID_GenComptes"
+                      dataType="i8" />
+                    <externalMetadataColumn
+                      refId="Package\Fait_Meeting\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Date_PK]"
+                      name="Date_PK"
+                      dataType="i4" />
                   </externalMetadataColumns>
                 </input>
               </inputs>
@@ -7960,39 +8215,6 @@ where [refTable].[TCL_CodCompte_hash] = ?</property>
                   name="OLE DB Source Output">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Fait_Meeting\OLE DB Source.Outputs[OLE DB Source Output].Columns[Id]"
-                      name="Id"
-                      lineageId="Package\Fait_Meeting\OLE DB Source.Outputs[OLE DB Source Output].Columns[Id]"
-                      length="50"
-                      dataType="str"
-                      codePage="1252"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      truncationRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Fait_Meeting\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Id]" />
-                    <outputColumn
-                      refId="Package\Fait_Meeting\OLE DB Source.Outputs[OLE DB Source Output].Columns[code]"
-                      name="code"
-                      lineageId="Package\Fait_Meeting\OLE DB Source.Outputs[OLE DB Source Output].Columns[code]"
-                      length="50"
-                      dataType="str"
-                      codePage="1252"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      truncationRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Fait_Meeting\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[code]" />
-                    <outputColumn
-                      refId="Package\Fait_Meeting\OLE DB Source.Outputs[OLE DB Source Output].Columns[Status]"
-                      name="Status"
-                      lineageId="Package\Fait_Meeting\OLE DB Source.Outputs[OLE DB Source Output].Columns[Status]"
-                      length="50"
-                      dataType="str"
-                      codePage="1252"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      truncationRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Fait_Meeting\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Status]" />
-                    <outputColumn
                       refId="Package\Fait_Meeting\OLE DB Source.Outputs[OLE DB Source Output].Columns[MeetingFrequency]"
                       name="MeetingFrequency"
                       lineageId="Package\Fait_Meeting\OLE DB Source.Outputs[OLE DB Source Output].Columns[MeetingFrequency]"
@@ -8036,6 +8258,39 @@ where [refTable].[TCL_CodCompte_hash] = ?</property>
                       errorRowDisposition="FailComponent"
                       truncationRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\Fait_Meeting\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ClientMeetingFrequency]" />
+                    <outputColumn
+                      refId="Package\Fait_Meeting\OLE DB Source.Outputs[OLE DB Source Output].Columns[code]"
+                      name="code"
+                      lineageId="Package\Fait_Meeting\OLE DB Source.Outputs[OLE DB Source Output].Columns[code]"
+                      length="50"
+                      dataType="str"
+                      codePage="1252"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Fait_Meeting\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[code]" />
+                    <outputColumn
+                      refId="Package\Fait_Meeting\OLE DB Source.Outputs[OLE DB Source Output].Columns[Id]"
+                      name="Id"
+                      lineageId="Package\Fait_Meeting\OLE DB Source.Outputs[OLE DB Source Output].Columns[Id]"
+                      length="50"
+                      dataType="str"
+                      codePage="1252"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Fait_Meeting\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Id]" />
+                    <outputColumn
+                      refId="Package\Fait_Meeting\OLE DB Source.Outputs[OLE DB Source Output].Columns[Status]"
+                      name="Status"
+                      lineageId="Package\Fait_Meeting\OLE DB Source.Outputs[OLE DB Source Output].Columns[Status]"
+                      length="50"
+                      dataType="str"
+                      codePage="1252"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Fait_Meeting\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[Status]" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -8089,27 +8344,6 @@ where [refTable].[TCL_CodCompte_hash] = ?</property>
                   isErrorOut="true">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Fait_Meeting\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Id]"
-                      name="Id"
-                      lineageId="Package\Fait_Meeting\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Id]"
-                      length="50"
-                      dataType="str"
-                      codePage="1252" />
-                    <outputColumn
-                      refId="Package\Fait_Meeting\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[code]"
-                      name="code"
-                      lineageId="Package\Fait_Meeting\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[code]"
-                      length="50"
-                      dataType="str"
-                      codePage="1252" />
-                    <outputColumn
-                      refId="Package\Fait_Meeting\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Status]"
-                      name="Status"
-                      lineageId="Package\Fait_Meeting\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Status]"
-                      length="50"
-                      dataType="str"
-                      codePage="1252" />
-                    <outputColumn
                       refId="Package\Fait_Meeting\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[MeetingFrequency]"
                       name="MeetingFrequency"
                       lineageId="Package\Fait_Meeting\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[MeetingFrequency]"
@@ -8149,6 +8383,27 @@ where [refTable].[TCL_CodCompte_hash] = ?</property>
                       lineageId="Package\Fait_Meeting\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
                       dataType="i4"
                       specialFlags="2" />
+                    <outputColumn
+                      refId="Package\Fait_Meeting\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[code]"
+                      name="code"
+                      lineageId="Package\Fait_Meeting\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[code]"
+                      length="50"
+                      dataType="str"
+                      codePage="1252" />
+                    <outputColumn
+                      refId="Package\Fait_Meeting\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Id]"
+                      name="Id"
+                      lineageId="Package\Fait_Meeting\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Id]"
+                      length="50"
+                      dataType="str"
+                      codePage="1252" />
+                    <outputColumn
+                      refId="Package\Fait_Meeting\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Status]"
+                      name="Status"
+                      lineageId="Package\Fait_Meeting\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[Status]"
+                      length="50"
+                      dataType="str"
+                      codePage="1252" />
                   </outputColumns>
                   <externalMetadataColumns />
                 </output>
@@ -8206,12 +8461,12 @@ where [refTable].[contactId] = ?</property>
                 <property
                   name="ReferenceMetadataXml"
                   dataType="System.String"
-                  description="Indicates whether to reference metadata in an XML format.">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="ID" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="contactId" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="ActivityDate" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="ActivityType" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="ContactType" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                  description="Indicates whether to reference metadata in an XML format.">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="ID_Activity" dataType="DT_I8" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="contactId" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="ActivityDate" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="ActivityType" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="ContactType" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="GCO_CodCompte" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
                 <property
                   name="ParameterMap"
                   dataType="System.String"
                   description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
-                  containsID="true">#{Package\Fait_Meeting\OLE DB Source.Outputs[OLE DB Source Output].Columns[code]};</property>
+                  containsID="true">#{Package\Fait_Meeting\OLE DB Source.Outputs[OLE DB Source Output].Columns[Id]};</property>
                 <property
                   name="DefaultCodePage"
                   dataType="System.Int32"
@@ -8235,9 +8490,9 @@ where [refTable].[contactId] = ?</property>
                   name="Lookup Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Fait_Meeting\Recheche Activity.Inputs[Lookup Input].Columns[code]"
-                      lineageId="Package\Fait_Meeting\OLE DB Source.Outputs[OLE DB Source Output].Columns[code]"
-                      cachedName="code"
+                      refId="Package\Fait_Meeting\Recheche Activity.Inputs[Lookup Input].Columns[Id]"
+                      lineageId="Package\Fait_Meeting\OLE DB Source.Outputs[OLE DB Source Output].Columns[Id]"
+                      cachedName="Id"
                       cachedDataType="str"
                       cachedLength="50"
                       cachedCodepage="1252">
@@ -8265,6 +8520,36 @@ where [refTable].[contactId] = ?</property>
                   errorOrTruncationOperation="Lookup">
                   <outputColumns>
                     <outputColumn
+                      refId="Package\Fait_Meeting\Recheche Activity.Outputs[Lookup Match Output].Columns[ID_Activity]"
+                      name="ID_Activity"
+                      lineageId="Package\Fait_Meeting\Recheche Activity.Outputs[Lookup Match Output].Columns[ID_Activity]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Copy Column"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          name="CopyFromReferenceColumn"
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied.">ID_Activity</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Fait_Meeting\Recheche Activity.Outputs[Lookup Match Output].Columns[contactId]"
+                      name="contactId"
+                      lineageId="Package\Fait_Meeting\Recheche Activity.Outputs[Lookup Match Output].Columns[contactId]"
+                      length="50"
+                      dataType="str"
+                      codePage="1252"
+                      errorOrTruncationOperation="Copy Column"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          name="CopyFromReferenceColumn"
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied.">contactId</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
                       refId="Package\Fait_Meeting\Recheche Activity.Outputs[Lookup Match Output].Columns[ActivityDate]"
                       name="ActivityDate"
                       lineageId="Package\Fait_Meeting\Recheche Activity.Outputs[Lookup Match Output].Columns[ActivityDate]"
@@ -8278,6 +8563,54 @@ where [refTable].[contactId] = ?</property>
                           name="CopyFromReferenceColumn"
                           dataType="System.String"
                           description="Specifies the column in the reference table from which a column is copied.">ActivityDate</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Fait_Meeting\Recheche Activity.Outputs[Lookup Match Output].Columns[ActivityType]"
+                      name="ActivityType"
+                      lineageId="Package\Fait_Meeting\Recheche Activity.Outputs[Lookup Match Output].Columns[ActivityType]"
+                      length="50"
+                      dataType="str"
+                      codePage="1252"
+                      errorOrTruncationOperation="Copy Column"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          name="CopyFromReferenceColumn"
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied.">ActivityType</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Fait_Meeting\Recheche Activity.Outputs[Lookup Match Output].Columns[ContactType]"
+                      name="ContactType"
+                      lineageId="Package\Fait_Meeting\Recheche Activity.Outputs[Lookup Match Output].Columns[ContactType]"
+                      length="50"
+                      dataType="str"
+                      codePage="1252"
+                      errorOrTruncationOperation="Copy Column"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          name="CopyFromReferenceColumn"
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied.">ContactType</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Fait_Meeting\Recheche Activity.Outputs[Lookup Match Output].Columns[GCO_CodCompte]"
+                      name="GCO_CodCompte"
+                      lineageId="Package\Fait_Meeting\Recheche Activity.Outputs[Lookup Match Output].Columns[GCO_CodCompte]"
+                      length="50"
+                      dataType="str"
+                      codePage="1252"
+                      errorOrTruncationOperation="Copy Column"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          name="CopyFromReferenceColumn"
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied.">GCO_CodCompte</property>
                       </properties>
                     </outputColumn>
                   </outputColumns>
@@ -8367,12 +8700,12 @@ where [refTable].[GCO_CodCompte] = ?</property>
                 <property
                   name="ReferenceMetadataXml"
                   dataType="System.String"
-                  description="Indicates whether to reference metadata in an XML format.">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="GCO_CodPrestataire" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="GCO_CodCompte" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="GCO_CodTypeOrientation" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="GCO_IsOuvert" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="GCO_IsAsv" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="GCO_IsAssureur" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="GCO_IsPea" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="GCO_IsPeaPme" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="GCO_CodProduit" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="GCO_LibProduit" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="GCO_TypGestion" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="GCO_LibEtatCompte" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="GCO_CodTypContrat" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="GCO_CodEnveloppeFiscale" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="GCO_CodSociete" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                  description="Indicates whether to reference metadata in an XML format.">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="ID_GenComptes" dataType="DT_I8" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="GCO_CodPrestataire" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="GCO_CodCompte" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="GCO_CodTypeOrientation" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="GCO_IsOuvert" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="GCO_IsAsv" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="GCO_IsAssureur" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="GCO_IsPea" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="GCO_IsPeaPme" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="GCO_CodProduit" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="GCO_LibProduit" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="GCO_TypGestion" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="GCO_LibEtatCompte" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="GCO_CodTypContrat" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="GCO_CodEnveloppeFiscale" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;referenceColumn name="GCO_CodSociete" dataType="DT_STR" length="50" precision="0" scale="0" codePage="1252"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
                 <property
                   name="ParameterMap"
                   dataType="System.String"
                   description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
-                  containsID="true">#{Package\Fait_Meeting\OLE DB Source.Outputs[OLE DB Source Output].Columns[code]};</property>
+                  containsID="true">#{Package\Fait_Meeting\Recheche Activity.Outputs[Lookup Match Output].Columns[GCO_CodCompte]};</property>
                 <property
                   name="DefaultCodePage"
                   dataType="System.Int32"
@@ -8396,9 +8729,9 @@ where [refTable].[GCO_CodCompte] = ?</property>
                   name="Lookup Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Fait_Meeting\Recherche Compte.Inputs[Lookup Input].Columns[code]"
-                      lineageId="Package\Fait_Meeting\OLE DB Source.Outputs[OLE DB Source Output].Columns[code]"
-                      cachedName="code"
+                      refId="Package\Fait_Meeting\Recherche Compte.Inputs[Lookup Input].Columns[GCO_CodCompte]"
+                      lineageId="Package\Fait_Meeting\Recheche Activity.Outputs[Lookup Match Output].Columns[GCO_CodCompte]"
+                      cachedName="GCO_CodCompte"
                       cachedDataType="str"
                       cachedLength="50"
                       cachedCodepage="1252">
@@ -8424,6 +8757,262 @@ where [refTable].[GCO_CodCompte] = ?</property>
                   exclusionGroup="1"
                   synchronousInputId="Package\Fait_Meeting\Recherche Compte.Inputs[Lookup Input]"
                   errorOrTruncationOperation="Lookup">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Fait_Meeting\Recherche Compte.Outputs[Lookup Match Output].Columns[ID_GenComptes]"
+                      name="ID_GenComptes"
+                      lineageId="Package\Fait_Meeting\Recherche Compte.Outputs[Lookup Match Output].Columns[ID_GenComptes]"
+                      dataType="i8"
+                      errorOrTruncationOperation="Copy Column"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          name="CopyFromReferenceColumn"
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied.">ID_GenComptes</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Fait_Meeting\Recherche Compte.Outputs[Lookup Match Output].Columns[GCO_CodPrestataire]"
+                      name="GCO_CodPrestataire"
+                      lineageId="Package\Fait_Meeting\Recherche Compte.Outputs[Lookup Match Output].Columns[GCO_CodPrestataire]"
+                      length="50"
+                      dataType="str"
+                      codePage="1252"
+                      errorOrTruncationOperation="Copy Column"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          name="CopyFromReferenceColumn"
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied.">GCO_CodPrestataire</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Fait_Meeting\Recherche Compte.Outputs[Lookup Match Output].Columns[GCO_CodCompte]"
+                      name="GCO_CodCompte"
+                      lineageId="Package\Fait_Meeting\Recherche Compte.Outputs[Lookup Match Output].Columns[GCO_CodCompte]"
+                      length="50"
+                      dataType="str"
+                      codePage="1252"
+                      errorOrTruncationOperation="Copy Column"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          name="CopyFromReferenceColumn"
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied.">GCO_CodCompte</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Fait_Meeting\Recherche Compte.Outputs[Lookup Match Output].Columns[GCO_CodTypeOrientation]"
+                      name="GCO_CodTypeOrientation"
+                      lineageId="Package\Fait_Meeting\Recherche Compte.Outputs[Lookup Match Output].Columns[GCO_CodTypeOrientation]"
+                      length="50"
+                      dataType="str"
+                      codePage="1252"
+                      errorOrTruncationOperation="Copy Column"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          name="CopyFromReferenceColumn"
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied.">GCO_CodTypeOrientation</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Fait_Meeting\Recherche Compte.Outputs[Lookup Match Output].Columns[GCO_IsOuvert]"
+                      name="GCO_IsOuvert"
+                      lineageId="Package\Fait_Meeting\Recherche Compte.Outputs[Lookup Match Output].Columns[GCO_IsOuvert]"
+                      length="50"
+                      dataType="str"
+                      codePage="1252"
+                      errorOrTruncationOperation="Copy Column"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          name="CopyFromReferenceColumn"
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied.">GCO_IsOuvert</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Fait_Meeting\Recherche Compte.Outputs[Lookup Match Output].Columns[GCO_IsAsv]"
+                      name="GCO_IsAsv"
+                      lineageId="Package\Fait_Meeting\Recherche Compte.Outputs[Lookup Match Output].Columns[GCO_IsAsv]"
+                      length="50"
+                      dataType="str"
+                      codePage="1252"
+                      errorOrTruncationOperation="Copy Column"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          name="CopyFromReferenceColumn"
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied.">GCO_IsAsv</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Fait_Meeting\Recherche Compte.Outputs[Lookup Match Output].Columns[GCO_IsAssureur]"
+                      name="GCO_IsAssureur"
+                      lineageId="Package\Fait_Meeting\Recherche Compte.Outputs[Lookup Match Output].Columns[GCO_IsAssureur]"
+                      length="50"
+                      dataType="str"
+                      codePage="1252"
+                      errorOrTruncationOperation="Copy Column"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          name="CopyFromReferenceColumn"
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied.">GCO_IsAssureur</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Fait_Meeting\Recherche Compte.Outputs[Lookup Match Output].Columns[GCO_IsPea]"
+                      name="GCO_IsPea"
+                      lineageId="Package\Fait_Meeting\Recherche Compte.Outputs[Lookup Match Output].Columns[GCO_IsPea]"
+                      length="50"
+                      dataType="str"
+                      codePage="1252"
+                      errorOrTruncationOperation="Copy Column"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          name="CopyFromReferenceColumn"
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied.">GCO_IsPea</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Fait_Meeting\Recherche Compte.Outputs[Lookup Match Output].Columns[GCO_IsPeaPme]"
+                      name="GCO_IsPeaPme"
+                      lineageId="Package\Fait_Meeting\Recherche Compte.Outputs[Lookup Match Output].Columns[GCO_IsPeaPme]"
+                      length="50"
+                      dataType="str"
+                      codePage="1252"
+                      errorOrTruncationOperation="Copy Column"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          name="CopyFromReferenceColumn"
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied.">GCO_IsPeaPme</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Fait_Meeting\Recherche Compte.Outputs[Lookup Match Output].Columns[GCO_CodProduit]"
+                      name="GCO_CodProduit"
+                      lineageId="Package\Fait_Meeting\Recherche Compte.Outputs[Lookup Match Output].Columns[GCO_CodProduit]"
+                      length="50"
+                      dataType="str"
+                      codePage="1252"
+                      errorOrTruncationOperation="Copy Column"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          name="CopyFromReferenceColumn"
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied.">GCO_CodProduit</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Fait_Meeting\Recherche Compte.Outputs[Lookup Match Output].Columns[GCO_LibProduit]"
+                      name="GCO_LibProduit"
+                      lineageId="Package\Fait_Meeting\Recherche Compte.Outputs[Lookup Match Output].Columns[GCO_LibProduit]"
+                      length="50"
+                      dataType="str"
+                      codePage="1252"
+                      errorOrTruncationOperation="Copy Column"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          name="CopyFromReferenceColumn"
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied.">GCO_LibProduit</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Fait_Meeting\Recherche Compte.Outputs[Lookup Match Output].Columns[GCO_TypGestion]"
+                      name="GCO_TypGestion"
+                      lineageId="Package\Fait_Meeting\Recherche Compte.Outputs[Lookup Match Output].Columns[GCO_TypGestion]"
+                      length="50"
+                      dataType="str"
+                      codePage="1252"
+                      errorOrTruncationOperation="Copy Column"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          name="CopyFromReferenceColumn"
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied.">GCO_TypGestion</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Fait_Meeting\Recherche Compte.Outputs[Lookup Match Output].Columns[GCO_LibEtatCompte]"
+                      name="GCO_LibEtatCompte"
+                      lineageId="Package\Fait_Meeting\Recherche Compte.Outputs[Lookup Match Output].Columns[GCO_LibEtatCompte]"
+                      length="50"
+                      dataType="str"
+                      codePage="1252"
+                      errorOrTruncationOperation="Copy Column"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          name="CopyFromReferenceColumn"
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied.">GCO_LibEtatCompte</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Fait_Meeting\Recherche Compte.Outputs[Lookup Match Output].Columns[GCO_CodTypContrat]"
+                      name="GCO_CodTypContrat"
+                      lineageId="Package\Fait_Meeting\Recherche Compte.Outputs[Lookup Match Output].Columns[GCO_CodTypContrat]"
+                      length="50"
+                      dataType="str"
+                      codePage="1252"
+                      errorOrTruncationOperation="Copy Column"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          name="CopyFromReferenceColumn"
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied.">GCO_CodTypContrat</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Fait_Meeting\Recherche Compte.Outputs[Lookup Match Output].Columns[GCO_CodEnveloppeFiscale]"
+                      name="GCO_CodEnveloppeFiscale"
+                      lineageId="Package\Fait_Meeting\Recherche Compte.Outputs[Lookup Match Output].Columns[GCO_CodEnveloppeFiscale]"
+                      length="50"
+                      dataType="str"
+                      codePage="1252"
+                      errorOrTruncationOperation="Copy Column"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          name="CopyFromReferenceColumn"
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied.">GCO_CodEnveloppeFiscale</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Fait_Meeting\Recherche Compte.Outputs[Lookup Match Output].Columns[GCO_CodSociete]"
+                      name="GCO_CodSociete"
+                      lineageId="Package\Fait_Meeting\Recherche Compte.Outputs[Lookup Match Output].Columns[GCO_CodSociete]"
+                      length="50"
+                      dataType="str"
+                      codePage="1252"
+                      errorOrTruncationOperation="Copy Column"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          name="CopyFromReferenceColumn"
+                          dataType="System.String"
+                          description="Specifies the column in the reference table from which a column is copied.">GCO_CodSociete</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
                   <externalMetadataColumns />
                 </output>
                 <output
@@ -8623,25 +9212,25 @@ where [refTable].[Date] = ?</property>
               startId="Package\Fait_Meeting\Data Conversion.Outputs[Data Conversion Output]"
               endId="Package\Fait_Meeting\Recherche Temps.Inputs[Lookup Input]" />
             <path
-              refId="Package\Fait_Meeting.Paths[Lookup Match Output2]"
-              name="Lookup Match Output"
-              startId="Package\Fait_Meeting\Recherche Temps.Outputs[Lookup Match Output]"
-              endId="Package\Fait_Meeting\OLE DB Destination.Inputs[OLE DB Destination Input]" />
-            <path
               refId="Package\Fait_Meeting.Paths[Lookup Match Output1]"
               name="Lookup Match Output"
               startId="Package\Fait_Meeting\Recheche Activity.Outputs[Lookup Match Output]"
+              endId="Package\Fait_Meeting\Recherche Compte.Inputs[Lookup Input]" />
+            <path
+              refId="Package\Fait_Meeting.Paths[Lookup Match Output2]"
+              name="Lookup Match Output"
+              startId="Package\Fait_Meeting\Recherche Compte.Outputs[Lookup Match Output]"
               endId="Package\Fait_Meeting\Data Conversion.Inputs[Data Conversion Input]" />
             <path
               refId="Package\Fait_Meeting.Paths[Lookup Match Output]"
               name="Lookup Match Output"
-              startId="Package\Fait_Meeting\Recherche Compte.Outputs[Lookup Match Output]"
-              endId="Package\Fait_Meeting\Recheche Activity.Inputs[Lookup Input]" />
+              startId="Package\Fait_Meeting\Recherche Temps.Outputs[Lookup Match Output]"
+              endId="Package\Fait_Meeting\OLE DB Destination.Inputs[OLE DB Destination Input]" />
             <path
               refId="Package\Fait_Meeting.Paths[OLE DB Source Output]"
               name="OLE DB Source Output"
               startId="Package\Fait_Meeting\OLE DB Source.Outputs[OLE DB Source Output]"
-              endId="Package\Fait_Meeting\Recherche Compte.Inputs[Lookup Input]" />
+              endId="Package\Fait_Meeting\Recheche Activity.Inputs[Lookup Input]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
@@ -8704,6 +9293,22 @@ where [refTable].[Date] = ?</property>
       DTS:ObjectName="Constraint 6"
       DTS:DTSID="{2D1676DA-BA2C-4C09-BC90-5C302198FEF7}"
       DTS:CreationName="" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 7]"
+      DTS:From="Package\CRO_QTE_AVG"
+      DTS:To="Package\Fait_CRO_CRO_CROD"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 7"
+      DTS:DTSID="{852C4E72-7AC5-4C67-A5C3-CE1EA5D235FD}"
+      DTS:CreationName="" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 8]"
+      DTS:From="Package\CRO_MntBrutDevDep_AVG"
+      DTS:To="Package\Fait_CRO_CRO_CROD"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 8"
+      DTS:DTSID="{F0B5553C-8B98-4845-BE75-2CF14EA1FFF3}"
+      DTS:CreationName="" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
@@ -8716,13 +9321,13 @@ where [refTable].[Date] = ?</property>
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="249,42"
           Id="Package\Dim_CLI_TCL_Tiers_Comptes_Local"
           TopLeft="121,91" />
         <NodeLayout
-          Size="198,42"
+          Size="179,42"
           Id="Package\Dim_Generique_Tiers"
           TopLeft="308,15" />
         <NodeLayout
@@ -8765,13 +9370,13 @@ where [refTable].[Date] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="407,57">
+          TopLeft="397.5,57">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-121.333333333333,34"
+              EndConnector="-111.833333333333,34"
               Start="0,0"
-              End="-121.333333333333,26.5">
+              End="-111.833333333333,26.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -8782,13 +9387,13 @@ where [refTable].[Date] = ?</property>
                     Point2="0,20.2697525937749"
                     Point3="-4,20.2697525937749" />
                   <mssgle:LineSegment
-                    End="-117.333333333333,20.2697525937749" />
+                    End="-107.833333333333,20.2697525937749" />
                   <mssgle:CubicBezierSegment
-                    Point1="-117.333333333333,20.2697525937749"
-                    Point2="-121.333333333333,20.2697525937749"
-                    Point3="-121.333333333333,24.2697525937749" />
+                    Point1="-107.833333333333,20.2697525937749"
+                    Point2="-111.833333333333,20.2697525937749"
+                    Point3="-111.833333333333,24.2697525937749" />
                   <mssgle:LineSegment
-                    End="-121.333333333333,26.5" />
+                    End="-111.833333333333,26.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -8800,7 +9405,7 @@ where [refTable].[Date] = ?</property>
         <NodeLayout
           Size="143,42"
           Id="Package\Dim_Activity"
-          TopLeft="9,233" />
+          TopLeft="10,232" />
         <NodeLayout
           Size="149,42"
           Id="Package\Dim_Operation"
@@ -8906,21 +9511,21 @@ where [refTable].[Date] = ?</property>
         <NodeLayout
           Size="145,42"
           Id="Package\Fait_Meeting"
-          TopLeft="5,156" />
+          TopLeft="13,151" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 5]"
-          TopLeft="79,233">
+          TopLeft="83.5,232">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,-35"
+              EndConnector="0,-39"
               Start="0,0"
-              End="0,-27.5">
+              End="0,-31.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,-27.5" />
+                    End="0,-31.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -8931,18 +9536,82 @@ where [refTable].[Date] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 6]"
-          TopLeft="79.25,58">
+          TopLeft="83.25,58">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,98"
+              EndConnector="0,93"
               Start="0,0"
-              End="0,90.5">
+              End="0,85.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,90.5" />
+                    End="0,85.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="150,42"
+          Id="Package\CRO_QTE_AVG"
+          TopLeft="355,283" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 7]"
+          TopLeft="429,283">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,-44"
+              Start="0,0"
+              End="0,-36.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,-36.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="204,42"
+          Id="Package\CRO_MntBrutDevDep_AVG"
+          TopLeft="542,286" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 8]"
+          TopLeft="623,286">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-166,-47"
+              Start="0,0"
+              End="-166,-39.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,-23.9542483660131" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,-23.9542483660131"
+                    Point2="0,-27.9542483660131"
+                    Point3="-4,-27.9542483660131" />
+                  <mssgle:LineSegment
+                    End="-162,-27.9542483660131" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-162,-27.9542483660131"
+                    Point2="-166,-27.9542483660131"
+                    Point3="-166,-31.9542483660131" />
+                  <mssgle:LineSegment
+                    End="-166,-39.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -9153,42 +9822,6 @@ where [refTable].[Date] = ?</property>
           Size="165,42"
           Id="Package\Dim_CLI_TCL_Tiers_Comptes_Local\OLE DB Command"
           TopLeft="715,485" />
-        <EdgeLayout
-          Id="Package\Dim_CLI_TCL_Tiers_Comptes_Local.Paths[Mise à jour]"
-          TopLeft="789,438">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="8.5,47"
-              Start="0,0"
-              End="8.5,39.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,19.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,19.5"
-                    Point2="0,23.5"
-                    Point3="4,23.5" />
-                  <mssgle:LineSegment
-                    End="4.5,23.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="4.5,23.5"
-                    Point2="8.5,23.5"
-                    Point3="8.5,27.5" />
-                  <mssgle:LineSegment
-                    End="8.5,39.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-20.68869140625,28.5,49.8773828125,12.2490234375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
         <NodeLayout
           Size="173,42"
           Id="Package\Dim_CLI_TCL_Tiers_Comptes_Local\Log Generique Tiers"
@@ -9257,6 +9890,40 @@ where [refTable].[Date] = ?</property>
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Dim_CLI_TCL_Tiers_Comptes_Local.Paths[Conditional Split Default Output]"
+          TopLeft="789,438">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="8.5,47"
+              Start="0,0"
+              End="8.5,39.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,19.5"
+                    Point2="0,23.5"
+                    Point3="4,23.5" />
+                  <mssgle:LineSegment
+                    End="4.5,23.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="4.5,23.5"
+                    Point2="8.5,23.5"
+                    Point3="8.5,27.5" />
+                  <mssgle:LineSegment
+                    End="8.5,39.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
@@ -9317,7 +9984,7 @@ where [refTable].[Date] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-103.424720052083,26.0381679389313,54.1827734375,11.43359375"
+              BoundingBox="-103.424720052084,26.0381679389313,54.1827734375,11.43359375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -9406,6 +10073,19 @@ where [refTable].[Date] = ?</property>
   </TaskHost>
   <PipelineComponentMetadata
     design-time-name="Package\Dim_Generique_Tiers\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Dim_Generique_Tiers\Insert Destination">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -9593,7 +10273,7 @@ where [refTable].[Date] = ?</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-106.174720052083,29.2748091603053,54.1827734375,11.43359375"
+              BoundingBox="-106.174720052084,29.2748091603053,54.1827734375,11.43359375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -9658,6 +10338,19 @@ where [refTable].[Date] = ?</property>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Dim_Generiques_Comptes\Insert into Generiques Comptes">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Dim_Generiques_Comptes\OLE DB Source">
     <Properties>
@@ -10105,28 +10798,6 @@ where [refTable].[Date] = ?</property>
           Id="Package\Fait_CRO_CRO_CROD\CRO_CRO_CROD"
           TopLeft="340,16" />
         <EdgeLayout
-          Id="Package\Fait_CRO_CRO_CROD.Paths[OLE DB Source Output]"
-          TopLeft="420.75,58">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,34"
-              Start="0,0"
-              End="0,26.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,26.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
           Id="Package\Fait_CRO_CRO_CROD.Paths[Lookup Match Output]"
           TopLeft="423.75,134">
           <EdgeLayout.Curve>
@@ -10264,6 +10935,78 @@ where [refTable].[Date] = ?</property>
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <NodeLayout
+          Size="153,42"
+          Id="Package\Fait_CRO_CRO_CROD\Derived Column"
+          TopLeft="662,74" />
+        <EdgeLayout
+          Id="Package\Fait_CRO_CRO_CROD.Paths[OLE DB Source Output]"
+          TopLeft="499,37">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="163,58"
+              Start="0,0"
+              End="155.5,58">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="77.5,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="77.5,0"
+                    Point2="81.5,0"
+                    Point3="81.5,4" />
+                  <mssgle:LineSegment
+                    End="81.5,54" />
+                  <mssgle:CubicBezierSegment
+                    Point1="81.5,54"
+                    Point2="81.5,58"
+                    Point3="85.5,58" />
+                  <mssgle:LineSegment
+                    End="155.5,58" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Fait_CRO_CRO_CROD.Paths[Derived Column Output]"
+          TopLeft="662,100.666666666667">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-126,12.3333333333333"
+              Start="0,0"
+              End="-118.5,12.3333333333333">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-49.1743119266055,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-49.1743119266055,0"
+                    Point2="-53.1743119266055,0"
+                    Point3="-53.1743119266055,4" />
+                  <mssgle:LineSegment
+                    End="-53.1743119266055,8.33333333333334" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-53.1743119266055,8.33333333333334"
+                    Point2="-53.1743119266055,12.3333333333333"
+                    Point3="-57.1743119266055,12.3333333333333" />
+                  <mssgle:LineSegment
+                    End="-118.5,12.3333333333333" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
@@ -10397,151 +11140,45 @@ where [refTable].[Date] = ?</property>
         <NodeLayout
           Size="167,42"
           Id="Package\Fait_Meeting\Recherche Compte"
-          TopLeft="322,75" />
-        <EdgeLayout
-          Id="Package\Fait_Meeting.Paths[OLE DB Source Output]"
-          TopLeft="326,37">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-4,59"
-              Start="0,0"
-              End="-11.5,59">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="-22.5,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-22.5,0"
-                    Point2="-26.5,0"
-                    Point3="-26.5,4" />
-                  <mssgle:LineSegment
-                    End="-26.5,55" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-26.5,55"
-                    Point2="-26.5,59"
-                    Point3="-22.5,59" />
-                  <mssgle:LineSegment
-                    End="-11.5,59" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+          TopLeft="353,178" />
         <NodeLayout
           Size="162,42"
           Id="Package\Fait_Meeting\Recherche Temps"
-          TopLeft="355,234" />
+          TopLeft="488,300" />
         <NodeLayout
           Size="155,42"
           Id="Package\Fait_Meeting\Data Conversion"
-          TopLeft="354,184" />
+          TopLeft="185,250" />
         <NodeLayout
           Size="160,42"
           Id="Package\Fait_Meeting\Recheche Activity"
-          TopLeft="342,126" />
-        <EdgeLayout
-          Id="Package\Fait_Meeting.Paths[Lookup Match Output]"
-          TopLeft="322,101.666666666667">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="20,45.3333333333333"
-              Start="0,0"
-              End="12.5,45.3333333333333">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="-18.5,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-18.5,0"
-                    Point2="-22.5,0"
-                    Point3="-22.5,4" />
-                  <mssgle:LineSegment
-                    End="-22.5,41.3333333333333" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-22.5,41.3333333333333"
-                    Point2="-22.5,45.3333333333333"
-                    Point3="-18.5,45.3333333333333" />
-                  <mssgle:LineSegment
-                    End="12.5,45.3333333333333" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-70.69138671875,-17.609375,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Fait_Meeting.Paths[Lookup Match Output1]"
-          TopLeft="342,152.666666666667">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="12,52.3333333333333"
-              Start="0,0"
-              End="4.5,52.3333333333333">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="-18.5,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-18.5,0"
-                    Point2="-22.5,0"
-                    Point3="-22.5,4" />
-                  <mssgle:LineSegment
-                    End="-22.5,48.3333333333333" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-22.5,48.3333333333333"
-                    Point2="-22.5,52.3333333333333"
-                    Point3="-18.5,52.3333333333333" />
-                  <mssgle:LineSegment
-                    End="4.5,52.3333333333333" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-70.69138671875,-17.609375,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
+          TopLeft="557,79" />
         <EdgeLayout
           Id="Package\Fait_Meeting.Paths[Data Conversion Output]"
-          TopLeft="354,210.666666666667">
+          TopLeft="340,271">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="1,44.3333333333333"
+              EndConnector="148,50"
               Start="0,0"
-              End="-6.5,44.3333333333333">
+              End="140.5,50">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="-18.5,0" />
+                    End="70,0" />
                   <mssgle:CubicBezierSegment
-                    Point1="-18.5,0"
-                    Point2="-22.5,0"
-                    Point3="-22.5,4" />
+                    Point1="70,0"
+                    Point2="74,0"
+                    Point3="74,4" />
                   <mssgle:LineSegment
-                    End="-22.5,40.3333333333333" />
+                    End="74,46" />
                   <mssgle:CubicBezierSegment
-                    Point1="-22.5,40.3333333333333"
-                    Point2="-22.5,44.3333333333333"
-                    Point3="-18.5,44.3333333333333" />
+                    Point1="74,46"
+                    Point2="74,50"
+                    Point3="78,50" />
                   <mssgle:LineSegment
-                    End="-6.5,44.3333333333333" />
+                    End="140.5,50" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -10553,40 +11190,146 @@ where [refTable].[Date] = ?</property>
         <NodeLayout
           Size="170,42"
           Id="Package\Fait_Meeting\OLE DB Destination"
-          TopLeft="358,281" />
+          TopLeft="353,444" />
         <EdgeLayout
-          Id="Package\Fait_Meeting.Paths[Lookup Match Output2]"
-          TopLeft="355,260.666666666667">
+          Id="Package\Fait_Meeting.Paths[Lookup Match Output]"
+          TopLeft="569,342">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="3,41.3333333333333"
+              EndConnector="-131,102"
               Start="0,0"
-              End="-4.5,41.3333333333333">
+              End="-131,94.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="-18.5,0" />
+                    End="0,47" />
                   <mssgle:CubicBezierSegment
-                    Point1="-18.5,0"
-                    Point2="-22.5,0"
-                    Point3="-22.5,4" />
+                    Point1="0,47"
+                    Point2="0,51"
+                    Point3="-4,51" />
                   <mssgle:LineSegment
-                    End="-22.5,37.3333333333333" />
+                    End="-127,51" />
                   <mssgle:CubicBezierSegment
-                    Point1="-22.5,37.3333333333333"
-                    Point2="-22.5,41.3333333333333"
-                    Point3="-18.5,41.3333333333333" />
+                    Point1="-127,51"
+                    Point2="-131,51"
+                    Point3="-131,55" />
                   <mssgle:LineSegment
-                    End="-4.5,41.3333333333333" />
+                    End="-131,94.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-70.69138671875,-17.609375,96.3827734375,11.609375"
+              BoundingBox="-113.69138671875,56,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Fait_Meeting.Paths[OLE DB Source Output]"
+          TopLeft="475,37">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="82,63"
+              Start="0,0"
+              End="74.5,63">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="37,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="37,0"
+                    Point2="41,0"
+                    Point3="41,4" />
+                  <mssgle:LineSegment
+                    End="41,59" />
+                  <mssgle:CubicBezierSegment
+                    Point1="41,59"
+                    Point2="41,63"
+                    Point3="45,63" />
+                  <mssgle:LineSegment
+                    End="74.5,63" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Fait_Meeting.Paths[Lookup Match Output1]"
+          TopLeft="637,121">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-200.5,57"
+              Start="0,0"
+              End="-200.5,49.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,24.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,24.5"
+                    Point2="0,28.5"
+                    Point3="-4,28.5" />
+                  <mssgle:LineSegment
+                    End="-196.5,28.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-196.5,28.5"
+                    Point2="-200.5,28.5"
+                    Point3="-200.5,32.5" />
+                  <mssgle:LineSegment
+                    End="-200.5,49.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-148.44138671875,33.5,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Fait_Meeting.Paths[Lookup Match Output2]"
+          TopLeft="436.5,220">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-174,30"
+              Start="0,0"
+              End="-174,22.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,11" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,11"
+                    Point2="0,15"
+                    Point3="-4,15" />
+                  <mssgle:LineSegment
+                    End="-170,15" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-170,15"
+                    Point2="-174,15"
+                    Point3="-174,19" />
+                  <mssgle:LineSegment
+                    End="-174,22.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-135.19138671875,20,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
