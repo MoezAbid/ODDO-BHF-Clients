@@ -6,8 +6,8 @@
   DTS:CreatorComputerName="DESKTOP-63S49FM"
   DTS:CreationDate="12/1/2019 1:56:13 PM"
   DTS:PackageType="5"
-  DTS:VersionBuild="140"
-  DTS:VersionGUID="{649DE55F-74AF-4F20-83BC-E9C3DE1F020B}"
+  DTS:VersionBuild="152"
+  DTS:VersionGUID="{2313DFB5-1667-41A1-A564-8ADC8419515B}"
   DTS:LastModifiedProductVersion="11.0.2100.60"
   DTS:LocaleID="1036"
   DTS:ObjectName="SA_DW"
@@ -175,8 +175,72 @@
       </DTS:ObjectData>
     </DTS:ConnectionManager>
   </DTS:ConnectionManagers>
-  <DTS:Variables />
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:Namespace="User"
+      DTS:IncludeInDebugDump="2345"
+      DTS:ObjectName="mntbrutavg"
+      DTS:DTSID="{BA5B402A-3667-43E1-A4F3-BD05DCE5CC89}"
+      DTS:CreationName="">
+      <DTS:VariableValue
+        DTS:DataType="8">mntbrutavg</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:Namespace="User"
+      DTS:IncludeInDebugDump="2345"
+      DTS:ObjectName="qtav"
+      DTS:DTSID="{A0AEF333-B722-4C63-9775-090F328A4751}"
+      DTS:CreationName="">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
   <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\CRO_MntBrutDevDep_AVG"
+      DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:ThreadHint="0"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="CRO_MntBrutDevDep_AVG"
+      DTS:DTSID="{1D7DF85D-AD0C-4C23-9585-465E75FCFE52}"
+      DTS:Description="Execute SQL Task"
+      DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{638329AC-1E02-4759-8EBD-6C573AB57CB9}"
+          SQLTask:SqlStatementSource="SELECT        AVG([CRO_MntBrutDevDep]) AS mntbrutavg&#xA;FROM            [Fait CRO_CROD]"
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="mntbrutavg"
+            SQLTask:DtsVariableName="User::mntbrutavg" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\CRO_QTE_AVG"
+      DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:ThreadHint="1"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="CRO_QTE_AVG"
+      DTS:DTSID="{23D9FB08-2862-4111-BCEF-05A722C9ECB4}"
+      DTS:Description="Execute SQL Task"
+      DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{638329AC-1E02-4759-8EBD-6C573AB57CB9}"
+          SQLTask:SqlStatementSource="SELECT        AVG([CRO_Qte]) AS qtav&#xA;FROM            [Fait CRO_CROD]"
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="qtav"
+            SQLTask:DtsVariableName="User::qtav" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
     <DTS:Executable
       DTS:refId="Package\Dim_Activity"
       DTS:ExecutableType="SSIS.Pipeline.3"
@@ -3800,6 +3864,133 @@ where [refTable].[GTI_CodTiers] = ?</property>
                   refId="Package\Dim_Generique_Tiers\Derived Column.Inputs[Derived Column Input]"
                   name="Derived Column Input"
                   description="Input to the Derived Column Transformation">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Dim_Generique_Tiers\Derived Column.Inputs[Derived Column Input].Columns[PaysNaissance]"
+                      lineageId="Package\Dim_Generique_Tiers\OLE DB Source.Outputs[OLE DB Source Output].Columns[PaysNaissance]"
+                      usageType="readWrite"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      cachedName="PaysNaissance"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedCodepage="1252">
+                      <properties>
+                        <property
+                          name="Expression"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          containsID="true">[REPLACE](#{Package\Dim_Generique_Tiers\OLE DB Source.Outputs[OLE DB Source Output].Columns[PaysNaissance]},"NULL","")</property>
+                        <property
+                          name="FriendlyExpression"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          containsID="true"
+                          expressionType="Notify">REPLACE(PaysNaissance,"NULL","")</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Dim_Generique_Tiers\Derived Column.Inputs[Derived Column Input].Columns[civilite]"
+                      lineageId="Package\Dim_Generique_Tiers\OLE DB Source.Outputs[OLE DB Source Output].Columns[civilite]"
+                      usageType="readWrite"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      cachedName="civilite"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedCodepage="1252">
+                      <properties>
+                        <property
+                          name="Expression"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          containsID="true">[REPLACE](#{Package\Dim_Generique_Tiers\OLE DB Source.Outputs[OLE DB Source Output].Columns[civilite]},"NULL","")</property>
+                        <property
+                          name="FriendlyExpression"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          containsID="true"
+                          expressionType="Notify">REPLACE(civilite,"NULL","")</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Dim_Generique_Tiers\Derived Column.Inputs[Derived Column Input].Columns[Sexe]"
+                      lineageId="Package\Dim_Generique_Tiers\OLE DB Source.Outputs[OLE DB Source Output].Columns[Sexe]"
+                      usageType="readWrite"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      cachedName="Sexe"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedCodepage="1252">
+                      <properties>
+                        <property
+                          name="Expression"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          containsID="true">[REPLACE](#{Package\Dim_Generique_Tiers\OLE DB Source.Outputs[OLE DB Source Output].Columns[Sexe]},"NULL","")</property>
+                        <property
+                          name="FriendlyExpression"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          containsID="true"
+                          expressionType="Notify">REPLACE(Sexe,"NULL","")</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Dim_Generique_Tiers\Derived Column.Inputs[Derived Column Input].Columns[SituationFamiliale]"
+                      lineageId="Package\Dim_Generique_Tiers\OLE DB Source.Outputs[OLE DB Source Output].Columns[SituationFamiliale]"
+                      usageType="readWrite"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      cachedName="SituationFamiliale"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedCodepage="1252">
+                      <properties>
+                        <property
+                          name="Expression"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          containsID="true">[REPLACE](#{Package\Dim_Generique_Tiers\OLE DB Source.Outputs[OLE DB Source Output].Columns[SituationFamiliale]},"NULL","")</property>
+                        <property
+                          name="FriendlyExpression"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          containsID="true"
+                          expressionType="Notify">REPLACE(SituationFamiliale,"NULL","")</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Dim_Generique_Tiers\Derived Column.Inputs[Derived Column Input].Columns[profession]"
+                      lineageId="Package\Dim_Generique_Tiers\OLE DB Source.Outputs[OLE DB Source Output].Columns[profession]"
+                      usageType="readWrite"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      cachedName="profession"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedCodepage="1252">
+                      <properties>
+                        <property
+                          name="Expression"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          containsID="true">[REPLACE](#{Package\Dim_Generique_Tiers\OLE DB Source.Outputs[OLE DB Source Output].Columns[profession]},"NULL","")</property>
+                        <property
+                          name="FriendlyExpression"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          containsID="true"
+                          expressionType="Notify">REPLACE(profession,"NULL","")</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
                   <externalMetadataColumns />
                 </input>
               </inputs>
@@ -6634,6 +6825,107 @@ where [refTable].[GTI_CodTiers] = ?</property>
               </outputs>
             </component>
             <component
+              refId="Package\Fait_CRO_CRO_CROD\Derived Column"
+              name="Derived Column"
+              componentClassID="{49928E82-9C4E-49F0-AABE-3812B82707EC}"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              usesDispositions="true"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0">
+              <inputs>
+                <input
+                  refId="Package\Fait_CRO_CRO_CROD\Derived Column.Inputs[Derived Column Input]"
+                  name="Derived Column Input"
+                  description="Input to the Derived Column Transformation">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Fait_CRO_CRO_CROD\Derived Column.Inputs[Derived Column Input].Columns[CRO_Qte]"
+                      lineageId="Package\Fait_CRO_CRO_CROD\CRO_CRO_CROD.Outputs[OLE DB Source Output].Columns[CRO_Qte]"
+                      usageType="readWrite"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      cachedName="CRO_Qte"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedCodepage="1252">
+                      <properties>
+                        <property
+                          name="Expression"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          containsID="true">([ISNULL](#{Package\Fait_CRO_CRO_CROD\CRO_CRO_CROD.Outputs[OLE DB Source Output].Columns[CRO_Qte]})) ? @[User::qtav] : #{Package\Fait_CRO_CRO_CROD\CRO_CRO_CROD.Outputs[OLE DB Source Output].Columns[CRO_Qte]}</property>
+                        <property
+                          name="FriendlyExpression"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          containsID="true"
+                          expressionType="Notify">(ISNULL(CRO_Qte)) ? @[User::qtav] : CRO_Qte</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Fait_CRO_CRO_CROD\Derived Column.Inputs[Derived Column Input].Columns[CRO_MntBrutDevDep]"
+                      lineageId="Package\Fait_CRO_CRO_CROD\CRO_CRO_CROD.Outputs[OLE DB Source Output].Columns[CRO_MntBrutDevDep]"
+                      usageType="readWrite"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      cachedName="CRO_MntBrutDevDep"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedCodepage="1252">
+                      <properties>
+                        <property
+                          name="Expression"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          containsID="true">([ISNULL](#{Package\Fait_CRO_CRO_CROD\CRO_CRO_CROD.Outputs[OLE DB Source Output].Columns[CRO_MntBrutDevDep]})) ? @[User::mntbrutavg] : #{Package\Fait_CRO_CRO_CROD\CRO_CRO_CROD.Outputs[OLE DB Source Output].Columns[CRO_MntBrutDevDep]}</property>
+                        <property
+                          name="FriendlyExpression"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          containsID="true"
+                          expressionType="Notify">(ISNULL(CRO_MntBrutDevDep)) ? @[User::mntbrutavg] : CRO_MntBrutDevDep</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Fait_CRO_CRO_CROD\Derived Column.Outputs[Derived Column Output]"
+                  name="Derived Column Output"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  synchronousInputId="Package\Fait_CRO_CRO_CROD\Derived Column.Inputs[Derived Column Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Fait_CRO_CRO_CROD\Derived Column.Outputs[Derived Column Error Output]"
+                  name="Derived Column Error Output"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  synchronousInputId="Package\Fait_CRO_CRO_CROD\Derived Column.Inputs[Derived Column Input]"
+                  isErrorOut="true">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Fait_CRO_CRO_CROD\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      lineageId="Package\Fait_CRO_CRO_CROD\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Fait_CRO_CRO_CROD\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      lineageId="Package\Fait_CRO_CRO_CROD\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
               refId="Package\Fait_CRO_CRO_CROD\OLE DB Destination"
               name="OLE DB Destination"
               componentClassID="{4ADA7EAA-136C-4215-8098-D7A7C27FC0D1}"
@@ -7492,30 +7784,35 @@ where [refTable].[TCL_CodCompte_hash] = ?</property>
               startId="Package\Fait_CRO_CRO_CROD\Data Conversion.Outputs[Data Conversion Output]"
               endId="Package\Fait_CRO_CRO_CROD\Recherche_Temps.Inputs[Lookup Input]" />
             <path
+              refId="Package\Fait_CRO_CRO_CROD.Paths[Derived Column Output]"
+              name="Derived Column Output"
+              startId="Package\Fait_CRO_CRO_CROD\Derived Column.Outputs[Derived Column Output]"
+              endId="Package\Fait_CRO_CRO_CROD\Recherche_Tiers_Compte_Local.Inputs[Lookup Input]" />
+            <path
               refId="Package\Fait_CRO_CRO_CROD.Paths[Lookup Match Output2]"
-              name="Lookup Match Output"
-              startId="Package\Fait_CRO_CRO_CROD\Recherche_Operation.Outputs[Lookup Match Output]"
-              endId="Package\Fait_CRO_CRO_CROD\Recherche_Instrument.Inputs[Lookup Input]" />
-            <path
-              refId="Package\Fait_CRO_CRO_CROD.Paths[Lookup Match Output3]"
-              name="Lookup Match Output"
-              startId="Package\Fait_CRO_CRO_CROD\Recherche_Tiers_Compte_Local.Outputs[Lookup Match Output]"
-              endId="Package\Fait_CRO_CRO_CROD\Recherche_Operation.Inputs[Lookup Input]" />
-            <path
-              refId="Package\Fait_CRO_CRO_CROD.Paths[Lookup Match Output]"
               name="Lookup Match Output"
               startId="Package\Fait_CRO_CRO_CROD\Recherche_Instrument.Outputs[Lookup Match Output]"
               endId="Package\Fait_CRO_CRO_CROD\Data Conversion.Inputs[Data Conversion Input]" />
             <path
-              refId="Package\Fait_CRO_CRO_CROD.Paths[Lookup Match Output1]"
+              refId="Package\Fait_CRO_CRO_CROD.Paths[Lookup Match Output3]"
+              name="Lookup Match Output"
+              startId="Package\Fait_CRO_CRO_CROD\Recherche_Operation.Outputs[Lookup Match Output]"
+              endId="Package\Fait_CRO_CRO_CROD\Recherche_Instrument.Inputs[Lookup Input]" />
+            <path
+              refId="Package\Fait_CRO_CRO_CROD.Paths[Lookup Match Output]"
               name="Lookup Match Output"
               startId="Package\Fait_CRO_CRO_CROD\Recherche_Temps.Outputs[Lookup Match Output]"
               endId="Package\Fait_CRO_CRO_CROD\OLE DB Destination.Inputs[OLE DB Destination Input]" />
             <path
+              refId="Package\Fait_CRO_CRO_CROD.Paths[Lookup Match Output1]"
+              name="Lookup Match Output"
+              startId="Package\Fait_CRO_CRO_CROD\Recherche_Tiers_Compte_Local.Outputs[Lookup Match Output]"
+              endId="Package\Fait_CRO_CRO_CROD\Recherche_Operation.Inputs[Lookup Input]" />
+            <path
               refId="Package\Fait_CRO_CRO_CROD.Paths[OLE DB Source Output]"
               name="OLE DB Source Output"
               startId="Package\Fait_CRO_CRO_CROD\CRO_CRO_CROD.Outputs[OLE DB Source Output]"
-              endId="Package\Fait_CRO_CRO_CROD\Recherche_Tiers_Compte_Local.Inputs[Lookup Input]" />
+              endId="Package\Fait_CRO_CRO_CROD\Derived Column.Inputs[Derived Column Input]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
@@ -8996,6 +9293,22 @@ where [refTable].[Date] = ?</property>
       DTS:ObjectName="Constraint 6"
       DTS:DTSID="{2D1676DA-BA2C-4C09-BC90-5C302198FEF7}"
       DTS:CreationName="" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 7]"
+      DTS:From="Package\CRO_QTE_AVG"
+      DTS:To="Package\Fait_CRO_CRO_CROD"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 7"
+      DTS:DTSID="{852C4E72-7AC5-4C67-A5C3-CE1EA5D235FD}"
+      DTS:CreationName="" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 8]"
+      DTS:From="Package\CRO_MntBrutDevDep_AVG"
+      DTS:To="Package\Fait_CRO_CRO_CROD"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 8"
+      DTS:DTSID="{F0B5553C-8B98-4845-BE75-2CF14EA1FFF3}"
+      DTS:CreationName="" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
@@ -9008,13 +9321,13 @@ where [refTable].[Date] = ?</property>
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="249,42"
           Id="Package\Dim_CLI_TCL_Tiers_Comptes_Local"
           TopLeft="121,91" />
         <NodeLayout
-          Size="198,42"
+          Size="179,42"
           Id="Package\Dim_Generique_Tiers"
           TopLeft="308,15" />
         <NodeLayout
@@ -9057,13 +9370,13 @@ where [refTable].[Date] = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="407,57">
+          TopLeft="397.5,57">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-121.333333333333,34"
+              EndConnector="-111.833333333333,34"
               Start="0,0"
-              End="-121.333333333333,26.5">
+              End="-111.833333333333,26.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -9074,13 +9387,13 @@ where [refTable].[Date] = ?</property>
                     Point2="0,20.2697525937749"
                     Point3="-4,20.2697525937749" />
                   <mssgle:LineSegment
-                    End="-117.333333333333,20.2697525937749" />
+                    End="-107.833333333333,20.2697525937749" />
                   <mssgle:CubicBezierSegment
-                    Point1="-117.333333333333,20.2697525937749"
-                    Point2="-121.333333333333,20.2697525937749"
-                    Point3="-121.333333333333,24.2697525937749" />
+                    Point1="-107.833333333333,20.2697525937749"
+                    Point2="-111.833333333333,20.2697525937749"
+                    Point3="-111.833333333333,24.2697525937749" />
                   <mssgle:LineSegment
-                    End="-121.333333333333,26.5" />
+                    End="-111.833333333333,26.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -9235,6 +9548,70 @@ where [refTable].[Date] = ?</property>
                   Capacity="5">
                   <mssgle:LineSegment
                     End="0,85.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="150,42"
+          Id="Package\CRO_QTE_AVG"
+          TopLeft="355,283" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 7]"
+          TopLeft="429,283">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,-44"
+              Start="0,0"
+              End="0,-36.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,-36.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="204,42"
+          Id="Package\CRO_MntBrutDevDep_AVG"
+          TopLeft="542,286" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 8]"
+          TopLeft="623,286">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-166,-47"
+              Start="0,0"
+              End="-166,-39.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,-23.9542483660131" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,-23.9542483660131"
+                    Point2="0,-27.9542483660131"
+                    Point3="-4,-27.9542483660131" />
+                  <mssgle:LineSegment
+                    End="-162,-27.9542483660131" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-162,-27.9542483660131"
+                    Point2="-166,-27.9542483660131"
+                    Point3="-166,-31.9542483660131" />
+                  <mssgle:LineSegment
+                    End="-166,-39.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -10275,25 +10652,37 @@ where [refTable].[Date] = ?</property>
         <NodeLayout
           Size="170,42"
           Id="Package\Dim_Operation\OLE DB Destination"
-          TopLeft="358,130" />
+          TopLeft="344,174" />
         <NodeLayout
           Size="149,42"
           Id="Package\Dim_Operation\OLE DB Source"
           TopLeft="369,28" />
         <EdgeLayout
           Id="Package\Dim_Operation.Paths[OLE DB Source Output]"
-          TopLeft="443.25,70">
+          TopLeft="443.5,70">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,60"
+              EndConnector="-14.5,104"
               Start="0,0"
-              End="0,52.5">
+              End="-14.5,96.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,52.5" />
+                    End="0,48" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,48"
+                    Point2="0,52"
+                    Point3="-4,52" />
+                  <mssgle:LineSegment
+                    End="-10.5,52" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-10.5,52"
+                    Point2="-14.5,52"
+                    Point3="-14.5,56" />
+                  <mssgle:LineSegment
+                    End="-14.5,96.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -10421,29 +10810,7 @@ where [refTable].[Date] = ?</property>
           Id="Package\Fait_CRO_CRO_CROD\CRO_CRO_CROD"
           TopLeft="340,16" />
         <EdgeLayout
-          Id="Package\Fait_CRO_CRO_CROD.Paths[OLE DB Source Output]"
-          TopLeft="420.75,58">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,34"
-              Start="0,0"
-              End="0,26.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,26.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Fait_CRO_CRO_CROD.Paths[Lookup Match Output3]"
+          Id="Package\Fait_CRO_CRO_CROD.Paths[Lookup Match Output1]"
           TopLeft="423.75,134">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -10467,7 +10834,7 @@ where [refTable].[Date] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Fait_CRO_CRO_CROD.Paths[Lookup Match Output2]"
+          Id="Package\Fait_CRO_CRO_CROD.Paths[Lookup Match Output3]"
           TopLeft="515,185">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -10507,7 +10874,7 @@ where [refTable].[Date] = ?</property>
           Id="Package\Fait_CRO_CRO_CROD\Data Conversion"
           TopLeft="343,296" />
         <EdgeLayout
-          Id="Package\Fait_CRO_CRO_CROD.Paths[Lookup Match Output]"
+          Id="Package\Fait_CRO_CRO_CROD.Paths[Lookup Match Output2]"
           TopLeft="417,263">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -10557,7 +10924,7 @@ where [refTable].[Date] = ?</property>
           Id="Package\Fait_CRO_CRO_CROD\OLE DB Destination"
           TopLeft="330,464" />
         <EdgeLayout
-          Id="Package\Fait_CRO_CRO_CROD.Paths[Lookup Match Output1]"
+          Id="Package\Fait_CRO_CRO_CROD.Paths[Lookup Match Output]"
           TopLeft="416.5,411">
           <EdgeLayout.Curve>
             <mssgle:Curve
@@ -10578,6 +10945,78 @@ where [refTable].[Date] = ?</property>
             <mssgm:EdgeLabel
               BoundingBox="-48.19138671875,16.9453125,96.3827734375,11.609375"
               RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="153,42"
+          Id="Package\Fait_CRO_CRO_CROD\Derived Column"
+          TopLeft="662,74" />
+        <EdgeLayout
+          Id="Package\Fait_CRO_CRO_CROD.Paths[OLE DB Source Output]"
+          TopLeft="499,37">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="163,58"
+              Start="0,0"
+              End="155.5,58">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="77.5,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="77.5,0"
+                    Point2="81.5,0"
+                    Point3="81.5,4" />
+                  <mssgle:LineSegment
+                    End="81.5,54" />
+                  <mssgle:CubicBezierSegment
+                    Point1="81.5,54"
+                    Point2="81.5,58"
+                    Point3="85.5,58" />
+                  <mssgle:LineSegment
+                    End="155.5,58" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Fait_CRO_CRO_CROD.Paths[Derived Column Output]"
+          TopLeft="662,100.666666666667">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-126,12.3333333333333"
+              Start="0,0"
+              End="-118.5,12.3333333333333">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-49.1743119266055,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-49.1743119266055,0"
+                    Point2="-53.1743119266055,0"
+                    Point3="-53.1743119266055,4" />
+                  <mssgle:LineSegment
+                    End="-53.1743119266055,8.33333333333334" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-53.1743119266055,8.33333333333334"
+                    Point2="-53.1743119266055,12.3333333333333"
+                    Point3="-57.1743119266055,12.3333333333333" />
+                  <mssgle:LineSegment
+                    End="-118.5,12.3333333333333" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>

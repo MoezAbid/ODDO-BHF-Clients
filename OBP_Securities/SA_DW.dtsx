@@ -6,8 +6,8 @@
   DTS:CreatorComputerName="DESKTOP-63S49FM"
   DTS:CreationDate="12/1/2019 1:56:13 PM"
   DTS:PackageType="5"
-  DTS:VersionBuild="150"
-  DTS:VersionGUID="{03513095-0D6D-46B6-85A8-FA4B67D046C6}"
+  DTS:VersionBuild="152"
+  DTS:VersionGUID="{2313DFB5-1667-41A1-A564-8ADC8419515B}"
   DTS:LastModifiedProductVersion="11.0.2100.60"
   DTS:LocaleID="1036"
   DTS:ObjectName="SA_DW"
@@ -10652,25 +10652,37 @@ where [refTable].[Date] = ?</property>
         <NodeLayout
           Size="170,42"
           Id="Package\Dim_Operation\OLE DB Destination"
-          TopLeft="358,130" />
+          TopLeft="344,174" />
         <NodeLayout
           Size="149,42"
           Id="Package\Dim_Operation\OLE DB Source"
           TopLeft="369,28" />
         <EdgeLayout
           Id="Package\Dim_Operation.Paths[OLE DB Source Output]"
-          TopLeft="443.25,70">
+          TopLeft="443.5,70">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,60"
+              EndConnector="-14.5,104"
               Start="0,0"
-              End="0,52.5">
+              End="-14.5,96.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,52.5" />
+                    End="0,48" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,48"
+                    Point2="0,52"
+                    Point3="-4,52" />
+                  <mssgle:LineSegment
+                    End="-10.5,52" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-10.5,52"
+                    Point2="-14.5,52"
+                    Point3="-14.5,56" />
+                  <mssgle:LineSegment
+                    End="-14.5,96.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
